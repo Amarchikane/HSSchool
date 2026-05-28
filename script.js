@@ -1344,16 +1344,14 @@ function initCurriculumTabs() {
       tabBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      // Update content panel state with smooth fade
+      // Update content panel state with smooth CSS transition
       tabPanels.forEach(panel => {
         panel.classList.remove('active');
         if (panel.id === `panel-${targetTab}`) {
-          panel.classList.add('active');
-          // Trigger entry animation
-          gsap.fromTo(panel, 
-            { opacity: 0, y: 15 },
-            { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
-          );
+          // Small rAF delay ensures the 'remove active' CSS transition fires before re-adding
+          requestAnimationFrame(() => {
+            panel.classList.add('active');
+          });
         }
       });
     });
@@ -1392,15 +1390,13 @@ function init4QHolisticRadarChart() {
   function setActiveQuadrant(quadrant) {
     if (!quadrant) return;
 
-    // Update descriptions with smooth horizontal shift
+    // Update descriptions with smooth CSS transition (no GSAP, avoids layout conflict)
     descCards.forEach(card => {
       card.classList.remove('active');
       if (card.id === `card-${quadrant}`) {
-        card.classList.add('active');
-        gsap.fromTo(card,
-          { opacity: 0, x: 20 },
-          { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }
-        );
+        requestAnimationFrame(() => {
+          card.classList.add('active');
+        });
       }
     });
 

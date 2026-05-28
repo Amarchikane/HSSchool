@@ -263,17 +263,17 @@ body.dark-mode .btn-secondary:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 38px;
+  height: 32px;
   background: linear-gradient(135deg, var(--bg-dark-navy), #061B3B);
   color: #FFFFFF;
-  border-bottom: 2px solid var(--accent-gold);
+  border-bottom: 1.5px solid var(--accent-gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   z-index: 995;
@@ -297,11 +297,11 @@ body.dark-mode .btn-secondary:hover {
 /* 6. SYMMETRICAL HEADER & CENTER BRAND LOGO */
 .site-header {
   position: fixed;
-  top: 38px; /* Offset cleanly by announcement bar height */
+  top: 32px; /* Offset cleanly by announcement bar height */
   left: 0;
   width: 100%;
   z-index: 990;
-  background-color: rgba(255, 255, 255, 0.9); /* Pure white transparency */
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--card-border);
   transition: top var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
@@ -315,7 +315,7 @@ body.dark-mode .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 75px;
+  height: 56px;
   padding: 0 24px;
   max-width: 1200px;
   margin: 0 auto;
@@ -329,15 +329,15 @@ body.dark-mode .site-header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 26px;
-  height: 18px;
+  width: 18px;
+  height: 12px;
   z-index: 1001;
 }
 
 .hamburger-bar {
   display: block;
   width: 100%;
-  height: 2px;
+  height: 1.5px;
   background-color: var(--text-primary);
   border-radius: var(--radius-full);
   transition: transform var(--transition-fast), opacity var(--transition-fast), background-color var(--transition-normal);
@@ -345,14 +345,14 @@ body.dark-mode .site-header {
 
 /* Hamburger open state */
 .nav-toggle-btn.open .hamburger-bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(5.25px) rotate(45deg);
   background-color: #FFFFFF;
 }
 .nav-toggle-btn.open .hamburger-bar:nth-child(2) {
   opacity: 0;
 }
 .nav-toggle-btn.open .hamburger-bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-5.25px) rotate(-45deg);
   background-color: #FFFFFF;
 }
 
@@ -368,7 +368,7 @@ body.dark-mode .site-header {
   display: inline-flex;
   align-items: center;
   font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--text-primary);
   transition: transform var(--transition-fast);
@@ -379,9 +379,9 @@ body.dark-mode .site-header {
 }
 
 .header-logo {
-  height: 44px;
+  height: 32px;
   width: auto;
-  margin-right: 12px;
+  margin-right: 10px;
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
 }
 
@@ -396,8 +396,8 @@ body.dark-mode .site-header {
   background: var(--bg-primary);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-full);
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -421,8 +421,8 @@ body.dark-mode .site-header {
   background: var(--bg-primary);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-full);
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -577,11 +577,11 @@ body.dark-mode .theme-icon-light {
   }
 
   .site-header {
-    height: 80px;
+    height: 56px;
   }
   
   .header-container {
-    height: 80px;
+    height: 56px;
     position: relative;
   }
 
@@ -592,7 +592,7 @@ body.dark-mode .theme-icon-light {
     top: 0;
     width: 100%;
     max-width: 1200px;
-    height: 80px;
+    height: 56px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -612,7 +612,7 @@ body.dark-mode .theme-icon-light {
 /* 7. HERO SECTION (IMAGE-FIRST, WHITE BACKDROP) */
 .hero-section {
   position: relative;
-  padding: 168px 0 80px 0; /* Padding offsets 38px ann-bar + 75px header + 55px margin */
+  padding: 120px 0 80px 0; /* Padding offsets 32px ann-bar + 56px header + 32px margin */
   background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFD 50%, #EDF2F8 100%);
   overflow: hidden;
 }
@@ -1642,6 +1642,8 @@ body.dark-mode .review-card {
 /* Right Column Showcase Panel */
 .hss-amenities-showcase {
   perspective: 1000px;
+  /* Isolate internal animations from page reflow */
+  contain: layout;
 }
 
 .hss-showcase-card {
@@ -1654,24 +1656,28 @@ body.dark-mode .review-card {
   grid-template-columns: 1fr;
   transition: all var(--transition-normal);
   transform-style: preserve-3d;
+  /* Fixed height prevents layout shifts when amenity tab changes */
+  min-height: 420px;
 }
 
 @media (min-width: 768px) {
   .hss-showcase-card {
     grid-template-columns: 45% 55%;
+    min-height: 400px;
   }
 }
 
 .hss-showcase-image-wrapper {
   position: relative;
   overflow: hidden;
-  height: 260px;
+  height: 220px;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .hss-showcase-image-wrapper {
     height: 100%;
-    min-height: 380px;
+    min-height: 400px;
   }
 }
 
@@ -1718,6 +1724,8 @@ body.dark-mode .review-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* Prevent content height from driving layout reflow */
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -2222,6 +2230,8 @@ body.dark-mode .admission-section {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(40px);
+  /* Prevent opacity animation from causing layout reflow */
+  will-change: opacity, transform;
 }
 
 /* 17. CAMPUS MEDIA GALLERY & VIRTUAL TOUR */
@@ -2335,6 +2345,8 @@ body.dark-mode .admission-section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  /* Prevent layout shift when cards are filtered in/out */
+  min-height: 300px;
 }
 
 @media (min-width: 576px) {
@@ -2597,8 +2609,10 @@ body.dark-mode .admission-section {
   }
 
   .theme-toggle-btn, .lang-toggle-btn {
-    width: 48px !important;
-    height: 48px !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    min-width: 34px !important;
   }
   
   .submit-btn {
@@ -2607,11 +2621,11 @@ body.dark-mode .admission-section {
 
   /* Prevent brand logo name and theme toggle overlaps on mobile screens */
   .brand-link {
-    font-size: 1.25rem !important;
+    font-size: 1.05rem !important;
   }
   .header-logo {
-    height: 34px !important;
-    margin-right: 8px !important;
+    height: 26px !important;
+    margin-right: 7px !important;
   }
   .header-container {
     padding: 0 12px !important;
@@ -2712,21 +2726,28 @@ body.dark-mode .admission-section {
   border: 1px solid var(--card-border);
   overflow: hidden;
   position: relative;
-  min-height: 380px;
+  /* Fixed height prevents layout shifts when panels switch */
+  height: 460px;
   transition: background-color var(--transition-normal);
 }
 
 .hss-tab-panel {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   opacity: 0;
-  transform: translateY(20px);
+  pointer-events: none;
+  transform: translateY(12px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   padding: 40px;
 }
 
 .hss-tab-panel.active {
-  display: block;
   opacity: 1;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -2801,6 +2822,8 @@ body.dark-mode .admission-section {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+  /* Isolate internal layout from page reflow */
+  contain: layout;
 }
 
 .hss-4q-chart-container {
@@ -2870,14 +2893,21 @@ body.dark-mode .admission-section {
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 280px;
+  /* Fixed height prevents layout shifts when 4Q cards switch */
+  height: 360px;
 }
 
 .hss-4q-card {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  transform: translateX(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
   background-color: var(--bg-secondary);
   padding: 40px;
   border-radius: var(--radius-lg);
@@ -2886,8 +2916,8 @@ body.dark-mode .admission-section {
 }
 
 .hss-4q-card.active {
-  display: block;
   opacity: 1;
+  pointer-events: auto;
   transform: translateX(0);
 }
 
@@ -2942,6 +2972,8 @@ body.dark-mode .admission-section {
   border: 1px solid var(--card-border);
   perspective: 1500px;
   overflow: hidden;
+  /* Isolate scrapbook flips from page layout */
+  contain: layout;
 }
 
 .hss-page {
@@ -3047,6 +3079,13 @@ body.dark-mode .admission-section {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  /* Adjust fixed heights for tablet viewport */
+  .hss-tab-content {
+    height: 560px;
+  }
+  .hss-4q-panel {
+    height: 320px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -3059,6 +3098,22 @@ body.dark-mode .admission-section {
   .hss-tab-btn {
     padding: 10px 18px;
     font-size: 0.85rem;
+  }
+  /* Taller fixed heights on mobile due to single-column layout */
+  .hss-tab-content {
+    height: 720px;
+  }
+  .hss-tab-panel {
+    padding: 24px 20px;
+  }
+  .hss-4q-panel {
+    height: 340px;
+  }
+  .hss-4q-card {
+    padding: 24px;
+  }
+  .hss-showcase-card {
+    min-height: 500px;
   }
 
   /* Scrapbook Mobile Responsive 3D page-turning styling overrides */
@@ -3930,3 +3985,362 @@ body.dark-mode .hss-floating-bg-element {
   overflow: hidden; /* Avoid side-scrolling shifts from drifting elements */
 }
 
+/* =============================================================
+ * MOBILE ONE-SCREEN-PER-SECTION LAYOUT
+ * Every section fits in a single phone viewport (≈ 100dvh)
+ * Applies to screens ≤ 767px wide
+ * ============================================================= */
+@media (max-width: 767px) {
+
+  /* --- GLOBAL SECTION RESET ---------------------------------- */
+  section {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Tighten section heading block */
+  .section-header {
+    margin: 0 auto 16px auto !important;
+  }
+  .section-badge {
+    font-size: 0.7rem !important;
+    padding: 4px 12px !important;
+    margin-bottom: 6px !important;
+  }
+  .section-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 6px !important;
+  }
+  .section-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* --- HERO -------------------------------------------------- */
+  .hero-section {
+    padding: 88px 0 24px 0 !important;
+    min-height: 100dvh !important;
+    justify-content: center !important;
+  }
+  .hero-container {
+    gap: 14px !important;
+  }
+  .image-border-glow {
+    padding: 6px !important;
+    max-width: 220px !important;
+  }
+  .hero-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 8px !important;
+  }
+  .hero-subtitle {
+    font-size: 0.82rem !important;
+    margin-bottom: 14px !important;
+    line-height: 1.45 !important;
+  }
+  .hero-badge-wrapper {
+    margin-bottom: 8px !important;
+  }
+  .hero-actions .btn {
+    padding: 9px 18px !important;
+    font-size: 0.82rem !important;
+  }
+  .btn-secondary {
+    margin-left: 8px !important;
+  }
+
+  /* --- TIMELINE (Day in the Life) --- kept at original layout --- */
+  .timeline-section {
+    min-height: unset !important;
+    display: block !important;
+  }
+
+  /* --- CURRICULUM (Grow With Us / Academics) --- kept at original layout --- */
+
+  /* --- MILESTONES -------------------------------------------- */
+  .milestones-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .milestones-counters {
+    margin-top: 16px !important;
+    margin-bottom: 0 !important;
+    gap: 12px !important;
+    grid-template-columns: 1fr !important;
+  }
+  .counter-card {
+    padding: 16px !important;
+  }
+  .counter-icon {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 8px !important;
+  }
+  .counter-number-wrapper {
+    font-size: 1.9rem !important;
+    margin-bottom: 4px !important;
+  }
+  .counter-label {
+    font-size: 0.78rem !important;
+  }
+
+  /* --- REVIEWS ----------------------------------------------- */
+  .programs-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .reviews-slider {
+    padding: 8px 0 36px 0 !important;
+  }
+  .review-card {
+    padding: 18px 14px !important;
+  }
+  .review-quote-icon {
+    font-size: 1.3rem !important;
+    margin-bottom: 8px !important;
+  }
+  .review-text {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+  }
+  .review-author {
+    font-size: 0.88rem !important;
+  }
+  .review-relation {
+    font-size: 0.7rem !important;
+  }
+
+  /* --- FEATURES / AMENITIES DASHBOARD ----------------------- */
+  .features-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .hss-amenities-dashboard {
+    gap: 12px !important;
+    margin-top: 8px !important;
+  }
+  .hss-amenities-sidebar {
+    padding-bottom: 6px !important;
+    gap: 8px !important;
+  }
+  .hss-amenity-tab {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .hss-amenity-tab .tab-icon {
+    font-size: 1rem !important;
+  }
+  .hss-showcase-card {
+    min-height: 300px !important;
+  }
+  .hss-showcase-image-wrapper {
+    height: 130px !important;
+  }
+  .hss-showcase-content {
+    padding: 12px 14px !important;
+  }
+  #showcase-title {
+    font-size: 0.95rem !important;
+    margin-bottom: 4px !important;
+  }
+  #showcase-desc {
+    font-size: 0.76rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.4 !important;
+  }
+  .hss-showcase-divider {
+    margin-bottom: 8px !important;
+  }
+  .hss-bullets-title {
+    font-size: 0.7rem !important;
+    margin-bottom: 4px !important;
+  }
+  .hss-showcase-bullets li {
+    font-size: 0.76rem !important;
+    gap: 6px !important;
+  }
+  .hss-showcase-bullets {
+    gap: 5px !important;
+  }
+
+  /* --- CURRICULUM (Grow With Us / Academics) --- kept at original layout --- */
+  .hss-curriculum-section {
+    min-height: unset !important;
+    display: block !important;
+  }
+
+  /* --- PHILOSOPHY (4Q Radar) -------------------------------- */
+  .hss-4q-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .hss-4q-grid {
+    gap: 14px !important;
+  }
+  .hss-4q-chart-svg {
+    max-width: 180px !important;
+  }
+  .hss-4q-panel {
+    height: 210px !important;
+  }
+  .hss-4q-card {
+    padding: 14px !important;
+  }
+  .hss-4q-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+  }
+  .hss-4q-card h4 {
+    font-size: 0.9rem !important;
+    margin-bottom: 6px !important;
+  }
+  .hss-4q-card p {
+    font-size: 0.76rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* --- SCRAPBOOK ALBUM -------------------------------------- */
+  .hss-scrapbook-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .hss-scrapbook-container {
+    gap: 14px !important;
+  }
+  .hss-scrapbook-book {
+    height: 240px !important;
+  }
+  .hss-scrapbook-text {
+    padding: 10px 8px !important;
+  }
+  .hss-scrapbook-text h3 {
+    font-size: 0.82rem !important;
+    margin-bottom: 3px !important;
+  }
+  .hss-scrapbook-text p {
+    font-size: 0.65rem !important;
+    line-height: 1.35 !important;
+  }
+  .hss-scrapbook-controls {
+    gap: 8px !important;
+  }
+  .hss-scrapbook-btn {
+    padding: 7px 10px !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* --- SKILL TREE ------------------------------------------- */
+  .hss-skill-tree-section {
+    padding: 36px 0 24px 0 !important;
+  }
+
+  /* --- BRAIN GYM GAME --------------------------------------- */
+  .hss-brain-gym-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .hss-game-screen {
+    min-height: 160px !important;
+    padding: 14px !important;
+  }
+
+  /* --- CAMPUS HIGHLIGHTS / MEDIA GALLERY --- kept at original layout --- */
+  .media-gallery-section {
+    min-height: unset !important;
+    display: block !important;
+  }
+
+  /* --- FAQ --------------------------------------------------- */
+  .hss-faq-section {
+    padding: 36px 0 24px 0 !important;
+  }
+
+  /* --- ADMISSIONS FORM -------------------------------------- */
+  .admission-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .admission-box {
+    padding: 20px 14px !important;
+  }
+  .admission-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 4px !important;
+  }
+  .admission-subtitle {
+    font-size: 0.8rem !important;
+  }
+  .form-grid-vertical {
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+  }
+  .form-input,
+  .form-select {
+    padding: 9px 12px !important;
+    font-size: 0.85rem !important;
+  }
+  .form-label {
+    font-size: 0.8rem !important;
+  }
+
+  /* --- CONTACT ---------------------------------------------- */
+  .contact-section {
+    padding: 36px 0 24px 0 !important;
+  }
+  .contact-heading {
+    font-size: 1.3rem !important;
+    margin-bottom: 6px !important;
+  }
+  .contact-subtext {
+    font-size: 0.8rem !important;
+    margin-bottom: 16px !important;
+  }
+  .contact-grid {
+    gap: 16px !important;
+  }
+  .contact-map {
+    min-height: 180px !important;
+  }
+  .info-blocks {
+    gap: 14px !important;
+  }
+  .info-icon {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.9rem !important;
+  }
+  .info-content h5 {
+    font-size: 0.85rem !important;
+  }
+  .info-content p {
+    font-size: 0.78rem !important;
+  }
+
+  /* --- FOOTER (compact, not forced one-screen) --------------- */
+  .site-footer {
+    padding: 30px 0 20px 0 !important;
+    min-height: unset !important;
+  }
+  .footer-container {
+    gap: 24px !important;
+  }
+  .footer-top {
+    gap: 16px !important;
+  }
+  .footer-logo {
+    height: 44px !important;
+    margin-bottom: 8px !important;
+  }
+  .footer-brand {
+    font-size: 1.2rem !important;
+    margin-bottom: 6px !important;
+  }
+  .footer-copy {
+    font-size: 0.72rem !important;
+  }
+
+  /* Hide decorative floating icons on mobile to save space */
+  .hss-floating-bg-element {
+    display: none !important;
+  }
+}
