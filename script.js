@@ -17,7 +17,7 @@ const textContent = {
     nav_contact: "Contact",
     preloader_text: "Dnyansadhana Educational Trust",
     ribbon_text: "Admission Open 2026-27",
-    hero_badge: "NO DONATION • NO DEPOSIT",
+    hero_badge: "🎉 Admission Open 2026-27",
     hero_title: "Nurturing the Leaders of Tomorrow",
     hero_subtitle: "We lay a premium, play-driven and activity-focused foundation to foster the balanced intellectual, emotional, and social development of every child.",
     btn_enquiry: "Admission Enquiry",
@@ -118,7 +118,7 @@ const textContent = {
     nav_contact: "संपर्क",
     preloader_text: "ज्ञानसाधना एज्युकेशनल ट्रस्ट",
     ribbon_text: "प्रवेश सुरू २०२६-२७",
-    hero_badge: "कोणतीही देणगी नाही • ठेव नाही",
+    hero_badge: "🎉 प्रवेश सुरू २०२६-२७",
     hero_title: "उद्याच्या कर्तृत्ववान नेत्यांना घडवत आहोत",
     hero_subtitle: "आम्ही प्रत्येक पाल्याच्या बौद्धिक, भावनिक आणि सामाजिक चतुरस्त्र विकासाला चालना देण्यासाठी खेळ आणि कृती-आधारित दर्जेदार पाया रचतो.",
     btn_enquiry: "प्रवेश चौकशी",
@@ -785,34 +785,78 @@ function initScrollRevealEngine() {
   });
 }
 
-// 13. FORM SUBMISSION SUCCESS ALERT HANDLER
+// 13. WHATSAPP REDIRECT FORM SUBMISSION
 function initFormSubmission() {
   const form = document.getElementById('admission-form');
   if (!form) return;
 
+  // School WhatsApp number (India country code 91 + number)
+  const SCHOOL_WHATSAPP = '918149431588';
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
+    // Collect form values
+    const childName  = document.getElementById('student-name').value.trim();
+    const gradeSelect = document.getElementById('grade');
+    const gradeText  = gradeSelect.options[gradeSelect.selectedIndex].text.trim();
+    const parentPhone = document.getElementById('parent-phone').value.trim();
+
+    // Validate all fields are filled
+    if (!childName || !gradeSelect.value || !parentPhone) return;
+
     const submitBtn = form.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    
-    // Visual processing state transition
+    const originalHTML = submitBtn.innerHTML;
+
+    // Show sending state
     submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.7';
-    submitBtn.innerHTML = currentLanguage === 'en' ? 'Processing...' : 'प्रक्रिया करत आहे...';
-    
+    submitBtn.style.opacity = '0.75';
+    submitBtn.innerHTML = currentLanguage === 'en'
+      ? '<i class="fa-brands fa-whatsapp"></i> Opening WhatsApp...'
+      : '<i class="fa-brands fa-whatsapp"></i> व्हाट्सअ‍ॅप उघडत आहे...';
+
+    // Build pre-filled message
+    const message = currentLanguage === 'en'
+      ? `Hello HS School 👋\n\nI would like to enquire about *Admission 2026-27*.\n\n` +
+        `📌 *Child's Name:* ${childName}\n` +
+        `📚 *Grade Seeking:* ${gradeText}\n` +
+        `📞 *Parent's Number:* ${parentPhone}\n\n` +
+        `Please guide us on the next steps. Thank you!`
+      : `नमस्कार एच. एस. स्कूल 👋\n\nमला *प्रवेश २०२६-२७* बाबत चौकशी करायची आहे.\n\n` +
+        `📌 *मुलाचे नाव:* ${childName}\n` +
+        `📚 *प्रवेशाचा वर्ग:* ${gradeText}\n` +
+        `📞 *पालकांचा नंबर:* ${parentPhone}\n\n` +
+        `कृपया पुढील प्रक्रियेबद्दल मार्गदर्शन करा. धन्यवाद!`;
+
+    // Encode and open WhatsApp app directly
+    const encoded = encodeURIComponent(message);
+    const waURL = `whatsapp://send?phone=${SCHOOL_WHATSAPP}&text=${encoded}`;
+
     setTimeout(() => {
-      // Simulate success callback
-      alert(currentLanguage === 'en' 
-        ? "Success! Your admission enquiry has been submitted. Our desk will contact you soon." 
-        : "यशस्वी! तुमची प्रवेश चौकशी सबमिट झाली आहे. आमचा प्रवेश कक्ष लवकरच तुमच्याशी संपर्क साधेल."
-      );
-      
-      form.reset();
-      submitBtn.disabled = false;
+      window.open(waURL, '_blank');
+
+      // Success feedback on button
+      submitBtn.innerHTML = currentLanguage === 'en'
+        ? '✅ WhatsApp Opened!'
+        : '✅ व्हाट्सअ‍ॅप उघडले!';
       submitBtn.style.opacity = '1';
-      submitBtn.innerHTML = originalText;
-    }, 1200);
+
+      // Confetti burst on success
+      const canvas = document.getElementById('confetti-canvas');
+      if (canvas) {
+        const fab = document.getElementById('call-cta-fab');
+        if (fab) fab.click(); // reuse confetti from FAB origin
+      }
+
+      // Reset form and button after 2.5s
+      setTimeout(() => {
+        form.reset();
+        // Clear valid states
+        document.querySelectorAll('.form-input, .form-select').forEach(f => f.classList.remove('valid'));
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+      }, 2500);
+    }, 800);
   });
 }
 
