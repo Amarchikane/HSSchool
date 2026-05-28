@@ -213,6 +213,7 @@ const textContent = {
 // 2. STATE VARIABLES
 let currentLanguage = localStorage.getItem('hs_school_lang') || 'en';
 let isDarkMode = localStorage.getItem('hs_school_theme') === 'dark';
+let activeAmenityId = 1;
 
 // 3. MULTI-LANGUAGE TRANSLATION ENGINE
 function updateLanguageUI() {
@@ -253,6 +254,11 @@ function updateLanguageUI() {
     if (textContent[currentLanguage] && textContent[currentLanguage][yogaKey]) {
       yogaIndicator.textContent = textContent[currentLanguage][yogaKey];
     }
+  }
+
+  // Update showcase benefits dynamically on language change
+  if (typeof updateShowcaseBenefits === 'function') {
+    updateShowcaseBenefits();
   }
 }
 
@@ -883,6 +889,26 @@ document.addEventListener("DOMContentLoaded", () => {
   initFormValidationAnimations();
   initMilestonesCounters();
   initYogaBreathingController();
+  
+  // Audited dynamic & premium creative components
+  initFloatingCanvas();
+  initSchoolRulerTracker();
+  initInteractiveTimelineTracker();
+
+  // Three entirely new highly interactive modules
+  initCurriculumTabs();
+  init4QHolisticRadarChart();
+  initScrapbookAlbum();
+
+  // Gamified ultra-interactive components
+  initGamifiedSkillTree();
+  initMentalMathGame();
+
+  // Premium UI Interactive Components
+  initGalleryFilter();
+  initFaqAccordion();
+  initBackgroundParallax();
+  initAmenitiesDashboard();
 });
 
 // 15. VIRTUAL TOUR VIDEO CONTROLLER
@@ -1111,4 +1137,1092 @@ function initYogaBreathingController() {
       );
     }
   });
+}
+
+// 22. SUBTLE EDUCATIONAL FLOATING CANVAS BACKGROUND
+function initFloatingCanvas() {
+  const canvas = document.getElementById('hero-floating-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let animationFrameId;
+  let width = canvas.width = canvas.offsetWidth;
+  let height = canvas.height = canvas.offsetHeight;
+
+  const particles = [];
+  const chars = ['A', 'B', 'C', '1', '2', '3', '★', '♫', '♥', '✏'];
+  const maxParticles = 25; // Low count for high performance
+
+  // Generate particles
+  for (let i = 0; i < maxParticles; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      char: chars[Math.floor(Math.random() * chars.length)],
+      size: Math.random() * 16 + 12,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: -(Math.random() * 0.4 + 0.2), // Gently floats upwards
+      opacity: Math.random() * 0.25 + 0.1,
+      parallaxFactor: Math.random() * 10 + 5
+    });
+  }
+
+  // Mouse Parallax Offset tracking
+  let mouseX = 0, mouseY = 0;
+  let targetMouseX = 0, targetMouseY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    targetMouseX = (e.clientX / window.innerWidth - 0.5) * 40;
+    targetMouseY = (e.clientY / window.innerHeight - 0.5) * 40;
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Smoothly ease mouse coordinates to prevent jitter
+    mouseX += (targetMouseX - mouseX) * 0.1;
+    mouseY += (targetMouseY - mouseY) * 0.1;
+
+    ctx.font = '700 24px Outfit, sans-serif';
+    particles.forEach(p => {
+      ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
+      ctx.font = `${p.size}px Outfit, sans-serif`;
+
+      // Apply coordinates with soft parallax offset
+      const posX = p.x + mouseX * (p.parallaxFactor / 10);
+      const posY = p.y + mouseY * (p.parallaxFactor / 10);
+
+      ctx.fillText(p.char, posX, posY);
+
+      // Move particle
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      // Wrap-around bounds checker
+      if (p.y < -30) {
+        p.y = height + 20;
+        p.x = Math.random() * width;
+      }
+      if (p.x < -30) p.x = width + 20;
+      if (p.x > width + 30) p.x = -20;
+    });
+
+    animationFrameId = requestAnimationFrame(draw);
+  }
+
+  // Auto-pause loop when canvas scrolls out of viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        draw();
+      } else {
+        cancelAnimationFrame(animationFrameId);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(canvas);
+
+  // Responsive canvas resizing
+  window.addEventListener('resize', () => {
+    width = canvas.width = canvas.offsetWidth;
+    height = canvas.height = canvas.offsetHeight;
+  });
+}
+
+// 23. STICKY "SCHOOL RULER" RIGHT-SIDE SCROLL TRACKER
+function initSchoolRulerTracker() {
+  const ruler = document.getElementById('school-ruler-tracker');
+  const marker = document.getElementById('ruler-marker');
+  if (!ruler || !marker) return;
+
+  const ticks = document.querySelectorAll('.ruler-tick.major');
+  
+  // Track viewport scroll percentage and adjust marker
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    
+    const percentage = scrollTop / docHeight;
+    const rulerHeight = ruler.offsetHeight - 40; // offset boundaries
+    const newTop = 20 + (percentage * rulerHeight);
+    
+    marker.style.top = `${newTop}px`;
+  });
+
+  // Handle clickable ruler shortcuts
+  ticks.forEach(tick => {
+    tick.addEventListener('click', () => {
+      const targetId = tick.getAttribute('data-target');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+}
+
+// 24. INTERACTIVE "SCHOOL DAY JOURNEY" TIMELINE TRACKER
+function initInteractiveTimelineTracker() {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const dynamicBG = document.querySelector('.hss-timeline-dynamic-bg');
+  if (timelineItems.length === 0) return;
+
+  // Track active timeline segment on scroll
+  window.addEventListener('scroll', () => {
+    let currentActive = null;
+    
+    timelineItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      // Highlight element if it is near center-top of viewport
+      if (rect.top < window.innerHeight * 0.55 && rect.bottom > window.innerHeight * 0.3) {
+        currentActive = item;
+      }
+    });
+
+    timelineItems.forEach(item => {
+      if (item === currentActive) {
+        item.classList.add('active-routine');
+        
+        // Dynamically shift background gradient theme based on active card step
+        if (dynamicBG) {
+          dynamicBG.classList.remove('sunrise', 'midday', 'afternoon', 'evening');
+          if (item.id === 'step-1') dynamicBG.classList.add('sunrise');
+          else if (item.id === 'step-2') dynamicBG.classList.add('midday');
+          else if (item.id === 'step-3') dynamicBG.classList.add('afternoon');
+          else if (item.id === 'step-4') dynamicBG.classList.add('evening');
+        }
+      } else {
+        item.classList.remove('active-routine');
+      }
+    });
+  });
+}
+
+// 25. SECTION 1: CURRICULUM FILTER ENGINE
+function initCurriculumTabs() {
+  const tabBtns = document.querySelectorAll('.hss-tab-btn');
+  const tabPanels = document.querySelectorAll('.hss-tab-panel');
+  if (tabBtns.length === 0) return;
+
+  let autoShiftInterval;
+
+  function startAutoShift() {
+    stopAutoShift();
+    autoShiftInterval = setInterval(() => {
+      let activeIndex = -1;
+      tabBtns.forEach((btn, index) => {
+        if (btn.classList.contains('active')) {
+          activeIndex = index;
+        }
+      });
+
+      const nextIndex = (activeIndex + 1) % tabBtns.length;
+      const nextBtn = tabBtns[nextIndex];
+
+      if (nextBtn) {
+        nextBtn.click();
+      }
+    }, 5000); // Shift every 5 seconds
+  }
+
+  function stopAutoShift() {
+    if (autoShiftInterval) {
+      clearInterval(autoShiftInterval);
+    }
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Reset the auto-shift timer on manual interaction
+      startAutoShift();
+
+      const targetTab = btn.getAttribute('data-tab');
+
+      // Update button state
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update content panel state with smooth fade
+      tabPanels.forEach(panel => {
+        panel.classList.remove('active');
+        if (panel.id === `panel-${targetTab}`) {
+          panel.classList.add('active');
+          // Trigger entry animation
+          gsap.fromTo(panel, 
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+          );
+        }
+      });
+    });
+  });
+
+  // Pause rotation on hover, resume on mouseout
+  const sectionContainer = document.querySelector('#curriculum');
+  if (sectionContainer) {
+    sectionContainer.addEventListener('mouseenter', stopAutoShift);
+    sectionContainer.addEventListener('mouseleave', startAutoShift);
+  }
+
+  // Start the automatic rotation cycle initially
+  startAutoShift();
+}
+
+// 26. SECTION 2: 4Q HOLISTIC RADAR CHART ENGINE
+function init4QHolisticRadarChart() {
+  const chartPoints = document.querySelectorAll('.radar-point, .radar-label');
+  const descCards = document.querySelectorAll('.hss-4q-card');
+  const radarArea = document.querySelector('.radar-area');
+  if (chartPoints.length === 0) return;
+
+  // Default coordinate setup maps to exact polygon point nodes
+  const baseCoordinates = {
+    iq: { x: 200, y: 80 },
+    eq: { x: 320, y: 200 },
+    sq: { x: 200, y: 310 },
+    pq: { x: 90, y: 200 }
+  };
+
+  const quadrants = ['iq', 'eq', 'sq', 'pq'];
+  let activeQuadrantIndex = 0;
+  let radarInterval;
+
+  function setActiveQuadrant(quadrant) {
+    if (!quadrant) return;
+
+    // Update descriptions with smooth horizontal shift
+    descCards.forEach(card => {
+      card.classList.remove('active');
+      if (card.id === `card-${quadrant}`) {
+        card.classList.add('active');
+        gsap.fromTo(card,
+          { opacity: 0, x: 20 },
+          { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }
+        );
+      }
+    });
+
+    // Highlight active points & labels inside SVG
+    chartPoints.forEach(pt => {
+      if (pt.getAttribute('data-quadrant') === quadrant) {
+        pt.classList.add('active');
+      } else {
+        pt.classList.remove('active');
+      }
+    });
+
+    // Distort the interactive SVG polygon towards target quadrant coordinates
+    if (radarArea) {
+      const activeCoords = { ...baseCoordinates };
+      if (quadrant === 'iq') activeCoords.iq = { x: 200, y: 60 };
+      if (quadrant === 'eq') activeCoords.eq = { x: 340, y: 200 };
+      if (quadrant === 'sq') activeCoords.sq = { x: 200, y: 330 };
+      if (quadrant === 'pq') activeCoords.pq = { x: 70, y: 200 };
+
+      const pointsString = `${activeCoords.iq.x},${activeCoords.iq.y} ${activeCoords.eq.x},${activeCoords.eq.y} ${activeCoords.sq.x},${activeCoords.sq.y} ${activeCoords.pq.x},${activeCoords.pq.y}`;
+      gsap.to(radarArea, {
+        attr: { points: pointsString },
+        duration: 0.4,
+        ease: "power2.out"
+      });
+    }
+  }
+
+  function startRadarCycle() {
+    stopRadarCycle();
+    radarInterval = setInterval(() => {
+      activeQuadrantIndex = (activeQuadrantIndex + 1) % quadrants.length;
+      setActiveQuadrant(quadrants[activeQuadrantIndex]);
+    }, 4000); // Shift every 4 seconds
+  }
+
+  function stopRadarCycle() {
+    if (radarInterval) {
+      clearInterval(radarInterval);
+    }
+  }
+
+  // Bind mouse interactive triggers
+  chartPoints.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      stopRadarCycle();
+      const quadrant = element.getAttribute('data-quadrant');
+      if (quadrant) {
+        activeQuadrantIndex = quadrants.indexOf(quadrant);
+        setActiveQuadrant(quadrant);
+      }
+    });
+
+    element.addEventListener('mouseleave', () => {
+      startRadarCycle();
+    });
+  });
+
+  // Modern 3D Hover Depth Effect on Philosophy Radar Chart SVG
+  if (!window.matchMedia("(pointer: coarse)").matches) {
+    const chartContainer = document.querySelector('.hss-4q-chart-container');
+    const chartSvg = document.querySelector('.hss-4q-chart-svg');
+
+    if (chartContainer && chartSvg) {
+      chartContainer.addEventListener('mousemove', (e) => {
+        const rect = chartContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x / rect.width) - 0.5) * 24;  // Max 12 degrees Y-axis rotate
+        const rotateX = -((y / rect.height) - 0.5) * 24; // Max 12 degrees X-axis rotate
+
+        gsap.to(chartSvg, {
+          rotateY: rotateY,
+          rotateX: rotateX,
+          transformPerspective: 1000,
+          ease: "power2.out",
+          duration: 0.5
+        });
+      });
+
+      chartContainer.addEventListener('mouseleave', () => {
+        gsap.to(chartSvg, {
+          rotateY: 0,
+          rotateX: 0,
+          ease: "power3.out",
+          duration: 0.6
+        });
+      });
+    }
+  }
+
+  // Hover over descriptions pauses cycling
+  const panelSection = document.querySelector('#holistic');
+  if (panelSection) {
+    panelSection.addEventListener('mouseenter', stopRadarCycle);
+    panelSection.addEventListener('mouseleave', startRadarCycle);
+  }
+
+  // Start automatic polygon cycling initially
+  startRadarCycle();
+}
+
+// 27. SECTION 3: 3D MEMORY SCRAPBOOK ALBUM ENGINE
+function initScrapbookAlbum() {
+  const pages = document.querySelectorAll('.hss-page');
+  const prevBtn = document.getElementById('scrapbook-prev-btn');
+  const nextBtn = document.getElementById('scrapbook-next-btn');
+  if (pages.length === 0) return;
+
+  let currentPageIndex = 0;
+  let scrapbookInterval;
+
+  function startScrapbookCycle() {
+    stopScrapbookCycle();
+    scrapbookInterval = setInterval(() => {
+      if (currentPageIndex < pages.length) {
+        pages[currentPageIndex].classList.add('flipped');
+        pages[currentPageIndex].style.zIndex = 10 + currentPageIndex;
+        currentPageIndex++;
+      } else {
+        // Unflip all pages back to start
+        for (let i = pages.length - 1; i >= 0; i--) {
+          pages[i].classList.remove('flipped');
+          pages[i].style.zIndex = 10 - i;
+        }
+        currentPageIndex = 0;
+      }
+    }, 5000); // Auto-flip every 5 seconds
+  }
+
+  function stopScrapbookCycle() {
+    if (scrapbookInterval) {
+      clearInterval(scrapbookInterval);
+    }
+  }
+
+  function handleNextPage() {
+    startScrapbookCycle();
+
+    if (currentPageIndex < pages.length) {
+      pages[currentPageIndex].classList.add('flipped');
+      pages[currentPageIndex].style.zIndex = 10 + currentPageIndex;
+      currentPageIndex++;
+    } else {
+      for (let i = pages.length - 1; i >= 0; i--) {
+        pages[i].classList.remove('flipped');
+        pages[i].style.zIndex = 10 - i;
+      }
+      currentPageIndex = 0;
+    }
+  }
+
+  function handlePrevPage() {
+    startScrapbookCycle();
+
+    if (currentPageIndex > 0) {
+      currentPageIndex--;
+      pages[currentPageIndex].classList.remove('flipped');
+      pages[currentPageIndex].style.zIndex = 10 - currentPageIndex;
+    } else {
+      // If at the beginning, flip all to go to the last spread
+      for (let i = 0; i < pages.length; i++) {
+        pages[i].classList.add('flipped');
+        pages[i].style.zIndex = 10 + i;
+      }
+      currentPageIndex = pages.length;
+    }
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', handleNextPage);
+  if (prevBtn) prevBtn.addEventListener('click', handlePrevPage);
+
+  // Click direct page to flip forward/backward on all devices
+  pages.forEach((page, index) => {
+    page.addEventListener('click', () => {
+      startScrapbookCycle();
+      if (page.classList.contains('flipped')) {
+        for (let i = currentPageIndex - 1; i >= index; i--) {
+          pages[i].classList.remove('flipped');
+          pages[i].style.zIndex = 10 - i;
+          currentPageIndex--;
+        }
+      } else {
+        for (let i = currentPageIndex; i <= index; i++) {
+          pages[i].classList.add('flipped');
+          pages[i].style.zIndex = 10 + i;
+          currentPageIndex++;
+        }
+      }
+    });
+  });
+
+  // Pause cycle on hover, resume on mouseout
+  const scrapbookSection = document.querySelector('#scrapbook');
+  if (scrapbookSection) {
+    scrapbookSection.addEventListener('mouseenter', stopScrapbookCycle);
+    scrapbookSection.addEventListener('mouseleave', startScrapbookCycle);
+  }
+
+  // Start the slideshow cycle initially
+  startScrapbookCycle();
+}
+
+// 28. CINEMATIC "OPEN THE GATES" SCROLL INTRO (REMOVED)
+
+// 29. "FUTURE-PROOF CHILD" GAMIFIED SKILL TREE ENGINE
+function initGamifiedSkillTree() {
+  const traitCards = document.querySelectorAll('.hss-trait-card');
+  const connectorLines = document.querySelectorAll('.connector-line');
+  const programNodes = document.querySelectorAll('.hss-program-node');
+  if (traitCards.length === 0) return;
+
+  traitCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const selectedTrait = card.getAttribute('data-trait');
+
+      // Update card active states
+      traitCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      // Reset all connecting pathways & programs
+      connectorLines.forEach(line => line.classList.remove('active'));
+      programNodes.forEach(node => node.classList.remove('pulse-node'));
+
+      // Activate specific connectors & nodes based on selected traits
+      if (selectedTrait === 'focus') {
+        const conn1 = document.getElementById('path-focus-abacus');
+        const conn2 = document.getElementById('path-focus-kreedo');
+        if (conn1) conn1.classList.add('active');
+        if (conn2) conn2.classList.add('active');
+
+        document.getElementById('node-abacus').classList.add('pulse-node');
+        document.getElementById('node-kreedo').classList.add('pulse-node');
+      } else if (selectedTrait === 'discipline') {
+        const conn1 = document.getElementById('path-discipline-lathi');
+        const conn2 = document.getElementById('path-discipline-yoga');
+        if (conn1) conn1.classList.add('active');
+        if (conn2) conn2.classList.add('active');
+
+        document.getElementById('node-lathi').classList.add('pulse-node');
+        document.getElementById('node-yoga').classList.add('pulse-node');
+      } else if (selectedTrait === 'logic') {
+        const conn1 = document.getElementById('path-logic-science');
+        if (conn1) conn1.classList.add('active');
+
+        document.getElementById('node-science').classList.add('pulse-node');
+      }
+    });
+  });
+}
+
+// 30. "BRAIN GYM" 10-SECOND MENTAL MATH MICRO-GAME ENGINE
+function initMentalMathGame() {
+  const startBtn = document.getElementById('start-game-btn');
+  const submitBtn = document.getElementById('submit-game-btn');
+  const retryBtn = document.getElementById('retry-game-btn');
+  
+  const startPanel = document.querySelector('.hss-game-start-panel');
+  const numbersPanel = document.getElementById('game-numbers-panel');
+  const inputPanel = document.getElementById('game-input-panel');
+  const resultPanel = document.getElementById('game-result-panel');
+  
+  const flashingNum = document.getElementById('flashing-number-box');
+  const answerInput = document.getElementById('game-user-answer');
+  const resultMessage = document.getElementById('game-result-message');
+  const resultSub = document.getElementById('game-result-sub');
+
+  if (!startBtn || !submitBtn || !retryBtn) return;
+
+  const sequence = [12, -5, 22]; // Simple mental math sequence
+  const correctResult = 29;
+
+  startBtn.addEventListener('click', () => {
+    // Phase 1: Hide start, show flashing board
+    startPanel.classList.add('hidden');
+    numbersPanel.classList.remove('hidden');
+
+    let currentStep = 0;
+
+    function flashNextNumber() {
+      if (currentStep < sequence.length) {
+        const num = sequence[currentStep];
+        flashingNum.textContent = num > 0 ? `+${num}` : `${num}`;
+        flashingNum.classList.add('show');
+
+        setTimeout(() => {
+          flashingNum.classList.remove('show');
+          currentStep++;
+          setTimeout(flashNextNumber, 400); // interval pause between numbers
+        }, 800);
+      } else {
+        // Phase 2: Show input box
+        numbersPanel.classList.add('hidden');
+        inputPanel.classList.remove('hidden');
+      }
+    }
+
+    setTimeout(flashNextNumber, 500);
+  });
+
+  submitBtn.addEventListener('click', () => {
+    const userAnswer = parseInt(answerInput.value, 10);
+    inputPanel.classList.add('hidden');
+    resultPanel.classList.remove('hidden');
+
+    if (userAnswer === correctResult) {
+      resultMessage.textContent = "🎉 Brilliant! Correct Answer!";
+      resultSub.textContent = "You processed numbers with perfect precision. Just like our trained abacus students!";
+      
+      // Trigger confetti burst on success!
+      const canvas = document.getElementById('confetti-canvas');
+      if (canvas) {
+        const fab = document.getElementById('call-cta-fab');
+        if (fab) fab.click(); // Reuse confetti handler
+      }
+    } else {
+      resultMessage.textContent = "❌ Oops, that's not it!";
+      resultSub.textContent = `The correct final balance was ${correctResult}. Abacus training helps kids map and see these numbers instantly!`;
+    }
+  });
+
+  retryBtn.addEventListener('click', () => {
+    answerInput.value = '';
+    resultPanel.classList.add('hidden');
+    startPanel.classList.remove('hidden');
+  });
+}
+
+// 31. CAMPUS PHOTO GALLERY FILTER COMPONENT
+function initGalleryFilter() {
+  const filterBtns = document.querySelectorAll('.hss-gallery-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card');
+  if (filterBtns.length === 0 || galleryCards.length === 0) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filterValue = btn.getAttribute('data-filter');
+
+      // Update active button state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter with smooth GSAP transition animations
+      const cardsToHide = [];
+      const cardsToShow = [];
+
+      galleryCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          cardsToShow.push(card);
+        } else {
+          cardsToHide.push(card);
+        }
+      });
+
+      // Animate out cards that do not match the filter
+      if (cardsToHide.length > 0) {
+        gsap.to(cardsToHide, {
+          opacity: 0,
+          scale: 0.8,
+          duration: 0.3,
+          ease: "power2.in",
+          onComplete: () => {
+            cardsToHide.forEach(card => card.classList.add('filtered-out'));
+            // Refresh ScrollTrigger since page geometry changes
+            if (typeof ScrollTrigger !== 'undefined') {
+              ScrollTrigger.refresh();
+            }
+          }
+        });
+      }
+
+      // Prepare cards to show by putting them back into document flow
+      cardsToShow.forEach(card => {
+        card.classList.remove('filtered-out');
+      });
+
+      // Animate matching cards in with stagger
+      if (cardsToShow.length > 0) {
+        gsap.fromTo(cardsToShow, 
+          { opacity: 0, scale: 0.8 },
+          { 
+            opacity: 1, 
+            scale: 1, 
+            duration: 0.4, 
+            stagger: 0.05, 
+            ease: "power2.out", 
+            delay: cardsToHide.length > 0 ? 0.2 : 0,
+            onComplete: () => {
+              if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+              }
+            }
+          }
+        );
+      }
+    });
+  });
+}
+
+// 32. FREQUENTLY ASKED QUESTIONS (FAQ) ACCORDION COMPONENT
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.hss-faq-item');
+  if (faqItems.length === 0) return;
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.hss-faq-trigger');
+    const content = item.querySelector('.hss-faq-content');
+
+    if (!trigger || !content) return;
+
+    // Accessibility attributes for semantic SEO & screen readers
+    trigger.setAttribute('aria-expanded', 'false');
+    const panelId = `faq-panel-${Math.random().toString(36).substr(2, 9)}`;
+    content.setAttribute('id', panelId);
+    trigger.setAttribute('aria-controls', panelId);
+
+    trigger.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      // Close all other accordion panels for clean accordion behavior
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+          const otherTrigger = otherItem.querySelector('.hss-faq-trigger');
+          const otherContent = otherItem.querySelector('.hss-faq-content');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+          if (otherContent) {
+            otherContent.style.maxHeight = '0px';
+          }
+        }
+      });
+
+      // Toggle current panel
+      if (isActive) {
+        item.classList.remove('active');
+        trigger.setAttribute('aria-expanded', 'false');
+        content.style.maxHeight = '0px';
+      } else {
+        item.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+
+      // Refresh ScrollTrigger to update trigger offset calculations
+      setTimeout(() => {
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 400); // After CSS transition completes
+    });
+  });
+}
+
+// 33. COLORFUL DYNAMIC BACKGROUND PARALLAX DECORATIONS
+function initBackgroundParallax() {
+  const elements = document.querySelectorAll('.hss-floating-bg-element');
+  if (elements.length === 0 || window.matchMedia("(pointer: coarse)").matches) return;
+
+  window.addEventListener('mousemove', (e) => {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    
+    // Normalize cursor position around center (-0.5 to 0.5)
+    const mouseX = (e.clientX / w - 0.5);
+    const mouseY = (e.clientY / h - 0.5);
+
+    elements.forEach(el => {
+      // Depth parameter determines magnitude of movement
+      const depth = parseFloat(el.getAttribute('data-depth') || '25');
+      const shiftX = mouseX * depth;
+      const shiftY = mouseY * depth;
+
+      // Animate using GSAP for optimized 60fps hardware acceleration
+      gsap.to(el, {
+        x: shiftX,
+        y: shiftY,
+        duration: 0.8,
+        ease: "power2.out",
+        overwrite: "auto"
+      });
+    });
+  });
+}
+
+// 34. INTERACTIVE AMENITIES EXPLORER DASHBOARD
+const amenitiesData = {
+  1: {
+    image: "assets/amenity_kreedo.jpg",
+    theme: "academic",
+    badge: { en: "ACADEMIC", mr: "शैक्षणिक" },
+    benefits: {
+      en: [
+        "Tactile Montessori Kits",
+        "Activity-Based Pedagogy",
+        "Sensory Skills Growth"
+      ],
+      mr: [
+        "प्रात्यक्षिक क्रीडो किट्स",
+        "कृती-आधारित शिक्षण",
+        "संवेदी क्षमतांचा विकास"
+      ]
+    }
+  },
+  2: {
+    image: "assets/amenity_holistic.jpg",
+    theme: "holistic",
+    badge: { en: "HOLISTIC", mr: "सर्वांगीण" },
+    benefits: {
+      en: [
+        "IQ Logical Challenges",
+        "EQ Empathy Training",
+        "SQ Sanskrit Shlokas"
+      ],
+      mr: [
+        "IQ तार्किक आव्हाने",
+        "EQ भावनिक सहसंवेदना",
+        "SQ संस्कृत श्लोक पठण"
+      ]
+    }
+  },
+  3: {
+    image: "assets/amenity_abacus.jpg",
+    theme: "academic",
+    badge: { en: "ACADEMIC", mr: "शैक्षणिक" },
+    benefits: {
+      en: [
+        "Supermath Calculations",
+        "Visual Memory Focus",
+        "Speed & Concentration"
+      ],
+      mr: [
+        "जलद गणितीय आकडेमोड",
+        "तार्किक स्मरणशक्ती विकास",
+        "एकाग्रता आणि वेग वाढवणे"
+      ]
+    }
+  },
+  4: {
+    image: "assets/amenity_classroom.jpg",
+    theme: "holistic",
+    badge: { en: "HOLISTIC", mr: "सर्वांगीण" },
+    benefits: {
+      en: [
+        "Naturally Lit & Airy",
+        "Child-Safe Furniture",
+        "Hygienic Play Spaces"
+      ],
+      mr: [
+        "नैसर्गिक प्रकाश व खेळती हवा",
+        "मुलांसाठी सुरक्षित फर्निचर",
+        "स्वच्छ व सुरक्षित खेळण्याची जागा"
+      ]
+    }
+  },
+  5: {
+    image: "assets/amenity_cctv.jpg",
+    theme: "safety",
+    badge: { en: "SAFETY FIRST", mr: "सुरक्षितता" },
+    benefits: {
+      en: [
+        "24/7 Passage Monitor",
+        "Zero-Blindspot Cameras",
+        "Instant Security Feeds"
+      ],
+      mr: [
+        "२४/७ परिसर देखरेख",
+        "अद्ययावत सीसीटीव्ही कॅमेरे",
+        "तात्काळ सुरक्षा यंत्रणा"
+      ]
+    }
+  },
+  6: {
+    image: "assets/amenity_van.jpg",
+    theme: "safety",
+    badge: { en: "SAFETY FIRST", mr: "सुरक्षितता" },
+    benefits: {
+      en: [
+        "Verified Local Drivers",
+        "Routine Pickup Zones",
+        "Stress-Free Commute"
+      ],
+      mr: [
+        "पडताळणी केलेले चालक",
+        "घरापासून शाळेपर्यंत वाहतूक",
+        "तणावमुक्त प्रवासाची खात्री"
+      ]
+    }
+  },
+  7: {
+    image: "assets/amenity_sports.jpg",
+    theme: "holistic",
+    badge: { en: "HOLISTIC", mr: "सर्वांगीण" },
+    benefits: {
+      en: [
+        "Indoor Active Gym",
+        "Outdoor Playground",
+        "Balance & Coordination"
+      ],
+      mr: [
+        "इनडोअर ऍक्टिव्ह जिम",
+        "सुरक्षित मैदानी क्रीडांगण",
+        "शारीरिक नियंत्रण व समन्वय"
+      ]
+    }
+  },
+  8: {
+    image: "assets/amenity_attention.jpg",
+    theme: "safety",
+    badge: { en: "SAFETY FIRST", mr: "सुरक्षितता" },
+    benefits: {
+      en: [
+        "Strict Teacher-Kid Ratio",
+        "Individual Care Plans",
+        "Progress Monitoring"
+      ],
+      mr: [
+        "मर्यादित विद्यार्थी संख्या",
+        "प्रत्येक मुलावर वैयक्तिक लक्ष",
+        "नियमित प्रगती अहवाल"
+      ]
+    }
+  },
+  9: {
+    image: "assets/amenity_teachers.jpg",
+    theme: "academic",
+    badge: { en: "ACADEMIC", mr: "शैक्षणिक" },
+    benefits: {
+      en: [
+        "Trust Pedagogy Certified",
+        "Pedagogical Workshops",
+        "Affectionate Grooming"
+      ],
+      mr: [
+        "बाल मानसशास्त्र प्रशिक्षित",
+        "pedagogy कार्यशाळा प्रमाणपत्र",
+        "अतिशय प्रेमाचे संगोपन"
+      ]
+    }
+  }
+};
+
+function updateShowcaseBenefits() {
+  const bulletsContainer = document.getElementById('showcase-benefits');
+  if (!bulletsContainer) return;
+
+  const data = amenitiesData[activeAmenityId];
+  if (!data) return;
+
+  // Clear and rebuild bullet list
+  bulletsContainer.innerHTML = '';
+  bulletsContainer.className = `hss-showcase-bullets ${data.theme}`;
+
+  const bullets = data.benefits[currentLanguage] || data.benefits['en'];
+  bullets.forEach(bullet => {
+    const li = document.createElement('li');
+    li.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${bullet}</span>`;
+    bulletsContainer.appendChild(li);
+  });
+}
+
+function initAmenitiesDashboard() {
+  const tabs = document.querySelectorAll('.hss-amenity-tab');
+  const card = document.getElementById('amenity-showcase-card');
+  const imgElement = document.getElementById('showcase-img');
+  const badgeElement = document.getElementById('showcase-theme-badge');
+  const titleElement = document.getElementById('showcase-title');
+  const descElement = document.getElementById('showcase-desc');
+
+  if (tabs.length === 0 || !card) return;
+
+  let autoShiftInterval;
+
+  function startAutoShift() {
+    stopAutoShift();
+    autoShiftInterval = setInterval(() => {
+      let activeIndex = -1;
+      tabs.forEach((tab, index) => {
+        if (tab.classList.contains('active')) {
+          activeIndex = index;
+        }
+      });
+
+      const nextIndex = (activeIndex + 1) % tabs.length;
+      const nextTab = tabs[nextIndex];
+
+      if (nextTab) {
+        nextTab.click();
+      }
+    }, 5000); // Cycle every 5 seconds
+  }
+
+  function stopAutoShift() {
+    if (autoShiftInterval) {
+      clearInterval(autoShiftInterval);
+    }
+  }
+
+  // Click handler to swap showcase contents smoothly
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Centering active tab on mobile horizontal scrolling ribbon
+      const sidebar = document.querySelector('.hss-amenities-sidebar');
+      if (sidebar && window.innerWidth <= 991) {
+        const sidebarRect = sidebar.getBoundingClientRect();
+        const tabRect = tab.getBoundingClientRect();
+        const scrollLeftOffset = sidebar.scrollLeft + (tabRect.left - sidebarRect.left);
+        sidebar.scrollTo({
+          left: scrollLeftOffset - (sidebarRect.width / 2) + (tabRect.width / 2),
+          behavior: 'smooth'
+        });
+      }
+
+      // Reset auto-shift timer on user interaction
+      startAutoShift();
+
+      const amenityId = parseInt(tab.getAttribute('data-amenity'), 10);
+      if (amenityId === activeAmenityId) return;
+
+      activeAmenityId = amenityId;
+      const data = amenitiesData[activeAmenityId];
+
+      // Update sidebar tab active styling
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Morph animation using GSAP
+      gsap.to(card, {
+        opacity: 0,
+        scale: 0.96,
+        y: 10,
+        duration: 0.25,
+        ease: "power2.in",
+        onComplete: () => {
+          // Swap image source
+          if (imgElement) {
+            imgElement.src = data.image;
+            imgElement.alt = textContent[currentLanguage][`feat_${activeAmenityId}_title`] || "Showcase";
+          }
+
+          // Swap theme badge class & text
+          if (badgeElement) {
+            badgeElement.className = `hss-showcase-badge ${data.theme}`;
+            badgeElement.textContent = data.badge[currentLanguage] || data.badge['en'];
+          }
+
+          // Update data-keys for title & description translation
+          if (titleElement) {
+            titleElement.setAttribute('data-key', `feat_${activeAmenityId}_title`);
+          }
+          if (descElement) {
+            descElement.setAttribute('data-key', `feat_${activeAmenityId}_desc`);
+          }
+
+          // Rebuild localized benefits list
+          updateShowcaseBenefits();
+
+          // Force translation engine refresh
+          updateLanguageUI();
+
+          // Fade card back in
+          gsap.to(card, {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.35,
+            ease: "power2.out",
+            onComplete: () => {
+              if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+              }
+            }
+          });
+        }
+      });
+    });
+  });
+
+  // Modern 3D Card Hover Depth Effect on Showcase Card
+  if (!window.matchMedia("(pointer: coarse)").matches) {
+    const showcasePanel = document.querySelector('.hss-amenities-showcase');
+    
+    showcasePanel.addEventListener('mousemove', (e) => {
+      const rect = showcasePanel.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateY = ((x / rect.width) - 0.5) * 12; // max 6 deg
+      const rotateX = -((y / rect.height) - 0.5) * 8; // max 4 deg
+
+      gsap.to(card, {
+        rotateY: rotateY,
+        rotateX: rotateX,
+        transformPerspective: 1000,
+        ease: "power2.out",
+        duration: 0.5,
+        scale: 1.01,
+        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
+      });
+    });
+
+    showcasePanel.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotateY: 0,
+        rotateX: 0,
+        scale: 1,
+        ease: "power3.out",
+        duration: 0.6,
+        boxShadow: "var(--shadow-premium)"
+      });
+    });
+  }
+
+  // Hover pauses auto-shift rotation, mouseout resumes it
+  const dashboardContainer = document.querySelector('.hss-amenities-dashboard');
+  if (dashboardContainer) {
+    dashboardContainer.addEventListener('mouseenter', stopAutoShift);
+    dashboardContainer.addEventListener('mouseleave', startAutoShift);
+  }
+
+  // Start the automatic rotation initially
+  startAutoShift();
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amarchikane.github.io/HSSchool/sitemap.xml
