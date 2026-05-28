@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HS School - Nurturing the Leaders of Tomorrow. Run by Dnyansadhana Educational Trust. Mobile-first premium experience.">
+  <title>HS School | Dnyansadhana Educational Trust</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Micro-Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <!-- Local Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sticky Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span class="announcement-badge" data-key="hero_badge"></span>
+    <span class="announcement-text" data-key="ribbon_text"></span>
+  </div>
+
+  <!-- 1. Out-of-the-Box Preloader (Splash Screen) -->
+  <div id="preloader" class="preloader-overlay">
+    <div class="preloader-content">
+      <img src="assets/school_logo.png" alt="HS School Logo" class="preloader-logo">
+      <div class="preloader-line-container">
+        <div class="preloader-line"></div>
+      </div>
+      <h1 class="preloader-title" data-key="preloader_text"></h1>
+    </div>
+  </div>
+
+  <!-- 2. Symmetrical Header / Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- Hamburger Menu (Left) -->
+      <button id="nav-toggle" class="nav-toggle-btn" aria-label="Toggle navigation menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Centered School Name & Logo -->
+      <div class="header-brand">
+        <a href="#hero" class="brand-link">
+          <img src="assets/school_logo.png" alt="HS School Logo" class="header-logo">
+          <span data-key="nav_brand"></span>
+        </a>
+      </div>
+
+      <!-- Controls (Right: Theme switch) -->
+      <div class="header-controls">
+        <!-- Digital Dark Mode Switcher -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon theme-icon-dark"></i>
+          <i class="fa-solid fa-sun theme-icon-light"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Symmetrical Mobile / Overlay Navigation Menu -->
+    <nav class="navigation-menu" id="navigation-menu">
+      <div class="nav-overlay-bg"></div>
+      <div class="nav-menu-container">
+        <!-- Left half links for desktop center-symmetry -->
+        <ul class="nav-list nav-left-group">
+          <li class="nav-item"><a href="#hero" class="nav-link" data-key="nav_home"></a></li>
+          <li class="nav-item"><a href="#timeline" class="nav-link" data-key="nav_timeline"></a></li>
+          <li class="nav-item"><a href="#milestones" class="nav-link" data-key="nav_milestones"></a></li>
+        </ul>
+        
+        <!-- Right half links for desktop center-symmetry -->
+        <ul class="nav-list nav-right-group">
+          <li class="nav-item"><a href="#reviews" class="nav-link" data-key="nav_reviews"></a></li>
+          <li class="nav-item"><a href="#features" class="nav-link" data-key="nav_features"></a></li>
+          <li class="nav-item"><a href="#admission" class="nav-link" data-key="nav_admission"></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <main class="main-content">
+
+    <!-- 3. Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+      </div>
+      
+      <div class="container hero-container">
+        <div class="hero-visual-content">
+          <div class="image-border-glow">
+            <img class="hero-image" src="assets/school_hero.png" alt="HS School Building" loading="lazy">
+          </div>
+        </div>
+
+        <div class="hero-text-content">
+          <div class="hero-badge-wrapper">
+            <span class="hero-badge">
+              <span data-key="hero_badge"></span>
+              <svg class="badge-scribble" viewBox="0 0 220 50" preserveAspectRatio="none">
+                <path class="scribble-path" d="M 5 25 Q 110 5 215 25 Q 110 45 5 25" fill="none" stroke="var(--accent-gold)" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </span>
+          </div>
+          <h2 class="hero-title" data-key="hero_title"></h2>
+          <p class="hero-subtitle" data-key="hero_subtitle"></p>
+          <div class="hero-actions">
+            <a href="#admission" class="btn btn-primary" data-key="btn_enquiry"></a>
+            <a href="#programs" class="btn btn-secondary" data-key="btn_explore"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. "Day in the Life" Interactive Timeline -->
+    <section id="timeline" class="timeline-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-badge" data-key="timeline_badge"></span>
+          <h3 class="section-title" data-key="timeline_title"></h3>
+          <p class="section-desc" data-key="timeline_desc"></p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Dynamic Scroll Line SVG -->
+          <div class="timeline-svg-wrapper">
+            <svg class="timeline-svg" viewBox="0 0 10 800" preserveAspectRatio="none">
+              <path class="timeline-path-bg" d="M 5 0 L 5 800" />
+              <path class="timeline-path-fill" d="M 5 0 L 5 800" />
+            </svg>
+          </div>
+
+          <!-- Timeline Items -->
+          <div class="timeline-items-list">
+            
+            <!-- Step 1 -->
+            <div class="timeline-item scroll-reveal" id="step-1">
+              <div class="timeline-indicator-node">
+                <span class="node-pulse"></span>
+              </div>
+              <div class="timeline-time">8:30 AM</div>
+              <div class="timeline-card">
+                <div class="timeline-card-icon">
+                  <!-- Sunrise Icon -->
+                  <svg class="icon-svg" viewBox="0 0 24 24" width="28" height="28">
+                    <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="timeline-card-image-wrapper">
+                  <img src="assets/gallery_classroom.jpg" alt="Joyful Welcome & Chanting" class="timeline-card-image" onerror="this.src='assets/school_hero.png';">
+                </div>
+                <h4 class="timeline-card-title" data-key="timeline_1_title"></h4>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-item scroll-reveal" id="step-2">
+              <div class="timeline-indicator-node">
+                <span class="node-pulse"></span>
+              </div>
+              <div class="timeline-time">10:00 AM</div>
+              <div class="timeline-card">
+                <div class="timeline-card-icon">
+                  <!-- Lab Beaker Icon -->
+                  <svg class="icon-svg" viewBox="0 0 24 24" width="28" height="28">
+                    <path d="M6 3h12M19 17.5L14 7V3h-4v4L5 17.5c-1 2.2.5 4.5 3 4.5h8c2.5 0 4-2.3 3-4.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M8.5 15h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="timeline-card-image-wrapper">
+                  <img src="assets/gallery_kreedo.jpg" alt="Kreedo Lab setup" class="timeline-card-image" onerror="this.src='assets/school_hero.png';">
+                </div>
+                <h4 class="timeline-card-title" data-key="timeline_2_title"></h4>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-item scroll-reveal" id="step-3">
+              <div class="timeline-indicator-node">
+                <span class="node-pulse"></span>
+              </div>
+              <div class="timeline-time">11:30 AM</div>
+              <div class="timeline-card timeline-card-interactive-yoga">
+                <div class="timeline-card-icon">
+                  <!-- Custom Animated Yoga Icon -->
+                  <svg id="svg-kids-yoga" class="icon-svg yoga-breathing" viewBox="0 0 100 100" width="48" height="48" style="cursor: pointer;">
+                    <!-- Breathing Ring Background -->
+                    <circle class="yoga-ring-bg" cx="50" cy="50" r="38" fill="none" stroke="var(--accent-gold-alpha)" stroke-width="2" />
+                    <!-- Breathing Ring Dynamic -->
+                    <circle class="yoga-ring-dynamic" cx="50" cy="50" r="38" fill="none" stroke="var(--accent-gold)" stroke-width="4" />
+                    <!-- Yoga Figure (Lotus Pose Simple Vectors) -->
+                    <path class="yoga-figure" d="M50,30 C53,30 55,27 55,24 C55,21 53,18 50,18 C47,18 45,21 45,24 C45,27 47,30 50,30 Z M50,32 L50,55 M50,38 L30,48 C30,48 26,42 32,38 M50,38 L70,48 C70,48 74,42 68,38 M30,68 C35,68 42,60 50,60 C58,60 65,68 70,68 C65,74 58,72 50,72 C42,72 35,74 30,68 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="timeline-card-image-wrapper">
+                  <img src="assets/gallery_yoga.jpg" alt="Kids Yoga session" class="timeline-card-image" onerror="this.src='assets/school_hero.png';">
+                </div>
+                <h4 class="timeline-card-title" data-key="timeline_3_title"></h4>
+                <div class="yoga-mode-indicator" id="yoga-mode-indicator" data-key="yoga_breathing_normal"></div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-item scroll-reveal" id="step-4">
+              <div class="timeline-indicator-node">
+                <span class="node-pulse"></span>
+              </div>
+              <div class="timeline-time">1:00 PM</div>
+              <div class="timeline-card">
+                <div class="timeline-card-icon">
+                  <!-- Custom Animated Lathi Kathi Icon -->
+                  <svg id="svg-lathi-kathi" class="icon-svg lathi-strike" viewBox="0 0 100 100" width="48" height="48">
+                    <!-- Ring background -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent-gold-alpha)" stroke-width="1" />
+                    <!-- Active stick 1 -->
+                    <line class="lathi-stick stick-1" x1="20" y1="80" x2="80" y2="20" stroke="var(--accent-gold)" stroke-width="6" stroke-linecap="round" />
+                    <!-- Active stick 2 (crossing) -->
+                    <line class="lathi-stick stick-2" x1="20" y1="20" x2="80" y2="80" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                    <!-- Impact sparkles -->
+                    <path class="lathi-sparkle sparkle-1" d="M46,46 L40,40" stroke="var(--accent-gold)" stroke-width="2" />
+                    <path class="lathi-sparkle sparkle-2" d="M54,46 L60,40" stroke="var(--accent-gold)" stroke-width="2" />
+                    <path class="lathi-sparkle sparkle-3" d="M46,54 L40,60" stroke="var(--accent-gold)" stroke-width="2" />
+                    <path class="lathi-sparkle sparkle-4" d="M54,54 L60,60" stroke="var(--accent-gold)" stroke-width="2" />
+                  </svg>
+                </div>
+                <div class="timeline-card-image-wrapper">
+                  <img src="assets/gallery_lathi.jpg" alt="Lathi Kathi Training" class="timeline-card-image" onerror="this.src='assets/school_hero.png';">
+                </div>
+                <h4 class="timeline-card-title" data-key="timeline_4_title"></h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Trust Milestones Section -->
+    <section id="milestones" class="milestones-section animate-reveal">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-badge" data-key="milestones_badge"></span>
+          <h3 class="section-title" data-key="milestones_title"></h3>
+          <p class="section-desc" data-key="milestones_desc"></p>
+        </div>
+
+        <!-- Milestone Counters Grid -->
+        <div class="milestones-counters scroll-reveal">
+          
+          <!-- Counter 1 -->
+          <div class="counter-card">
+            <div class="counter-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="counter-number-wrapper">
+              <span class="counter-number" data-target="300">0</span><span class="counter-plus">+</span>
+            </div>
+            <p class="counter-label" data-key="count_students_label"></p>
+          </div>
+
+          <!-- Counter 2 -->
+          <div class="counter-card">
+            <div class="counter-icon"><i class="fa-solid fa-school"></i></div>
+            <div class="counter-number-wrapper">
+              <span class="counter-number" data-target="10">0</span><span class="counter-plus">+</span>
+            </div>
+            <p class="counter-label" data-key="count_classrooms_label"></p>
+          </div>
+
+          <!-- Counter 3 -->
+          <div class="counter-card">
+            <div class="counter-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="counter-number-wrapper">
+              <span class="counter-number" data-target="4">0</span><span class="counter-plus">+</span>
+            </div>
+            <p class="counter-label" data-key="count_experience_label"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5b. Parent Testimonials Section -->
+    <section id="reviews" class="programs-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-badge" data-key="reviews_badge"></span>
+          <h3 class="section-title" data-key="reviews_title"></h3>
+          <p class="section-desc" data-key="reviews_desc"></p>
+        </div>
+
+        <!-- Testimonials Swiper Slider -->
+        <div class="swiper reviews-slider scroll-reveal">
+          <div class="swiper-wrapper">
+            
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="review-text" data-key="review_1_text"></p>
+                <div class="review-author-info">
+                  <h5 class="review-author" data-key="review_1_parent"></h5>
+                  <span class="review-relation" data-key="review_1_grade"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="review-text" data-key="review_2_text"></p>
+                <div class="review-author-info">
+                  <h5 class="review-author" data-key="review_2_parent"></h5>
+                  <span class="review-relation" data-key="review_2_grade"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <p class="review-text" data-key="review_3_text"></p>
+                <div class="review-author-info">
+                  <h5 class="review-author" data-key="review_3_parent"></h5>
+                  <span class="review-relation" data-key="review_3_grade"></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- Slider Navigation & Pagination -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Features Component Grids & Dynamic Cards -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-badge" data-key="features_badge"></span>
+          <h3 class="section-title" data-key="features_title"></h3>
+          <p class="section-desc" data-key="features_desc"></p>
+        </div>
+
+        <div class="features-grid">
+          
+          <!-- Card 1: Kreedo Lab Setup -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-puzzle-piece"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_kreedo.jpg" alt="Kreedo Lab Setup" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_1_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 2: 4Q Development -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_yoga.jpg" alt="4Q Development" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_2_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 3: Abacus -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_kreedo.jpg" alt="Abacus Training" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_3_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 4: Spacious Classrooms -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-school"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_classroom.jpg" alt="Spacious Classrooms" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_4_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 5: CCTV Surveillance -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-video"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/school_hero.png" alt="CCTV Surveillance" class="feature-card-image">
+              </div>
+              <h4 class="feature-title" data-key="feat_5_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 6: Safe Van Facility -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-van-shuttle"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_van.jpg" alt="Safe Van Facility" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_6_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 7: Sports Area -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-basketball"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_sports.jpg" alt="Sports Area" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_7_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 8: Personal Attention -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_classroom.jpg" alt="Personal Attention" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_8_title"></h4>
+            </div>
+          </div>
+
+          <!-- Card 9: Trained Teachers -->
+          <div class="feature-card tilt-card scroll-reveal">
+            <div class="card-inner">
+              <div class="feature-icon">
+                <i class="fa-solid fa-chalkboard-user"></i>
+              </div>
+              <div class="feature-card-image-wrapper">
+                <img src="assets/gallery_classroom.jpg" alt="Trained Teachers" class="feature-card-image" onerror="this.src='assets/school_hero.png';">
+              </div>
+              <h4 class="feature-title" data-key="feat_9_title"></h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Campus Media Gallery & Virtual Tour -->
+    <section id="gallery" class="media-gallery-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-badge" data-key="media_badge"></span>
+          <h3 class="section-title" data-key="media_title"></h3>
+          <p class="section-desc" data-key="media_desc"></p>
+        </div>
+
+        <!-- 1. Virtual Campus Tour Video Player -->
+        <div class="video-tour-container scroll-reveal">
+          <div class="video-wrapper">
+            <video id="campus-video" poster="assets/school_hero.png" preload="none" muted playsinline loop>
+              <source src="assets/tour_video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay" id="video-overlay">
+              <div class="video-play-btn">
+                <i class="fa-solid fa-play"></i>
+                <div class="video-play-ripple"></div>
+              </div>
+              <span class="video-overlay-title" data-key="media_video_overlay"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Photo Gallery Grid (Specific File Suggestions) -->
+        <div class="gallery-photo-grid">
+          
+          <!-- Photo 1: Kreedo Lab -->
+          <div class="gallery-card scroll-reveal">
+            <div class="gallery-img-wrapper">
+              <img src="assets/gallery_kreedo.jpg" alt="Kreedo Lab Area" class="gallery-img" onerror="this.src='assets/school_hero.png';">
+              <div class="gallery-card-overlay">
+                <div class="gallery-card-badge">PHOTO 1</div>
+                <h5 class="gallery-card-caption" data-key="gallery_img_1"></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 2: Yoga Session -->
+          <div class="gallery-card scroll-reveal">
+            <div class="gallery-img-wrapper">
+              <img src="assets/gallery_yoga.jpg" alt="Kids Yoga Class" class="gallery-img" onerror="this.src='assets/school_hero.png';">
+              <div class="gallery-card-overlay">
+                <div class="gallery-card-badge">PHOTO 2</div>
+                <h5 class="gallery-card-caption" data-key="gallery_img_2"></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 3: Lathi Kathi Training -->
+          <div class="gallery-card scroll-reveal">
+            <div class="gallery-img-wrapper">
+              <img src="assets/gallery_lathi.jpg" alt="Lathi Kathi Training Sessions" class="gallery-img" onerror="this.src='assets/school_hero.png';">
+              <div class="gallery-card-overlay">
+                <div class="gallery-card-badge">PHOTO 3</div>
+                <h5 class="gallery-card-caption" data-key="gallery_img_3"></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 4: Classrooms Activity -->
+          <div class="gallery-card scroll-reveal">
+            <div class="gallery-img-wrapper">
+              <img src="assets/gallery_classroom.jpg" alt="Spacious Classrooms Activity" class="gallery-img" onerror="this.src='assets/school_hero.png';">
+              <div class="gallery-card-overlay">
+                <div class="gallery-card-badge">PHOTO 4</div>
+                <h5 class="gallery-card-caption" data-key="gallery_img_4"></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 5: Sports Ground -->
+          <div class="gallery-card scroll-reveal">
+            <div class="gallery-img-wrapper">
+              <img src="assets/gallery_sports.jpg" alt="Sports Playground Area" class="gallery-img" onerror="this.src='assets/school_hero.png';">
+              <div class="gallery-card-overlay">
+                <div class="gallery-card-badge">PHOTO 5</div>
+                <h5 class="gallery-card-caption" data-key="gallery_img_5"></h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 6: Transport Fleet -->
+          <div class="gallery-card scroll-reveal">
+            <div class="gallery-img-wrapper">
+              <img src="assets/gallery_van.jpg" alt="Safe Transport Fleet" class="gallery-img" onerror="this.src='assets/school_hero.png';">
+              <div class="gallery-card-overlay">
+                <div class="gallery-card-badge">PHOTO 6</div>
+                <h5 class="gallery-card-caption" data-key="gallery_img_6"></h5>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Admissions Enquiry Portal -->
+    <!-- 7. Admissions Enquiry Portal -->
+    <section id="admission" class="admission-section">
+      <div class="container">
+        <div class="admission-box scroll-reveal" style="max-width: 600px;">
+          <div class="admission-header">
+            <h3 class="admission-title" data-key="adm_title"></h3>
+            <p class="admission-subtitle" data-key="adm_subtitle"></p>
+          </div>
+
+          <!-- Responsive Lead Form -->
+          <form class="admission-form" id="admission-form">
+            <div class="form-grid-vertical">
+              <div class="form-group">
+                <label for="student-name" class="form-label" data-key="form_label_name"></label>
+                <input type="text" id="student-name" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="grade" class="form-label" data-key="form_label_grade"></label>
+                <select id="grade" class="form-select" required>
+                  <option value="" disabled selected data-key="form_opt_select"></option>
+                  <option value="playgroup" data-key="form_opt_playgroup"></option>
+                  <option value="nursery" data-key="form_opt_nursery"></option>
+                  <option value="lkg" data-key="form_opt_lkg"></option>
+                  <option value="ukg" data-key="form_opt_ukg"></option>
+                  <option value="class1" data-key="form_opt_class1"></option>
+                  <option value="class2" data-key="form_opt_class2"></option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="parent-phone" class="form-label" data-key="form_label_phone"></label>
+                <input type="tel" id="parent-phone" class="form-input" pattern="[0-9]{10}" required>
+              </div>
+            </div>
+            <div class="form-action">
+              <button type="submit" class="btn btn-primary submit-btn">
+                <span data-key="form_submit_btn"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Interactive Map & Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <div class="contact-info scroll-reveal">
+            <h3 class="contact-heading" data-key="contact_heading"></h3>
+            <p class="contact-subtext" data-key="contact_subtext"></p>
+            
+            <div class="info-blocks">
+              <div class="info-block">
+                <div class="info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="info-content">
+                  <h5 data-key="info_title_address"></h5>
+                  <p data-key="footer_address"></p>
+                </div>
+              </div>
+              <div class="info-block">
+                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="info-content">
+                  <h5 data-key="info_title_phone"></h5>
+                  <p><a href="tel:8149431588" class="contact-link">8149431588</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-map scroll-reveal">
+            <!-- Google Maps Static/Dynamic Embed Setup for Dhayari Pune area -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.821379767228!2d73.79159981489163!3d18.44643038745332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc29583760a95f9%3A0xe54d8050cb2d33cb!2sPatil%20Plaza%2C%20Dhayari%2C%20Pune%2C%20Maharashtra%20411041!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 9. Structured Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top">
+        <div class="footer-brand-section">
+          <img src="assets/school_logo.png" alt="HS School Logo" class="footer-logo">
+          <h4 class="footer-brand" data-key="nav_brand"></h4>
+          <p class="footer-trust" data-key="footer_trust"></p>
+        </div>
+        
+        <div class="footer-links-section">
+          <h5 class="footer-section-title" data-key="footer_title_links"></h5>
+          <ul class="footer-links-list">
+            <li><a href="#hero" data-key="nav_home"></a></li>
+            <li><a href="#timeline" data-key="nav_timeline"></a></li>
+            <li><a href="#milestones" data-key="nav_milestones"></a></li>
+            <li><a href="#reviews" data-key="nav_reviews"></a></li>
+            <li><a href="#features" data-key="nav_features"></a></li>
+            <li><a href="#admission" data-key="nav_admission"></a></li>
+          </ul>
+        </div>
+
+        <div class="footer-address-section">
+          <h5 class="footer-section-title" data-key="footer_title_address"></h5>
+          <p class="footer-addr-text" data-key="footer_address"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy" data-key="footer_copyright"></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 10. Call-to-Action FAB (Floating Action Button) -->
+  <a href="tel:8149431588" id="call-cta-fab" class="call-fab" aria-label="Call HS School Admission Desk">
+    <div class="fab-pulse-ring"></div>
+    <div class="fab-pulse-ring-2"></div>
+    <div class="fab-icon-container">
+      <i class="fa-solid fa-phone"></i>
+    </div>
+  </a>
+
+  <!-- Confetti Canvas Container overlay -->
+  <canvas id="confetti-canvas" class="confetti-overlay-canvas"></canvas>
+
+  <!-- Custom Symmetrical Magnetic Cursor -->
+  <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+  <div class="custom-cursor-ring" id="custom-cursor-ring"></div>
+
+  <!-- JS Libraries -->
+  <!-- GSAP 3 Core & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- SwiperJS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+  <!-- Local Javascript Core -->
+  <script src="script.js"></script>
+</body>
+</html>
