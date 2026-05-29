@@ -791,6 +791,40 @@ function initScrollRevealEngine() {
   });
 }
 
+// Playful Out-of-the-Box Section End Dividers ScrollTrigger Animations
+function initPlayfulDividersAnimation() {
+  if (typeof ScrollTrigger !== 'undefined') {
+    const dividers = [
+      ".hss-bus-divider",
+      ".hss-toy-blocks-divider",
+      ".hss-rainbow-divider",
+      ".hss-crayon-divider",
+      ".hss-hanging-photos-divider",
+      ".hss-paper-boat-divider",
+      ".hss-lightbulbs-divider",
+      ".hss-balloons-divider",
+      ".hss-paint-divider",
+      ".hss-blackboards-divider",
+      ".hss-school-bell-divider"
+    ];
+
+    dividers.forEach(selector => {
+      ScrollTrigger.create({
+        trigger: selector,
+        start: "top 95%",
+        onEnter: () => {
+          const divider = document.querySelector(selector);
+          if (divider) divider.classList.add("visible");
+        },
+        onLeaveBack: () => {
+          const divider = document.querySelector(selector);
+          if (divider) divider.classList.remove("visible");
+        }
+      });
+    });
+  }
+}
+
 // 13. WHATSAPP REDIRECT FORM SUBMISSION
 function initFormSubmission() {
   const form = document.getElementById('admission-form');
@@ -882,6 +916,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSwiperSlider();
   initConfettiInteraction();
   initScrollRevealEngine();
+  initPlayfulDividersAnimation();
   initFormSubmission();
   initVideoTour();
   initCustomCursorAndMagnetics();

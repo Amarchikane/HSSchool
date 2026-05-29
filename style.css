@@ -917,11 +917,11 @@ body.dark-mode .hero-section {
 
 /* 8. TIMELINE SECTION (VIBRANT ROYAL NAVY THEME BLOCK) */
 .timeline-section {
-  padding: 100px 0;
+  padding: 80px 0;
   background-color: var(--bg-dark-navy);
   color: #FFFFFF;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .timeline-section::before {
@@ -1173,7 +1173,7 @@ body.dark-mode .hero-section {
 
 /* 9. CORE PROGRAMS & SWIPER (WHITE BACKGROUND BLOCK) */
 .programs-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-primary);
   overflow: hidden;
 }
@@ -1283,9 +1283,9 @@ body.dark-mode .hero-section {
 
 /* Milestone Achievement Counters Grid */
 .milestones-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-secondary);
-  overflow: hidden;
+  overflow: visible;
   transition: background-color var(--transition-normal);
 }
 .milestones-counters {
@@ -1416,11 +1416,11 @@ body.dark-mode .review-card {
 
 /* 10. FEATURES COMPONENT GRIDS (VIBRANT ROYAL MIDNIGHT BLOCK) */
 .features-section {
-  padding: 100px 0;
+  padding: 120px 0 80px 0;
   background-color: var(--bg-midnight);
   color: #FFFFFF;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .features-section .section-title {
@@ -1851,7 +1851,7 @@ body.dark-mode .review-card {
 
 /* 11. ADMISSIONS FORM (VIBRANT NAVY BACKDROP BLOCK) */
 .admission-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background: linear-gradient(135deg, var(--bg-secondary) 0%, #DCE5F0 100%);
 }
 
@@ -1954,7 +1954,7 @@ body.dark-mode .admission-section {
 
 /* 12. CONTACT & INTEGRATED MAP (CRISP WHITE THEME BLOCK) */
 .contact-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -2236,7 +2236,7 @@ body.dark-mode .admission-section {
 
 /* 17. CAMPUS MEDIA GALLERY & VIRTUAL TOUR */
 .media-gallery-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -2621,17 +2621,56 @@ body.dark-mode .admission-section {
 
   /* Prevent brand logo name and theme toggle overlaps on mobile screens */
   .brand-link {
-    font-size: 1.05rem !important;
+    font-size: 1.3rem !important;
   }
   .header-logo {
-    height: 26px !important;
-    margin-right: 7px !important;
+    height: 36px !important;
+    margin-right: 8px !important;
   }
   .header-container {
     padding: 0 12px !important;
   }
   .header-controls {
     gap: 8px !important;
+  }
+
+  /* Modern Symmetrical and Small Hamburger Menu for Mobile */
+  .nav-toggle-btn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 3.5px !important;
+    background: var(--bg-primary) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: var(--radius-full) !important;
+    box-shadow: var(--shadow-premium) !important;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast) !important;
+  }
+  .nav-toggle-btn:hover {
+    border-color: var(--accent-gold) !important;
+  }
+  .hamburger-bar {
+    width: 14px !important;
+    height: 1.5px !important;
+    background-color: var(--text-primary) !important;
+    margin: 0 !important;
+  }
+  .nav-toggle-btn.open .hamburger-bar:nth-child(1) {
+    transform: translateY(5px) rotate(45deg) !important;
+    background-color: #FFFFFF !important;
+  }
+  .nav-toggle-btn.open .hamburger-bar:nth-child(2) {
+    opacity: 0 !important;
+  }
+  .nav-toggle-btn.open .hamburger-bar:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg) !important;
+    background-color: #FFFFFF !important;
   }
 
   /* Prevent squeezed/cramped form inputs on narrow screens */
@@ -2674,17 +2713,17 @@ body.dark-mode .admission-section {
     padding-left: 35px !important;
   }
   .brand-link {
-    font-size: 1.2rem !important;
+    font-size: 1.15rem !important;
   }
   .header-logo {
-    height: 36px !important;
+    height: 30px !important;
   }
 }
 /* -------------------------------------------------------------
  * 16. SECTION 1: "GROW WITH US" CURRICULUM STYLING
  * ------------------------------------------------------------- */
 .hss-curriculum-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -2812,7 +2851,7 @@ body.dark-mode .admission-section {
  * 17. SECTION 2: 4Q HOLISTIC RADAR CHART STYLING
  * ------------------------------------------------------------- */
 .hss-4q-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -2949,7 +2988,7 @@ body.dark-mode .admission-section {
  * 18. SECTION 3: 3D MEMORY SCRAPBOOK ALBUM STYLING
  * ------------------------------------------------------------- */
 .hss-scrapbook-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -3222,7 +3261,7 @@ body.dark-mode .admission-section {
 
 /* Gamified Skill Tree Section styling */
 .hss-skill-tree-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -3357,7 +3396,7 @@ body.dark-mode .admission-section {
 
 /* Mental Math Gym Game styling */
 .hss-brain-gym-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -3472,17 +3511,1079 @@ body.dark-mode .admission-section {
   }
 }
 
+/* Playful 3D Alphabet Toy Blocks Divider */
+.hss-toy-blocks-divider {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Outer wrapper handles staggered falling animation */
+.hss-toy-block-wrapper {
+  opacity: 0;
+  transform: translateY(-200px) scale(0.5);
+  display: inline-block;
+}
+
+.hss-toy-blocks-divider.visible .hss-toy-block-wrapper {
+  animation: block-fall 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes block-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(15px) scale(1.05);
+  }
+  80% {
+    transform: translateY(-8px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes block-float {
+  0%, 100% {
+    transform: rotate(var(--rot)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--rot)) translateY(-8px);
+  }
+}
+
+/* Inner block handles background, rotation, 3D style, hover and floating bobbing */
+.hss-toy-block {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-gradient);
+  border: 3px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 0 var(--shadow-color), 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: rotate(var(--rot));
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+  
+  /* Infinite Gentle Bobbing Floating Animation */
+  animation: block-float 3s ease-in-out infinite;
+}
+
+/* Stagger floating speeds organically to feel alive */
+.hss-toy-block.block-a { animation-duration: 2.8s; }
+.hss-toy-block.block-b { animation-duration: 3.2s; animation-delay: 0.2s; }
+.hss-toy-block.block-c { animation-duration: 3.0s; animation-delay: 0.4s; }
+.hss-toy-block.block-d { animation-duration: 3.4s; animation-delay: 0.6s; }
+.hss-toy-block.block-e { animation-duration: 2.9s; animation-delay: 0.8s; }
+.hss-toy-block.block-f { animation-duration: 3.1s; animation-delay: 1.0s; }
+.hss-toy-block.block-g { animation-duration: 3.3s; animation-delay: 1.2s; }
+.hss-toy-block.block-h { animation-duration: 3.0s; animation-delay: 1.4s; }
+.hss-toy-block.block-i { animation-duration: 3.5s; animation-delay: 1.6s; }
+
+.hss-toy-block:hover {
+  transform: scale(1.15) translateY(-8px) rotate(calc(var(--rot) * 1.5)) !important;
+  box-shadow: 0 12px 0 var(--shadow-color), 0 18px 25px rgba(0, 0, 0, 0.25);
+  animation-play-state: paused;
+}
+
+.hss-toy-block:active {
+  transform: scale(0.95) translateY(2px) rotate(var(--rot)) !important;
+  box-shadow: 0 3px 0 var(--shadow-color), 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 767px) {
+  .hss-toy-blocks-divider {
+    gap: 6px !important;
+    transform: translate(-50%, 50%) scale(0.75) !important;
+  }
+  .hss-toy-block {
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 0 var(--shadow-color), 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  .hss-toy-block:hover {
+    transform: scale(1.1) translateY(-6px) rotate(calc(var(--rot) * 1.2)) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hss-toy-blocks-divider {
+    gap: 4px !important;
+    transform: translate(-50%, 50%) scale(0.65) !important;
+  }
+}
+
+.hss-section-divider-curve-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* --- PLAYFUL OUT-OF-THE-BOX SECTION DIVIDERS --- */
+
+/* 1. School Bus Driving Divider */
+.hss-bus-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hss-school-bus {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 110px;
+  height: 52px;
+  transform: translateX(-150px);
+}
+
+.hss-bus-divider.visible .hss-school-bus {
+  animation: bus-drive-loop 12s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.bus-body {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background: #FFD23F;
+  border: 3px solid #333333;
+  border-radius: 8px 16px 6px 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  animation: bus-bounce 0.2s ease-in-out infinite alternate;
+}
+
+.bus-window {
+  width: 16px;
+  height: 14px;
+  background: #8ECAE6;
+  border: 2px solid #333333;
+  border-radius: 4px;
+}
+
+.bus-headlight {
+  position: absolute;
+  right: 6px;
+  bottom: 8px;
+  width: 8px;
+  height: 8px;
+  background: #FFF;
+  border: 2px solid #333;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #FFF, 0 0 20px #FF0;
+}
+
+.bus-wheel {
+  position: absolute;
+  bottom: -4px;
+  width: 22px;
+  height: 22px;
+  background: #333333;
+  border: 4px double #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  animation: wheel-spin 0.6s linear infinite;
+}
+
+.wheel-1 { left: 16px; }
+.wheel-2 { right: 20px; }
+
+@keyframes bus-bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
+
+@keyframes wheel-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bus-drive-loop {
+  0% {
+    transform: translateX(-150px);
+  }
+  30% {
+    transform: translateX(calc(100vw + 150px));
+  }
+  100% {
+    transform: translateX(calc(100vw + 150px));
+  }
+}
+
+/* 2. Glowing Rainbow Divider */
+.hss-rainbow-divider {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 100px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2; /* LOWERED TO SIT BEHIND CONTAINER CONTENTS */
+}
+
+.rainbow-arc {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  transform-origin: bottom center;
+}
+
+.hss-rainbow-divider.visible .rainbow-arc {
+  animation: rainbow-sweep-loop 14s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+.rainbow-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.stripe-red    { width: 200px; height: 200px; border: 8px solid #FF5E62; bottom: -100px; }
+.stripe-orange { width: 184px; height: 184px; border: 8px solid #FF9966; bottom: -92px; }
+.stripe-yellow { width: 168px; height: 168px; border: 8px solid #FFD97D; bottom: -84px; }
+.stripe-green  { width: 152px; height: 152px; border: 8px solid #52B788; bottom: -76px; }
+.stripe-blue   { width: 136px; height: 136px; border: 8px solid #4EA8DE; bottom: -68px; }
+
+.rainbow-cloud {
+  position: absolute;
+  bottom: -4px;
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+  opacity: 0;
+  transform: scale(0);
+}
+
+.hss-rainbow-divider.visible .rainbow-cloud {
+  animation: cloud-scale-loop 14s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+.rainbow-cloud i {
+  display: inline-block;
+  animation: cloud-drift-icon 3s ease-in-out infinite alternate;
+}
+
+.cloud-left {
+  left: 36px;
+}
+
+.cloud-right {
+  right: 36px;
+}
+
+@keyframes cloud-drift-icon {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes rainbow-sweep-loop {
+  0%, 100% { transform: translateX(-50%) scale(0); }
+  6%, 84% { transform: translateX(-50%) scale(1); }
+  90% { transform: translateX(-50%) scale(0); }
+}
+
+@keyframes cloud-scale-loop {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  8%, 82% { opacity: 1; transform: scale(1); }
+  88% { opacity: 0; transform: scale(0); }
+}
+
+/* 3. Multiple Paper Planes Gliding along Curve */
+.hss-paper-plane {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 12;
+  pointer-events: none;
+}
+
+.plane-1  { font-size: 1.3rem;  color: #FFA41B; animation: plane-glide-1 10s  linear infinite; animation-delay: 0s; }
+.plane-2  { font-size: 0.9rem;  color: #6ECBFF; animation: plane-glide-2 13s  linear infinite; animation-delay: 1.5s; }
+.plane-3  { font-size: 1.5rem;  color: #FF8E8E; animation: plane-glide-3 11s  linear infinite; animation-delay: 3s; }
+.plane-4  { font-size: 1.1rem;  color: #8BC34A; animation: plane-glide-4 14s  linear infinite; animation-delay: 4.5s; }
+.plane-5  { font-size: 1.4rem;  color: #E040FB; animation: plane-glide-1 12s  linear infinite; animation-delay: 6s; }
+.plane-6  { font-size: 0.85rem; color: #00E676; animation: plane-glide-2 15s  linear infinite; animation-delay: 7.5s; }
+.plane-7  { font-size: 1.2rem;  color: #FFD93D; animation: plane-glide-3 12.5s linear infinite; animation-delay: 2.0s; }
+.plane-8  { font-size: 1.6rem;  color: #FF5252; animation: plane-glide-4 11.5s linear infinite; animation-delay: 3.5s; }
+.plane-9  { font-size: 1.0rem;  color: #18FFFF; animation: plane-glide-1 13.5s linear infinite; animation-delay: 5.0s; }
+.plane-10 { font-size: 1.3rem;  color: #FF9100; animation: plane-glide-2 10.5s linear infinite; animation-delay: 6.5s; }
+.plane-11 { font-size: 0.95rem; color: #E040FB; animation: plane-glide-3 12s   linear infinite; animation-delay: 8.0s; }
+.plane-12 { font-size: 1.45rem; color: #4CAF50; animation: plane-glide-4 14s   linear infinite; animation-delay: 9.5s; }
+.plane-13 { font-size: 1.1rem;  color: #FFEB3B; animation: plane-glide-2 13s   linear infinite; animation-delay: 11.0s; }
+
+@keyframes plane-glide-1 {
+  0% { left: -50px; top: 40px; transform: rotate(15deg); opacity: 0; }
+  5% { opacity: 1; }
+  50% { top: 12px; transform: rotate(-3deg); }
+  90% { opacity: 1; }
+  95%, 100% { left: 105%; top: 45px; transform: rotate(18deg); opacity: 0; }
+}
+
+@keyframes plane-glide-2 {
+  0% { left: -50px; top: 55px; transform: rotate(10deg); opacity: 0; }
+  5% { opacity: 0.8; }
+  50% { top: 22px; transform: rotate(-6deg); }
+  90% { opacity: 0.8; }
+  95%, 100% { left: 105%; top: 32px; transform: rotate(14deg); opacity: 0; }
+}
+
+@keyframes plane-glide-3 {
+  0% { left: -50px; top: 25px; transform: rotate(18deg); opacity: 0; }
+  5% { opacity: 0.9; }
+  50% { top: 6px; transform: rotate(-1deg); }
+  90% { opacity: 0.9; }
+  95%, 100% { left: 105%; top: 40px; transform: rotate(22deg); opacity: 0; }
+}
+
+@keyframes plane-glide-4 {
+  0% { left: -50px; top: 35px; transform: rotate(12deg); opacity: 0; }
+  5% { opacity: 0.9; }
+  50% { top: 18px; transform: rotate(-4deg); }
+  90% { opacity: 0.9; }
+  95%, 100% { left: 105%; top: 38px; transform: rotate(16deg); opacity: 0; }
+}
+
+/* 4. Playful Wiggling Caterpillar Divider */
+.hss-caterpillar-divider {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 320px;
+  height: 50px;
+  overflow: visible;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hss-caterpillar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: caterpillar-crawl 5s ease-in-out infinite alternate;
+}
+
+.caterpillar-segment {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #333333;
+  margin-right: -8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  animation: segment-wiggle 0.6s ease-in-out infinite alternate;
+}
+
+.segment-1 { animation-delay: 0.1s; }
+.segment-2 { animation-delay: 0.2s; }
+.segment-3 { animation-delay: 0.3s; }
+.segment-4 { animation-delay: 0.4s; }
+.segment-5 { animation-delay: 0.5s; }
+.segment-6 { animation-delay: 0.6s; }
+.segment-7 { animation-delay: 0.7s; }
+.segment-8 { animation-delay: 0.8s; }
+
+.caterpillar-head {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid #333333;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  animation: segment-wiggle 0.6s ease-in-out infinite alternate;
+  animation-delay: 0.9s;
+}
+
+.caterpillar-eye {
+  position: absolute;
+  top: 8px;
+  width: 5px;
+  height: 8px;
+  background: #333333;
+  border-radius: 50%;
+}
+.eye-left  { left: 10px; }
+.eye-right { right: 10px; }
+
+.caterpillar-antenna {
+  position: absolute;
+  top: -10px;
+  width: 3px;
+  height: 12px;
+  background: #333333;
+}
+.antenna-left {
+  left: 8px;
+  transform: rotate(-15deg);
+}
+.antenna-right {
+  right: 8px;
+  transform: rotate(15deg);
+}
+
+@keyframes segment-wiggle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes caterpillar-crawl {
+  0% { transform: translateX(-60px); }
+  100% { transform: translateX(60px); }
+}
+
+/* 5. Crayon Pencil Scribble Divider */
+.hss-crayon-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.crayon-pencil {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  font-size: 2.2rem;
+  transform: rotate(-45deg);
+  z-index: 4;
+}
+
+.hss-crayon-divider.visible .crayon-pencil {
+  animation: crayon-draw 10s ease-in-out infinite;
+}
+
+@keyframes crayon-draw {
+  0% {
+    left: -50px;
+    transform: rotate(-45deg) translateY(0);
+  }
+  40% {
+    left: 45%;
+    transform: rotate(-35deg) translateY(-2px);
+  }
+  45% {
+    left: 55%;
+    transform: rotate(-55deg) translateY(2px);
+  }
+  80% {
+    left: 105%;
+    transform: rotate(-45deg) translateY(0);
+  }
+  100% {
+    left: 105%;
+    transform: rotate(-45deg) translateY(0);
+  }
+}
+
+.crayon-scribble {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hss-crayon-divider.visible .crayon-scribble {
+  opacity: 0.7;
+}
+
+/* 6. Hanging Polaroid Photo Clips Divider */
+.hss-hanging-photos-divider {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.hanging-rope {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: calc(100% + 400px);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.15);
+}
+
+.photo-clip {
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  opacity: 0;
+}
+
+.hss-hanging-photos-divider.visible .photo-clip {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.clip-1 { animation: swing-photo 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
+.clip-2 { animation: swing-photo 4.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; animation-delay: 0.3s; }
+.clip-3 { animation: swing-photo 3.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; animation-delay: 0.6s; }
+.clip-4 { animation: swing-photo 4.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; animation-delay: 0.9s; }
+
+@keyframes swing-photo {
+  0% { transform: rotate(-8deg); }
+  100% { transform: rotate(8deg); }
+}
+
+.photo-clip::before {
+  content: '📌';
+  font-size: 1.1rem;
+  position: absolute;
+  top: -8px;
+  z-index: 10;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+}
+
+.photo-card {
+  width: 70px;
+  height: 85px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-card:hover {
+  transform: scale(1.1) rotate(5deg) !important;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+  z-index: 12;
+}
+
+.photo-emoji {
+  font-size: 2rem;
+  margin-top: 4px;
+}
+
+.photo-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #555555;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* 7. Floating Paper Boat Divider */
+.hss-paper-boat-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.boat-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  display: block;
+}
+
+.hss-boat-wrapper {
+  position: absolute;
+  bottom: 10px;
+  z-index: 4;
+  transform-origin: bottom center;
+  opacity: 0;
+}
+
+.hss-paper-boat-divider.visible .hss-boat-wrapper {
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.origami-boat {
+  width: 60px;
+  height: 36px;
+  fill: var(--boat-color);
+  transform: scale(var(--boat-scale));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.boat-1  { left: 6%;  animation: boat-bob-1  5.5s ease-in-out infinite; }
+.boat-2  { left: 16%; animation: boat-bob-2  6.5s ease-in-out infinite; }
+.boat-3  { left: 26%; animation: boat-bob-1  5.8s ease-in-out infinite; }
+.boat-4  { left: 36%; animation: boat-bob-2  7.0s ease-in-out infinite; }
+.boat-5  { left: 46%; animation: boat-bob-1  6.2s ease-in-out infinite; }
+.boat-6  { left: 56%; animation: boat-bob-2  5.2s ease-in-out infinite; }
+.boat-7  { left: 66%; animation: boat-bob-1  6.8s ease-in-out infinite; }
+.boat-8  { left: 76%; animation: boat-bob-2  5.9s ease-in-out infinite; }
+.boat-9  { left: 86%; animation: boat-bob-1  6.4s ease-in-out infinite; }
+.boat-10 { left: 93%; animation: boat-bob-2  7.2s ease-in-out infinite; }
+
+@keyframes boat-bob-1 {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-7px) rotate(5deg); }
+}
+
+@keyframes boat-bob-2 {
+  0%, 100% { transform: translateY(0) rotate(5deg); }
+  50% { transform: translateY(-5px) rotate(-5deg); }
+}
+
+/* 8. Hanging Glowing Lightbulbs Divider */
+.hss-lightbulbs-divider {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 36px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.bulb-wire {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  opacity: 0;
+}
+
+.hss-lightbulbs-divider.visible .bulb-wire {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.wire-1 { height: 50px; animation: bulb-swing 4s ease-in-out infinite alternate; }
+.wire-2 { height: 65px; animation: bulb-swing 3.2s ease-in-out infinite alternate; animation-delay: 0.3s; }
+.wire-3 { height: 55px; animation: bulb-swing 3.8s ease-in-out infinite alternate; animation-delay: 0.6s; }
+.wire-4 { height: 70px; animation: bulb-swing 3.5s ease-in-out infinite alternate; animation-delay: 0.9s; }
+.wire-5 { height: 60px; animation: bulb-swing 4.2s ease-in-out infinite alternate; animation-delay: 1.2s; }
+
+@keyframes bulb-swing {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.bulb-wire::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  display: block;
+}
+
+.lightbulb {
+  font-size: 1.8rem;
+  margin-top: -2px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 0 2px rgba(255, 210, 63, 0.2));
+}
+
+.lightbulb:hover {
+  transform: scale(1.2);
+}
+
+.wire-1 .lightbulb { animation: bulb-glow-1 2s ease-in-out infinite alternate; }
+.wire-2 .lightbulb { animation: bulb-glow-2 2.3s ease-in-out infinite alternate; }
+.wire-3 .lightbulb { animation: bulb-glow-3 1.8s ease-in-out infinite alternate; }
+.wire-4 .lightbulb { animation: bulb-glow-4 2.5s ease-in-out infinite alternate; }
+.wire-5 .lightbulb { animation: bulb-glow-5 2.1s ease-in-out infinite alternate; }
+
+@keyframes bulb-glow-1 { 0% { filter: drop-shadow(0 0 2px rgba(255,210,63,0.3)); opacity: 0.7; } 100% { filter: drop-shadow(0 0 15px rgba(255,210,63,1)); opacity: 1; } }
+@keyframes bulb-glow-2 { 0% { filter: drop-shadow(0 0 2px rgba(255,210,63,0.3)); opacity: 0.7; } 100% { filter: drop-shadow(0 0 15px rgba(255,210,63,1)); opacity: 1; } }
+@keyframes bulb-glow-3 { 0% { filter: drop-shadow(0 0 2px rgba(255,210,63,0.3)); opacity: 0.7; } 100% { filter: drop-shadow(0 0 15px rgba(255,210,63,1)); opacity: 1; } }
+@keyframes bulb-glow-4 { 0% { filter: drop-shadow(0 0 2px rgba(255,210,63,0.3)); opacity: 0.7; } 100% { filter: drop-shadow(0 0 15px rgba(255,210,63,1)); opacity: 1; } }
+@keyframes bulb-glow-5 { 0% { filter: drop-shadow(0 0 2px rgba(255,210,63,0.3)); opacity: 0.7; } 100% { filter: drop-shadow(0 0 15px rgba(255,210,63,1)); opacity: 1; } }
+
+/* 9. Playful Flying Balloons Divider */
+.hss-balloons-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hss-balloon {
+  position: absolute;
+  bottom: -110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.18));
+}
+
+.balloon-body {
+  width: 44px;
+  height: 54px;
+  background: var(--bg-grad);
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  position: relative;
+  box-shadow: inset -5px -5px 0 rgba(0,0,0,0.12);
+}
+
+.balloon-body::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid var(--knot-color);
+}
+
+.balloon-string {
+  width: 1.5px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.hss-balloons-divider.visible .balloon-1 { animation: balloon-fly-1 12s ease-in-out infinite; left: 10%; }
+.hss-balloons-divider.visible .balloon-2 { animation: balloon-fly-2 15s ease-in-out infinite; left: 26%; animation-delay: 2.5s; }
+.hss-balloons-divider.visible .balloon-3 { animation: balloon-fly-3 13s ease-in-out infinite; left: 42%; animation-delay: 1.0s; }
+.hss-balloons-divider.visible .balloon-4 { animation: balloon-fly-4 16s ease-in-out infinite; left: 58%; animation-delay: 4.0s; }
+.hss-balloons-divider.visible .balloon-5 { animation: balloon-fly-1 14s ease-in-out infinite; left: 74%; animation-delay: 1.5s; }
+.hss-balloons-divider.visible .balloon-6 { animation: balloon-fly-3 17s ease-in-out infinite; left: 88%; animation-delay: 5.0s; }
+
+@keyframes balloon-fly-1 {
+  0% { bottom: -120px; transform: translateX(0) scale(0.85) rotate(-5deg); opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  90%, 100% { bottom: 130px; transform: translateX(30px) scale(0.85) rotate(5deg); opacity: 0; }
+}
+
+@keyframes balloon-fly-2 {
+  0% { bottom: -120px; transform: translateX(0) scale(1.1) rotate(4deg); opacity: 0; }
+  10% { opacity: 0.95; }
+  80% { opacity: 0.95; }
+  90%, 100% { bottom: 140px; transform: translateX(-35px) scale(1.1) rotate(-4deg); opacity: 0; }
+}
+
+@keyframes balloon-fly-3 {
+  0% { bottom: -120px; transform: translateX(0) scale(0.95) rotate(-3deg); opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  90%, 100% { bottom: 120px; transform: translateX(-25px) scale(0.95) rotate(3deg); opacity: 0; }
+}
+
+@keyframes balloon-fly-4 {
+  0% { bottom: -120px; transform: translateX(0) scale(1.0) rotate(5deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  80% { opacity: 0.9; }
+  90%, 100% { bottom: 135px; transform: translateX(40px) scale(1.0) rotate(-5deg); opacity: 0; }
+}
+
+/* 10. Paint Brush & Splatters Divider */
+.hss-paint-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.paint-brush {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  font-size: 2.2rem;
+  transform: rotate(-15deg);
+  z-index: 4;
+}
+
+.hss-paint-divider.visible .paint-brush {
+  animation: brush-stroke 9s ease-in-out infinite;
+}
+
+@keyframes brush-stroke {
+  0% { left: -50px; transform: rotate(-15deg) translateY(0); }
+  35% { left: 45%; transform: rotate(15deg) translateY(-3px); }
+  40% { left: 55%; transform: rotate(-15deg) translateY(3px); }
+  75% { left: 105%; transform: rotate(10deg) translateY(0); }
+  100% { left: 105%; transform: rotate(10deg) translateY(0); }
+}
+
+.paint-splatters {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 15%;
+  z-index: 3;
+}
+
+.splat {
+  font-size: 1.6rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s;
+}
+
+.hss-paint-divider.visible .splat-1 { transition-delay: 1.5s; opacity: 1; transform: scale(1); }
+.hss-paint-divider.visible .splat-2 { transition-delay: 2.8s; opacity: 1; transform: scale(1.2); }
+.hss-paint-divider.visible .splat-3 { transition-delay: 4.2s; opacity: 1; transform: scale(1.1); }
+.hss-paint-divider.visible .splat-4 { transition-delay: 5.5s; opacity: 1; transform: scale(1.3); }
+
+/* 11. Blackboard Slates Divider */
+.hss-blackboards-divider {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 28px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.slate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  opacity: 0;
+}
+
+.hss-blackboards-divider.visible .slate {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slate-1 { animation: slate-swing 3.6s ease-in-out infinite alternate; }
+.slate-2 { animation: slate-swing 4.4s ease-in-out infinite alternate; animation-delay: 0.3s; }
+.slate-3 { animation: slate-swing 4.0s ease-in-out infinite alternate; animation-delay: 0.6s; }
+
+@keyframes slate-swing {
+  0% { transform: rotate(-6deg); }
+  100% { transform: rotate(6deg); }
+}
+
+.slate::before {
+  content: '';
+  width: 2px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  display: block;
+}
+
+.slate-frame {
+  width: 65px;
+  height: 48px;
+  background: #1B4332;
+  border: 4px solid #8B5A2B;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s ease;
+}
+
+.slate-frame:hover {
+  transform: scale(1.1) rotate(5deg) !important;
+}
+
+/* 12. School Bell Divider */
+.hss-school-bell-divider {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.school-bell {
+  font-size: 2.4rem;
+  cursor: pointer;
+  pointer-events: auto;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.15));
+  transition: transform 0.2s ease;
+}
+
+.school-bell:hover {
+  transform: scale(1.15);
+}
+
+.hss-school-bell-divider.visible .school-bell {
+  animation: bell-ring-loop 7s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes bell-ring-loop {
+  0%, 80%, 100% { transform: rotate(0); }
+  85% { transform: rotate(18deg); }
+  90% { transform: rotate(-15deg); }
+  93% { transform: rotate(10deg); }
+  96% { transform: rotate(-8deg); }
+  98% { transform: rotate(4deg); }
+}
+
+@media (max-width: 767px) {
+  .hss-rainbow-divider {
+    transform: translateX(-50%) scale(0.75);
+  }
+  .hss-caterpillar-divider {
+    transform: translate(-50%, 50%) scale(0.8);
+  }
+  .hss-hanging-photos-divider {
+    gap: 12px;
+    transform: translateX(-50%) scale(0.85);
+  }
+  .hss-lightbulbs-divider {
+    gap: 20px;
+    transform: translateX(-50%) scale(0.8);
+  }
+  .hss-blackboards-divider {
+    gap: 16px;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+.hss-section-divider-curve-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hss-section-divider-curve-top svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
 /* -------------------------------------------------------------
  * 21. OUT-OF-THE-BOX INTERACTIVE SECTION BACKGROUNDS SYSTEM
  * ------------------------------------------------------------- */
-.timeline-section, .milestones-section, .programs-section, 
-.features-section, .hss-curriculum-section, .hss-4q-section, 
-.hss-scrapbook-section, .hss-skill-tree-section, 
-.hss-brain-gym-section, .admission-section {
+/* Base relative layout and visible overflow for all main sections */
+.hero-section,
+.timeline-section,
+.milestones-section,
+.programs-section, 
+.features-section,
+.hss-curriculum-section,
+.hss-4q-section, 
+.hss-scrapbook-section,
+.hss-skill-tree-section, 
+.hss-brain-gym-section,
+.media-gallery-section,
+.hss-faq-section,
+.admission-section,
+.contact-section {
   position: relative;
-  overflow: hidden;
-  z-index: 2;
+  overflow: visible !important;
 }
+
+/* Custom progressive z-indices to prevent bottom-divider occlusion and overlap */
+.hero-section { z-index: 15 !important; }
+.timeline-section { z-index: 14 !important; }
+.milestones-section { z-index: 13 !important; }
+.programs-section { z-index: 12 !important; } /* Reviews section */
+.features-section { z-index: 14 !important; } /* Top curve divider overlay needs to sit above reviews */
+.hss-curriculum-section { z-index: 13 !important; }
+.hss-4q-section { z-index: 12 !important; } /* Holistic section */
+.hss-scrapbook-section { z-index: 11 !important; }
+.hss-skill-tree-section { z-index: 10 !important; }
+.hss-brain-gym-section { z-index: 9 !important; }
+.media-gallery-section { z-index: 8 !important; }
+.hss-faq-section { z-index: 7 !important; }
+.admission-section { z-index: 6 !important; }
+.contact-section { z-index: 5 !important; }
 
 /* Ensure section content containers sit on top of backdrops */
 .timeline-section > .container, .milestones-section > .container, .programs-section > .container, 
@@ -3775,7 +4876,7 @@ body.dark-mode .hss-scrapbook-notebook-bg {
  * 23. FAQ ACCORDION COMPONENT STYLING
  * ------------------------------------------------------------- */
 .hss-faq-section {
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -3977,13 +5078,23 @@ body.dark-mode .hss-floating-bg-element {
 }
 
 /* Ensure sections contain the absolutely positioned floating elements cleanly */
-.timeline-section, .milestones-section, .programs-section, .features-section,
-.hss-curriculum-section, .hss-4q-section, .hss-scrapbook-section,
+.timeline-section, .hss-curriculum-section, .hss-4q-section, .hss-scrapbook-section,
 .hss-skill-tree-section, .hss-brain-gym-section, .media-gallery-section,
 .hss-faq-section, .admission-section, .contact-section {
   position: relative;
   overflow: hidden; /* Avoid side-scrolling shifts from drifting elements */
 }
+
+.milestones-section, .features-section {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Divider Stylings */
+.hss-divider-bus::after { content: '🚌'; display: block; text-align: center; font-size: 2rem; }
+.hss-divider-rainbow::after { content: '🌈'; display: block; text-align: center; font-size: 2rem; }
+.hss-divider-plane::after { content: '✈️'; display: block; text-align: center; font-size: 2rem; }
+.hss-divider-caterpillar::after { content: '🐛'; display: block; text-align: center; font-size: 2rem; }
 
 /* =============================================================
  * MOBILE ONE-SCREEN-PER-SECTION LAYOUT
@@ -4056,13 +5167,15 @@ body.dark-mode .hss-floating-bg-element {
   .timeline-section {
     min-height: unset !important;
     display: block !important;
+    padding: 36px 0 !important;
+    overflow: visible !important;
   }
 
   /* --- CURRICULUM (Grow With Us / Academics) --- kept at original layout --- */
 
   /* --- MILESTONES -------------------------------------------- */
   .milestones-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .milestones-counters {
     margin-top: 16px !important;
@@ -4089,7 +5202,7 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- REVIEWS ----------------------------------------------- */
   .programs-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .reviews-slider {
     padding: 8px 0 36px 0 !important;
@@ -4115,7 +5228,7 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- FEATURES / AMENITIES DASHBOARD ----------------------- */
   .features-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 80px 0 24px 0 !important;
   }
   .hss-amenities-dashboard {
     gap: 12px !important;
@@ -4173,7 +5286,7 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- PHILOSOPHY (4Q Radar) -------------------------------- */
   .hss-4q-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .hss-4q-grid {
     gap: 14px !important;
@@ -4204,7 +5317,7 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- SCRAPBOOK ALBUM -------------------------------------- */
   .hss-scrapbook-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .hss-scrapbook-container {
     gap: 14px !important;
@@ -4233,12 +5346,12 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- SKILL TREE ------------------------------------------- */
   .hss-skill-tree-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
 
   /* --- BRAIN GYM GAME --------------------------------------- */
   .hss-brain-gym-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .hss-game-screen {
     min-height: 160px !important;
@@ -4253,12 +5366,12 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- FAQ --------------------------------------------------- */
   .hss-faq-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
 
   /* --- ADMISSIONS FORM -------------------------------------- */
   .admission-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .admission-box {
     padding: 20px 14px !important;
@@ -4285,7 +5398,7 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- CONTACT ---------------------------------------------- */
   .contact-section {
-    padding: 36px 0 24px 0 !important;
+    padding: 24px 0 !important;
   }
   .contact-heading {
     font-size: 1.3rem !important;
