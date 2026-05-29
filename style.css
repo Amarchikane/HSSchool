@@ -917,7 +917,7 @@ body.dark-mode .hero-section {
 
 /* 8. TIMELINE SECTION (VIBRANT ROYAL NAVY THEME BLOCK) */
 .timeline-section {
-  padding: 80px 0;
+  padding: 40px 0;
   background-color: var(--bg-dark-navy);
   color: #FFFFFF;
   position: relative;
@@ -1173,7 +1173,7 @@ body.dark-mode .hero-section {
 
 /* 9. CORE PROGRAMS & SWIPER (WHITE BACKGROUND BLOCK) */
 .programs-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-primary);
   overflow: hidden;
 }
@@ -1283,7 +1283,7 @@ body.dark-mode .hero-section {
 
 /* Milestone Achievement Counters Grid */
 .milestones-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-secondary);
   overflow: visible;
   transition: background-color var(--transition-normal);
@@ -1416,7 +1416,7 @@ body.dark-mode .review-card {
 
 /* 10. FEATURES COMPONENT GRIDS (VIBRANT ROYAL MIDNIGHT BLOCK) */
 .features-section {
-  padding: 120px 0 80px 0;
+  padding: 80px 0 40px 0;
   background-color: var(--bg-midnight);
   color: #FFFFFF;
   position: relative;
@@ -1851,7 +1851,7 @@ body.dark-mode .review-card {
 
 /* 11. ADMISSIONS FORM (VIBRANT NAVY BACKDROP BLOCK) */
 .admission-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background: linear-gradient(135deg, var(--bg-secondary) 0%, #DCE5F0 100%);
 }
 
@@ -1954,7 +1954,7 @@ body.dark-mode .admission-section {
 
 /* 12. CONTACT & INTEGRATED MAP (CRISP WHITE THEME BLOCK) */
 .contact-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -2236,7 +2236,7 @@ body.dark-mode .admission-section {
 
 /* 17. CAMPUS MEDIA GALLERY & VIRTUAL TOUR */
 .media-gallery-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -2723,7 +2723,7 @@ body.dark-mode .admission-section {
  * 16. SECTION 1: "GROW WITH US" CURRICULUM STYLING
  * ------------------------------------------------------------- */
 .hss-curriculum-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -2851,7 +2851,7 @@ body.dark-mode .admission-section {
  * 17. SECTION 2: 4Q HOLISTIC RADAR CHART STYLING
  * ------------------------------------------------------------- */
 .hss-4q-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -2988,7 +2988,7 @@ body.dark-mode .admission-section {
  * 18. SECTION 3: 3D MEMORY SCRAPBOOK ALBUM STYLING
  * ------------------------------------------------------------- */
 .hss-scrapbook-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -3261,7 +3261,7 @@ body.dark-mode .admission-section {
 
 /* Gamified Skill Tree Section styling */
 .hss-skill-tree-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -3396,7 +3396,7 @@ body.dark-mode .admission-section {
 
 /* Mental Math Gym Game styling */
 .hss-brain-gym-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -4876,7 +4876,7 @@ body.dark-mode .hss-scrapbook-notebook-bg {
  * 23. FAQ ACCORDION COMPONENT STYLING
  * ------------------------------------------------------------- */
 .hss-faq-section {
-  padding: 60px 0;
+  padding: 30px 0;
   background-color: var(--bg-primary);
   transition: background-color var(--transition-normal);
 }
@@ -5105,10 +5105,9 @@ body.dark-mode .hss-floating-bg-element {
 
   /* --- GLOBAL SECTION RESET ---------------------------------- */
   section {
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-height: unset !important;
+    display: block !important;
+    padding: 24px 0 !important;
     box-sizing: border-box;
   }
 
@@ -5133,8 +5132,7 @@ body.dark-mode .hss-floating-bg-element {
   /* --- HERO -------------------------------------------------- */
   .hero-section {
     padding: 88px 0 24px 0 !important;
-    min-height: 100dvh !important;
-    justify-content: center !important;
+    min-height: unset !important;
   }
   .hero-container {
     gap: 14px !important;
