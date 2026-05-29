@@ -112,11 +112,13 @@ const textContent = {
     footer_copyright: "© 2026 HS School. All Rights Reserved. Managed by Dnyansadhana Educational Trust.",
     yoga_breathing_normal: "Click Yoga icon to toggle deep breathing",
     yoga_breathing_deep: "Deep Meditation Mode Active",
-    principal_badge: "FROM THE PRINCIPAL'S DESK",
-    principal_title: "Nurturing Values & Academic Excellence",
-    principal_message: "Welcome to HS School! Our vision is to give your child a strong foundation where traditional roots and modern learning go hand in hand. From learning Sanskrit shlokas and the focus of Lathi Kathi to exploring innovative Kreedo activity labs, we make learning active and joyful. We don't just teach—we nurture. Our child-centric curriculum is designed to balance your child’s intellect, emotions, creativity, and inner values in a safe, round-the-clock CCTV-monitored campus. With personal attention and deep affection, we prepare our young learners to step confidently into the world. I invite you to visit our vibrant campus and experience our activity-based learning firsthand.",
-    principal_name: "Dr. Gauri chikane Salunke  (M.A., Ph.D. in Education)",
-    principal_role: "Principal, HS School & Trustee, Dnyansadhana Educational Trust"
+    principal_badge: "FROM THE LEADERSHIP DESK",
+    principal_1_name: "Gauri Naresh Salunke <span class='principal-degree'>B.A., B.Ed., M.A., M.Ed.</span>",
+    principal_1_role: "Founder, Chairperson & Principal",
+    principal_1_message: "Our vision is to provide a balanced foundation where traditional cultural roots and modern activity-based learning go hand in hand, nurturing physical, intellectual, and moral growth.",
+    principal_2_name: "Naresh Sharad Salunke <span class='principal-degree'>B.Sc., PGDBM</span>",
+    principal_2_role: "Managing Director of School",
+    principal_2_message: "We are committed to delivering premium educational infrastructure, absolute campus safety with zero-blindspot CCTV monitoring, and safe transportation to keep learning stress-free."
   },
   mr: {
     nav_brand: "एच. एस. स्कूल",
@@ -224,11 +226,13 @@ const textContent = {
     footer_copyright: "© २०२६ एच. एस. स्कूल. सर्व हक्क सुरक्षित. ज्ञानसाधना एज्युकेशनल ट्रस्ट.",
     yoga_breathing_normal: "दीर्घ श्वासोच्छ्वासासाठी योग चिन्हावर क्लिक करा",
     yoga_breathing_deep: "ध्यान मोड सक्रिय (पूर्ववत करण्यासाठी क्लिक करा)",
-    principal_badge: "मुख्याध्यापकांचे विचार",
-    principal_title: "मूल्ये आणि शैक्षणिक उत्कर्षाचे संवर्धन",
-    principal_message: "एच. एस. स्कूलमध्ये आमची दृष्टी अशी आहे की संस्कृत श्लोक पठण आणि लाठी काठीसारख्या पारंपारिक सांस्कृतिक मूल्यांचा आणि क्रीडो लॅबसारख्या आधुनिक बाल-केंद्रित उपक्रमांचा सुरेख संगम घडवावा. आम्ही प्रत्येक मुलाचे बौद्धिक (IQ), भावनिक (EQ), आध्यात्मिक (SQ) आणि सर्जनशील (CQ) गुण एका सुरक्षित, चोवीस तास सीसीटीव्ही-निगराणी असलेल्या परिसरात जोपासतो. प्रत्येक मुलावर वैयक्तिक लक्ष देऊन त्याला प्रेमाने घडवणे आणि त्याला उद्याचा नेता बनवणे हेच आमचे ध्येय आहे. मी आपल्या पाल्याला आमच्या जीवंत, कृती-आधारित अभ्यासक्रमात सहभागी होण्यासाठी आमंत्रित करतो.",
-    principal_name: "डॉ. सुजाता पाटील (एम.ए., पीएच.डी. शिक्षण)",
-    principal_role: "मुख्याध्यापिका, एच. एस. स्कूल व विश्वस्त, ज्ञानसाधना एज्युकेशनल ट्रस्ट"
+    principal_badge: "संस्थापक व व्यवस्थापकीय मंडळ",
+    principal_1_name: "गौरी नरेश साळुंके <span class='principal-degree'>बी.ए., बी.एड., एम.ए., एम.एड.</span>",
+    principal_1_role: "संस्थापक व अध्यक्षा, मुख्याध्यापिका",
+    principal_1_message: "पारंपारिक सांस्कृतिक मूल्ये आणि आधुनिक कृती-आधारित अभ्यासक्रमाचा सुरेख मेळ साधून मुलांचा सर्वांगीण, बौद्धिक व नैतिक विकास घडवणे हेच आमचे ध्येय आहे.",
+    principal_2_name: "नरेश शरद साळुंके <span class='principal-degree'>बी.एस्सी., पीजीडीबीएम</span>",
+    principal_2_role: "व्यवस्थापकीय संचालक (एम.डी.)",
+    principal_2_message: "आम्ही चोवीस तास सीसीटीव्ही सुरक्षितता, प्रशस्त हवेशीर वर्गखोल्या आणि खात्रीशीर व्हॅन वाहतूक याद्वारे मुलांना सुरक्षित आणि सर्वोत्तम सुविधा देण्यास कटिबद्ध आहोत."
   }
 };
 
@@ -465,7 +469,12 @@ function toggleNavigation() {
   navToggle.classList.toggle('open');
   navMenu.classList.toggle('active');
   
-  if (navMenu.classList.contains('active')) {
+  const isActive = navMenu.classList.contains('active');
+  if (navToggle) {
+    navToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+  }
+  
+  if (isActive) {
     document.body.style.overflow = 'hidden'; // Lock scrolling
     
     // Animate menu links
@@ -785,8 +794,8 @@ function initScrollRevealEngine() {
           trigger: element,
           start: "top 85%", // Triggers when element bottom hits 85% of screen
           end: "bottom 15%",
-          // play reverse play reverse resets animation elements when scrolled up
-          toggleActions: "play reverse play reverse"
+          // play none none none maintains visibility once elements are revealed
+          toggleActions: "play none none none"
         }
       }
     );
@@ -797,7 +806,7 @@ function initScrollRevealEngine() {
     trigger: ".features-grid",
     start: "top 80%",
     end: "bottom 20%",
-    toggleActions: "play reverse play reverse",
+    toggleActions: "play none none none",
     onEnter: () => {
       gsap.fromTo(".features-grid .feature-card", 
         { opacity: 0, y: 50 }, 

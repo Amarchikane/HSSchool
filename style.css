@@ -486,25 +486,32 @@ body.dark-mode .theme-icon-light {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
 }
 
 .nav-link {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #FFFFFF;
   opacity: 0.8;
   position: relative;
   display: inline-block;
-  padding: 6px 0;
+  padding: 3px 0;
+}
+
+.nav-lang-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .nav-link::after {
@@ -565,7 +572,9 @@ body.dark-mode .theme-icon-light {
   }
 
   .nav-list {
+    display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 32px;
     pointer-events: auto;
   }
@@ -3968,6 +3977,169 @@ body.dark-mode #game-user-answer {
   }
 }
 
+/* --- Driving Vehicles Staggered Parade Delays --- */
+.hss-bus-divider.visible .vehicle-bus {
+  animation-delay: 0s;
+}
+.hss-bus-divider.visible .vehicle-car {
+  animation-delay: 3s;
+}
+.hss-bus-divider.visible .vehicle-van {
+  animation-delay: 6s;
+}
+.hss-bus-divider.visible .vehicle-sports {
+  animation-delay: 9s;
+}
+
+/* --- Bouncing animation on all vehicle bodies --- */
+.car-body, .van-body, .sports-body {
+  animation: bus-bounce 0.2s ease-in-out infinite alternate;
+}
+
+/* --- Vehicle Style 2: Red Beetle Car --- */
+.car-body {
+  position: absolute;
+  width: 90px;
+  height: 24px;
+  background: #FF4D6D; /* Crimson Red */
+  border: 3px solid #333333;
+  border-radius: 8px 12px 4px 4px;
+  bottom: 8px;
+  left: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.car-canopy {
+  position: absolute;
+  width: 52px;
+  height: 20px;
+  background: #FF4D6D;
+  border: 3px solid #333333;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  top: -20px;
+  left: 14px;
+}
+
+.car-window {
+  position: absolute;
+  width: 38px;
+  height: 13px;
+  background: #8ECAE6;
+  border: 2px solid #333333;
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  top: 3px;
+  left: 5px;
+}
+
+.car-headlight {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  width: 7px;
+  height: 7px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FFF, 0 0 16px #FF0;
+}
+
+/* --- Vehicle Style 3: Blue Delivery Van --- */
+.van-body {
+  position: absolute;
+  width: 96px;
+  height: 38px;
+  background: #4EA8DE; /* Sky Blue */
+  border: 3px solid #333333;
+  border-radius: 8px 14px 4px 4px;
+  bottom: 8px;
+  left: 7px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.van-window {
+  position: absolute;
+  width: 22px;
+  height: 16px;
+  background: #8ECAE6;
+  border: 2px solid #333333;
+  border-radius: 2px 8px 2px 2px;
+  top: 4px;
+  right: 8px;
+}
+
+.van-stripe {
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  left: 6px;
+  bottom: 12px;
+  opacity: 0.8;
+}
+
+.van-headlight {
+  position: absolute;
+  right: 5px;
+  bottom: 4px;
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FFF, 0 0 16px #FF0;
+}
+
+/* --- Vehicle Style 4: Green Sports Car --- */
+.sports-body {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background: #74C69D; /* Emerald Green */
+  border: 3px solid #333333;
+  border-radius: 4px 18px 4px 4px;
+  bottom: 8px;
+  left: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.sports-window {
+  position: absolute;
+  width: 32px;
+  height: 12px;
+  background: #8ECAE6;
+  border: 2.5px solid #333333;
+  border-radius: 4px 10px 0 0;
+  top: -12px;
+  left: 32px;
+  transform: skewX(-15deg);
+}
+
+.sports-spoiler {
+  position: absolute;
+  width: 14px;
+  height: 6px;
+  background: #2D6A4F;
+  border: 2.5px solid #333333;
+  border-radius: 2px;
+  top: -6px;
+  left: 6px;
+}
+
+.sports-headlight {
+  position: absolute;
+  right: 3px;
+  bottom: 2px;
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FFF, 0 0 16px #FF0;
+}
+
 /* 2. Glowing Rainbow Divider */
 .hss-rainbow-divider {
   position: absolute;
@@ -6099,6 +6271,166 @@ body.dark-mode .hss-floating-bg-element {
 .principal-corner-dot.dot-bl { bottom: 16px; left: 16px; }
 .principal-corner-dot.dot-br { bottom: 16px; right: 16px; }
 
+/* ---- Leadership Grid Layout ---- */
+.principal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  margin-top: 32px;
+  align-items: stretch;
+}
+
+@media (min-width: 992px) {
+  .principal-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+
+.principal-grid .principal-card {
+  margin-top: 0;
+  padding: 24px 28px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.15),
+    0 2px 0 rgba(212, 175, 55, 0.4) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.principal-grid .principal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 45px rgba(0, 0, 0, 0.22),
+    0 2px 0 rgba(212, 175, 55, 0.6) inset;
+}
+
+.principal-grid .principal-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.principal-grid .principal-photo-col {
+  flex: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 18px;
+}
+
+.principal-grid .principal-photo-frame {
+  width: 84px;
+  height: 84px;
+  flex: 0 0 84px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #D4AF37 0%, #f0d060 50%, #D4AF37 100%);
+  box-shadow: 
+    0 0 0 4px rgba(212, 175, 55, 0.12),
+    0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: none; /* Deactivate animation for neat clean design */
+}
+
+.principal-grid .principal-photo-badge {
+  width: 24px;
+  height: 24px;
+  bottom: 2px;
+  right: 2px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.principal-grid .principal-identity {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.principal-grid .principal-name {
+  font-size: 1.15rem;
+  color: #0B2B5C; /* Pristine Navy contrast color */
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.principal-grid .principal-degree {
+  display: block;
+  font-size: 0.78rem;
+  color: #718096; /* Elegant slate sub-text */
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.principal-grid .principal-role-text {
+  font-size: 0.82rem;
+  color: #D4AF37; /* Warm Gold role text */
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0.3px;
+}
+
+.principal-grid .principal-stars {
+  justify-content: flex-start;
+  gap: 2px;
+  font-size: 0.72rem;
+  margin-top: 2px;
+}
+
+.principal-grid .principal-message-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.principal-grid .principal-message-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #3A4A5C;
+  text-align: left;
+}
+
+.principal-grid .principal-signature {
+  align-items: flex-start;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.principal-grid .principal-signature .principal-degree {
+  display: none !important; /* Hide credentials in signature box */
+}
+
+.principal-grid .principal-sig-line {
+  margin: 0;
+  width: 100px;
+}
+
+.principal-grid .principal-sig-label {
+  text-align: left;
+  font-size: 0.75rem;
+}
+
 /* ---- Dark mode ---- */
 body.dark-mode .principal-section {
   background: linear-gradient(145deg, #020c1b 0%, #041224 40%, #020c1b 100%);
@@ -6150,5 +6482,44 @@ body.dark-mode .principal-section {
 
   .principal-sig-label {
     text-align: center;
+  }
+
+  /* Dual Grid Compact Overrides for Mobile */
+  .principal-grid .principal-card {
+    padding: 20px 22px;
+  }
+  .principal-grid .principal-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
+  }
+  .principal-grid .principal-photo-col {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+  }
+  .principal-grid .principal-photo-frame {
+    width: 74px;
+    height: 74px;
+    flex: 0 0 74px;
+  }
+  .principal-grid .principal-message-col {
+    text-align: left;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .principal-grid .principal-message-text {
+    text-align: left;
+  }
+  .principal-grid .principal-signature {
+    align-items: flex-start;
+  }
+  .principal-grid .principal-sig-line {
+    margin: 0;
+  }
+  .principal-grid .principal-sig-label {
+    text-align: left;
   }
 }

@@ -97,7 +97,7 @@
       <div class="preloader-line-container">
         <div class="preloader-line"></div>
       </div>
-      <h1 class="preloader-title" data-key="preloader_text"></h1>
+      <div class="preloader-title" data-key="preloader_text"></div>
     </div>
   </div>
 
@@ -106,7 +106,7 @@
     <div class="header-container">
       
       <!-- Hamburger Menu (Left) -->
-      <button id="nav-toggle" class="nav-toggle-btn" aria-label="Toggle navigation menu">
+      <button id="nav-toggle" class="nav-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -148,6 +148,11 @@
           <li class="nav-item"><a href="#principal" class="nav-link" data-key="nav_principal"></a></li>
           <li class="nav-item"><a href="#features" class="nav-link" data-key="nav_features"></a></li>
           <li class="nav-item"><a href="#admission" class="nav-link" data-key="nav_admission"></a></li>
+          <li class="nav-item nav-lang-item">
+            <button id="lang-toggle" class="lang-toggle-btn" aria-label="Switch Language">
+              <span id="lang-indicator" class="lang-label">EN</span>
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -192,7 +197,7 @@
               </svg> -->
             </span>
           </div>
-          <h2 class="hero-title" data-key="hero_title"></h2>
+          <h1 class="hero-title" data-key="hero_title"></h1>
           <p class="hero-subtitle" data-key="hero_subtitle"></p>
           <div class="hero-actions">
             <a href="#admission" class="btn btn-primary" data-key="btn_enquiry"></a>
@@ -201,7 +206,9 @@
         </div>
       <!-- Playful CSS School Bus Divider -->
       <div class="hss-bus-divider">
-        <div class="hss-school-bus">
+        
+        <!-- Vehicle 1: Yellow School Bus -->
+        <div class="hss-school-bus vehicle-bus">
           <div class="bus-body">
             <div class="bus-window window-1"></div>
             <div class="bus-window window-2"></div>
@@ -211,6 +218,40 @@
           <div class="bus-wheel wheel-1"></div>
           <div class="bus-wheel wheel-2"></div>
         </div>
+
+        <!-- Vehicle 2: Red Beetle Car -->
+        <div class="hss-school-bus vehicle-car">
+          <div class="car-body">
+            <div class="car-canopy"></div>
+            <div class="car-window"></div>
+            <div class="car-headlight"></div>
+          </div>
+          <div class="bus-wheel wheel-1"></div>
+          <div class="bus-wheel wheel-2"></div>
+        </div>
+
+        <!-- Vehicle 3: Blue Delivery Van -->
+        <div class="hss-school-bus vehicle-van">
+          <div class="van-body">
+            <div class="van-window"></div>
+            <div class="van-stripe"></div>
+            <div class="van-headlight"></div>
+          </div>
+          <div class="bus-wheel wheel-1"></div>
+          <div class="bus-wheel wheel-2"></div>
+        </div>
+
+        <!-- Vehicle 4: Green Sports Car -->
+        <div class="hss-school-bus vehicle-sports">
+          <div class="sports-body">
+            <div class="sports-spoiler"></div>
+            <div class="sports-window"></div>
+            <div class="sports-headlight"></div>
+          </div>
+          <div class="bus-wheel wheel-1"></div>
+          <div class="bus-wheel wheel-2"></div>
+        </div>
+
       </div>
     </section>
 
@@ -560,52 +601,90 @@
           <span class="section-badge" data-key="principal_badge"></span>
         </div>
 
-        <div class="principal-card scroll-reveal">
-          <!-- Decorative quote mark top -->
-          <div class="principal-quote-bg"><i class="fa-solid fa-quote-left"></i></div>
-
-          <div class="principal-layout">
-            <!-- Left: Photo Column -->
-            <div class="principal-photo-col">
-              <div class="principal-photo-frame">
-                <img src="assets/school_principal.png" alt="School Principal - Dr. Sujata Patil" class="principal-photo" loading="lazy">
-                <div class="principal-photo-badge">
-                  <i class="fa-solid fa-award"></i>
+        <div class="principal-grid scroll-reveal">
+          
+          <!-- Leader Card 1: Gauri Naresh Salunke -->
+          <div class="principal-card leader-card-gauri">
+            <div class="principal-quote-bg"><i class="fa-solid fa-quote-left"></i></div>
+            
+            <div class="principal-layout">
+              <div class="principal-photo-col">
+                <div class="principal-photo-frame">
+                  <img src="assets/school_principal.png" alt="Founder & Chairperson, Principal - Gauri Naresh Salunke" class="principal-photo" loading="lazy">
+                  <div class="principal-photo-badge">
+                    <i class="fa-solid fa-award"></i>
+                  </div>
+                </div>
+                <div class="principal-identity">
+                  <h4 class="principal-name" data-key="principal_1_name"></h4>
+                  <p class="principal-role-text" data-key="principal_1_role"></p>
+                  <div class="principal-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
                 </div>
               </div>
-              <!-- Name & Role under photo -->
-              <div class="principal-identity">
-                <h4 class="principal-name" data-key="principal_name"></h4>
-                <p class="principal-role-text" data-key="principal_role"></p>
-                <!-- Rating stars decoration -->
-                <div class="principal-stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
+              
+              <div class="principal-message-col">
+                <p class="principal-message-text" data-key="principal_1_message"></p>
+                <div class="principal-signature">
+                  <div class="principal-sig-line"></div>
+                  <span class="principal-sig-label" data-key="principal_1_name"></span>
                 </div>
               </div>
             </div>
-
-            <!-- Right: Message Column -->
-            <div class="principal-message-col">
-              <h2 class="principal-title" data-key="principal_title"></h2>
-              <div class="principal-divider"></div>
-              <p class="principal-message-text" data-key="principal_message"></p>
-              <!-- Signature line -->
-              <div class="principal-signature">
-                <div class="principal-sig-line"></div>
-                <span class="principal-sig-label" data-key="principal_name"></span>
-              </div>
-            </div>
+            
+            <!-- Symmetrical corner dots -->
+            <span class="principal-corner-dot dot-tl"></span>
+            <span class="principal-corner-dot dot-tr"></span>
+            <span class="principal-corner-dot dot-bl"></span>
+            <span class="principal-corner-dot dot-br"></span>
           </div>
 
-          <!-- Decorative corner dots -->
-          <span class="principal-corner-dot dot-tl"></span>
-          <span class="principal-corner-dot dot-tr"></span>
-          <span class="principal-corner-dot dot-bl"></span>
-          <span class="principal-corner-dot dot-br"></span>
+          <!-- Leader Card 2: Naresh Sharad Salunke -->
+          <div class="principal-card leader-card-naresh">
+            <div class="principal-quote-bg"><i class="fa-solid fa-quote-left"></i></div>
+            
+            <div class="principal-layout">
+              <div class="principal-photo-col">
+                <div class="principal-photo-frame" style="background: linear-gradient(135deg, var(--bg-dark-navy) 0%, var(--bg-midnight) 100%);">
+                  <img src="assets/school_logo.png" alt="Managing Director - Naresh Sharad Salunke" class="principal-photo" loading="lazy" style="object-fit: contain; padding: 8px;">
+                  <div class="principal-photo-badge" style="background: linear-gradient(135deg, var(--bg-dark-navy), var(--text-primary)); color: #FFFFFF;">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                </div>
+                <div class="principal-identity">
+                  <h4 class="principal-name" data-key="principal_2_name"></h4>
+                  <p class="principal-role-text" data-key="principal_2_role"></p>
+                  <div class="principal-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="principal-message-col">
+                <p class="principal-message-text" data-key="principal_2_message"></p>
+                <div class="principal-signature">
+                  <div class="principal-sig-line"></div>
+                  <span class="principal-sig-label" data-key="principal_2_name"></span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Symmetrical corner dots -->
+            <span class="principal-corner-dot dot-tl"></span>
+            <span class="principal-corner-dot dot-tr"></span>
+            <span class="principal-corner-dot dot-bl"></span>
+            <span class="principal-corner-dot dot-br"></span>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1454,7 +1533,7 @@
           <!-- Photo 5: Sports Ground -->
           <div class="gallery-card" data-category="amenities">
             <div class="gallery-img-wrapper">
-              <img src="assets/gallery_sports.jpg" alt="Sports Play Area" class="gallery-img" width="400" height="280" loading="lazy" onerror="this.src='assets/school_hero.png';">
+              <img src="assets/amenity_sports.jpg" alt="Sports Play Area" class="gallery-img" width="400" height="280" loading="lazy" onerror="this.src='assets/school_hero.png';">
               <div class="gallery-card-overlay">
                 <div class="gallery-card-badge">EXPLORE</div>
                 <h5 class="gallery-card-caption" data-key="gallery_img_5"></h5>
@@ -1465,7 +1544,7 @@
           <!-- Photo 6: Transport Fleet -->
           <div class="gallery-card" data-category="amenities">
             <div class="gallery-img-wrapper">
-              <img src="assets/gallery_van.jpg" alt="Safe Transport Fleet" class="gallery-img" width="400" height="280" loading="lazy" onerror="this.src='assets/school_hero.png';">
+              <img src="assets/amenity_van.jpg" alt="Safe Transport Fleet" class="gallery-img" width="400" height="280" loading="lazy" onerror="this.src='assets/school_hero.png';">
               <div class="gallery-card-overlay">
                 <div class="gallery-card-badge">EXPLORE</div>
                 <h5 class="gallery-card-caption" data-key="gallery_img_6"></h5>
