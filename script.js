@@ -18,8 +18,8 @@ const textContent = {
     nav_contact: "Contact",
     preloader_text: "Dnyansadhana Educational Trust",
     ribbon_text: "Admission Open 2026-27",
-    hero_badge: "🎉 Admission Open 2026-27",
-    hero_title: "Nurturing the Leaders of Tomorrow",
+    hero_badge: "NO DONATION",
+    hero_title: "Nurturing Practical Intelligence, Not Just Test-Taking Speed",
     hero_subtitle: "We lay a premium, play-driven and activity-focused foundation to foster the balanced intellectual, emotional, and social development of every child.",
     btn_enquiry: "Admission Enquiry",
     btn_explore: "Explore Reviews",
@@ -84,7 +84,12 @@ const textContent = {
     form_opt_ukg: "Senior KG (5.0+ Yrs)",
     form_opt_class1: "Class 1 (6.0+ Yrs)",
     form_opt_class2: "Class 2 (7.0+ Yrs)",
-    form_label_phone: "Parent's Phone Number",
+    form_opt_class3: "Class 3 (8.0+ Yrs)",
+    form_opt_class4: "Class 4 (9.0+ Yrs)",
+    form_opt_class5: "Class 5 (10.0+ Yrs)",
+    form_opt_class6: "Class 6 (11.0+ Yrs)",
+    form_opt_class7: "Class 7 (12.0+ Yrs)",
+    form_label_phone: "Parent's Phone Number (Optional)",
     form_submit_btn: "Submit Enquiry Form",
     contact_heading: "Get in Touch",
     contact_subtext: "Walk into our campus or drop us an instant phone call to book your personalized counseling session.",
@@ -98,7 +103,7 @@ const textContent = {
     gallery_img_2: "Kids Yoga & Rhythm Session",
     gallery_img_3: "Traditional Lathi Kathi Martial Art",
     gallery_img_4: "Naturally Ventilated Classrooms",
-    gallery_img_5: "Active Outdoor Playground Area",
+    gallery_img_5: "Active Outdoor Play Area",
     gallery_img_6: "Reliable Safe Transport Van Fleet",
     footer_address: "Patil Plaza, Next to Silver Birch Hospital, Raikarmala, Dhayari, Pune 411041.",
     footer_trust: "Run by Dnyansadhana Educational Trust.",
@@ -106,11 +111,11 @@ const textContent = {
     footer_title_address: "Contact Address",
     footer_copyright: "© 2026 HS School. All Rights Reserved. Managed by Dnyansadhana Educational Trust.",
     yoga_breathing_normal: "Click Yoga icon to toggle deep breathing",
-    yoga_breathing_deep: "Deep Meditation Mode Active (Click to reset)",
+    yoga_breathing_deep: "Deep Meditation Mode Active",
     principal_badge: "FROM THE PRINCIPAL'S DESK",
     principal_title: "Nurturing Values & Academic Excellence",
-    principal_message: "At HS School, our vision is to provide a premium foundation where traditional cultural values like Sanskrit shloka chanting and Lathi Kathi martial arts merge seamlessly with modern child-centric activity kits like Kreedo lab boxes. We groom the Intelligence Quotient (IQ), Emotional Quotient (EQ), Spiritual Quotient (SQ), and Creative Quotient (CQ) of every child in a safe, round-the-clock CCTV-monitored campus. We believe in nurturing children with affection, grooming them individually with personal attention, and guiding them to become leaders of tomorrow. I welcome you to experience our vibrant, activity-based preschool and primary curriculum.",
-    principal_name: "Dr. Sujata Patil (M.A., Ph.D. in Education)",
+    principal_message: "Welcome to HS School! Our vision is to give your child a strong foundation where traditional roots and modern learning go hand in hand. From learning Sanskrit shlokas and the focus of Lathi Kathi to exploring innovative Kreedo activity labs, we make learning active and joyful. We don't just teach—we nurture. Our child-centric curriculum is designed to balance your child’s intellect, emotions, creativity, and inner values in a safe, round-the-clock CCTV-monitored campus. With personal attention and deep affection, we prepare our young learners to step confidently into the world. I invite you to visit our vibrant campus and experience our activity-based learning firsthand.",
+    principal_name: "Dr. Gauri chikane Salunke  (M.A., Ph.D. in Education)",
     principal_role: "Principal, HS School & Trustee, Dnyansadhana Educational Trust"
   },
   mr: {
@@ -191,7 +196,12 @@ const textContent = {
     form_opt_ukg: "सिनीयरी के.जी. (५.०+ वर्षे)",
     form_opt_class1: "इयत्ता पहिली (६.०+ वर्षे)",
     form_opt_class2: "इयत्ता दुसरी (७.०+ वर्षे)",
-    form_label_phone: "पालकांचा मोबाईल नंबर",
+    form_opt_class3: "इयत्ता तिसरी (८.०+ वर्षे)",
+    form_opt_class4: "इयत्ता चौथी (९.०+ वर्षे)",
+    form_opt_class5: "इयत्ता पाचवी (१०.०+ वर्षे)",
+    form_opt_class6: "इयत्ता सहावी (११.०+ वर्षे)",
+    form_opt_class7: "इयत्ता सातवी (१२.०+ वर्षे)",
+    form_label_phone: "पालकांचा मोबाईल नंबर (ऐच्छिक)",
     form_submit_btn: "फॉर्म सादर करा",
     contact_heading: "संपर्क साधा",
     contact_subtext: "प्रवेशाबाबत त्वरित सल्ल्यासाठी आमच्या शाळेला प्रत्यक्ष भेट द्या किंवा दिलेल्या फोन नंबरवर थेट कॉल करा.",
@@ -1681,44 +1691,177 @@ function initScrapbookAlbum() {
 // 29. "FUTURE-PROOF CHILD" GAMIFIED SKILL TREE ENGINE
 function initGamifiedSkillTree() {
   const traitCards = document.querySelectorAll('.hss-trait-card');
-  const connectorLines = document.querySelectorAll('.connector-line');
-  const programNodes = document.querySelectorAll('.hss-program-node');
-  if (traitCards.length === 0) return;
+  const placeholder = document.getElementById('skill-placeholder');
+  const detailContent = document.getElementById('skill-detail-content');
+  const detailIcon = document.getElementById('skill-detail-icon');
+  const detailTitle = document.getElementById('skill-detail-title');
+  const detailDesc = document.getElementById('skill-detail-desc');
+  const programsGrid = document.getElementById('skill-programs-grid');
+
+  if (traitCards.length === 0 || !detailContent) return;
+
+  // Full trait data with linked programs
+  const traitData = {
+    focus: {
+      icon: '🎯',
+      color: '#D4AF37',
+      title: 'Focus & Concentration',
+      desc: 'Sharpening attention, boosting mental storage, and building mathematical visualization — the foundation of every academic skill.',
+      programs: [
+        {
+          icon: '🧮',
+          name: 'Abacus Brain Games',
+          detail: 'Rapid bead calculations train both hemispheres simultaneously, dramatically improving memory span, calculation speed, and spatial reasoning.'
+        },
+        {
+          icon: '🧩',
+          name: 'Montessori Kreedo Lab',
+          detail: "Tactile material boxes force sustained, focused engagement with shapes, numbers, and patterns — building a child's ability to concentrate for longer durations."
+        }
+      ]
+    },
+    discipline: {
+      icon: '🛡️',
+      color: '#2ECC71',
+      title: 'Physical Discipline & Bravery',
+      desc: 'Cultivating body rhythm, stamina, personal defense confidence, and deep spinal strength through traditional and modern physical training.',
+      programs: [
+        {
+          icon: '🥋',
+          name: 'Lathi Kathi Martial Art',
+          detail: 'Traditional Lathi Kathi training builds physical agility, self-defense awareness, core strength, and disciplined body control rooted in Indian heritage.'
+        },
+        {
+          icon: '🧘',
+          name: 'Rhythmic Yoga & Brain Gym',
+          detail: 'Daily breathing sequences and yoga postures calm the nervous system, improve posture, coordination and release stress — setting children up for focused learning.'
+        }
+      ]
+    },
+    logic: {
+      icon: '💡',
+      color: '#4D96FF',
+      title: 'Critical Logic & Science',
+      desc: 'Building tactical problem solving, active scientific inquiry, and analytical reasoning — preparing children to ask "why" and find real answers.',
+      programs: [
+        {
+          icon: '🔬',
+          name: 'Practical Science Streams',
+          detail: 'Activity-based exploration of cause-and-effect, basic chemistry, nature observation, and structured reasoning to nurture young scientific thinkers.'
+        },
+        {
+          icon: '🧩',
+          name: 'Kreedo Problem Solving',
+          detail: 'Material-based sorting, sequencing, and pattern games build logical deduction skills far before formal schooling concepts are introduced.'
+        }
+      ]
+    },
+    creativity: {
+      icon: '🎨',
+      color: '#FF6B9D',
+      title: 'Creativity & Expression',
+      desc: 'Unleashing imagination through art, music, storytelling, and open-ended play — nurturing the Creative Quotient (CQ) every child possesses.',
+      programs: [
+        {
+          icon: '🎵',
+          name: 'Rhythmic & Cultural Activities',
+          detail: 'Dance, drawing, clay modelling, and group storytelling sessions allow children to express feelings, develop fine motor skills, and build creative confidence.'
+        },
+        {
+          icon: '🎠',
+          name: 'Open Play & Exploration',
+          detail: 'Unstructured play in our safe indoor and outdoor play areas gives children freedom to invent, experiment and develop imaginative thinking independently.'
+        }
+      ]
+    },
+    values: {
+      icon: '🕉️',
+      color: '#9B5DE5',
+      title: 'Values & Cultural Roots',
+      desc: 'Grounding every child in Indian cultural heritage, moral values, and spiritual awareness alongside modern academics — the Spiritual Quotient (SQ).',
+      programs: [
+        {
+          icon: '🙏',
+          name: 'Sanskrit Shloka Chanting',
+          detail: 'Morning assemblies include rhythmic Sanskrit chanting that builds focus, phonological awareness, cultural pride, and a peaceful start to the school day.'
+        },
+        {
+          icon: '⭐',
+          name: 'Moral & Value Education',
+          detail: 'Stories, assembly sessions and teacher-guided discussions on kindness, honesty, respect, and responsibility build a strong moral compass in early years.'
+        }
+      ]
+    }
+  };
+
+  // Store original parent (the grid layout) for desktop restore
+  const detailPanel = document.getElementById('skill-detail-panel');
+  const originalParent = detailPanel ? detailPanel.parentElement : null;
 
   traitCards.forEach(card => {
     card.addEventListener('click', () => {
-      const selectedTrait = card.getAttribute('data-trait');
+      const trait = card.getAttribute('data-trait');
+      const data = traitData[trait];
+      if (!data) return;
 
-      // Update card active states
+      // Update active card state
       traitCards.forEach(c => c.classList.remove('active'));
       card.classList.add('active');
 
-      // Reset all connecting pathways & programs
-      connectorLines.forEach(line => line.classList.remove('active'));
-      programNodes.forEach(node => node.classList.remove('pulse-node'));
+      // Build program cards HTML using emoji icons
+      const programsHTML = data.programs.map(p => `
+        <div class="hss-skill-program-card">
+          <div class="hss-skill-program-icon" style="background:${data.color}22; color:${data.color}; font-size:1.5rem;">${p.icon}</div>
+          <div>
+            <h5>${p.name}</h5>
+            <p>${p.detail}</p>
+          </div>
+        </div>
+      `).join('');
 
-      // Activate specific connectors & nodes based on selected traits
-      if (selectedTrait === 'focus') {
-        const conn1 = document.getElementById('path-focus-abacus');
-        const conn2 = document.getElementById('path-focus-kreedo');
-        if (conn1) conn1.classList.add('active');
-        if (conn2) conn2.classList.add('active');
+      // Inject content
+      detailIcon.textContent = data.icon;
+      detailIcon.style.background = data.color + '22';
+      detailIcon.style.color = data.color;
+      detailTitle.textContent = data.title;
+      detailTitle.style.color = data.color;
+      detailDesc.textContent = data.desc;
+      programsGrid.innerHTML = programsHTML;
 
-        document.getElementById('node-abacus').classList.add('pulse-node');
-        document.getElementById('node-kreedo').classList.add('pulse-node');
-      } else if (selectedTrait === 'discipline') {
-        const conn1 = document.getElementById('path-discipline-lathi');
-        const conn2 = document.getElementById('path-discipline-yoga');
-        if (conn1) conn1.classList.add('active');
-        if (conn2) conn2.classList.add('active');
+      // Show detail panel — hide placeholder, show content
+      if (placeholder) placeholder.style.display = 'none';
+      detailContent.style.display = 'flex';
+      detailContent.style.flexDirection = 'column';
+      detailContent.style.gap = '24px';
 
-        document.getElementById('node-lathi').classList.add('pulse-node');
-        document.getElementById('node-yoga').classList.add('pulse-node');
-      } else if (selectedTrait === 'logic') {
-        const conn1 = document.getElementById('path-logic-science');
-        if (conn1) conn1.classList.add('active');
+      // MOBILE: Move the detail panel to sit right after the clicked card
+      if (detailPanel && window.innerWidth <= 991) {
+        // Insert panel immediately after the clicked card inside traits panel
+        card.after(detailPanel);
+        detailPanel.style.marginTop = '12px';
+        detailPanel.style.marginBottom = '4px';
+        // Scroll smoothly to bring the panel into view
+        setTimeout(() => {
+          detailPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      } else if (detailPanel && originalParent && detailPanel.parentElement !== originalParent) {
+        // DESKTOP: restore to original grid position if it was moved
+        originalParent.appendChild(detailPanel);
+        detailPanel.style.marginTop = '';
+        detailPanel.style.marginBottom = '';
+      }
 
-        document.getElementById('node-science').classList.add('pulse-node');
+      // Animate in with GSAP
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(detailPanel || detailContent,
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', clearProps: 'transform' }
+        );
+        const pcards = detailContent.querySelectorAll('.hss-skill-program-card');
+        gsap.fromTo(pcards,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', stagger: 0.1, delay: 0.2, clearProps: 'transform' }
+        );
       }
     });
   });
@@ -1742,13 +1885,38 @@ function initMentalMathGame() {
 
   if (!startBtn || !submitBtn || !retryBtn) return;
 
-  const sequence = [12, -5, 22]; // Simple mental math sequence
-  const correctResult = 29;
+  // --- Random question generator ---
+  let sequence = [];
+  let correctResult = 0;
 
-  startBtn.addEventListener('click', () => {
+  function generateQuestion() {
+    // Pick 3 or 4 numbers randomly
+    const count = Math.random() < 0.5 ? 3 : 4;
+    const nums = [];
+    // First number is always a positive start (10–30)
+    nums.push(Math.floor(Math.random() * 21) + 10);
+    // Remaining numbers are -15 to +25, avoiding zero
+    for (let i = 1; i < count; i++) {
+      let n = 0;
+      while (n === 0) {
+        n = Math.floor(Math.random() * 41) - 15; // -15 to +25
+      }
+      nums.push(n);
+    }
+    // Compute the correct sum
+    sequence = nums;
+    correctResult = nums.reduce((acc, n) => acc + n, 0);
+  }
+
+  function startRound() {
+    generateQuestion();
+
     // Phase 1: Hide start, show flashing board
     startPanel.classList.add('hidden');
+    resultPanel.classList.add('hidden');
+    inputPanel.classList.add('hidden');
     numbersPanel.classList.remove('hidden');
+    answerInput.value = '';
 
     let currentStep = 0;
 
@@ -1767,14 +1935,24 @@ function initMentalMathGame() {
         // Phase 2: Show input box
         numbersPanel.classList.add('hidden');
         inputPanel.classList.remove('hidden');
+        // Auto-focus the input so user can type immediately
+        answerInput.focus();
       }
     }
 
     setTimeout(flashNextNumber, 500);
+  }
+
+  startBtn.addEventListener('click', startRound);
+
+  // Allow pressing Enter to submit
+  answerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') submitBtn.click();
   });
 
   submitBtn.addEventListener('click', () => {
     const userAnswer = parseInt(answerInput.value, 10);
+    if (isNaN(userAnswer)) return; // don't submit if empty
     inputPanel.classList.add('hidden');
     resultPanel.classList.remove('hidden');
 
@@ -1795,11 +1973,11 @@ function initMentalMathGame() {
   });
 
   retryBtn.addEventListener('click', () => {
-    answerInput.value = '';
     resultPanel.classList.add('hidden');
     startPanel.classList.remove('hidden');
   });
 }
+
 
 // 31. CAMPUS PHOTO GALLERY FILTER COMPONENT
 function initGalleryFilter() {
@@ -2069,7 +2247,7 @@ const amenitiesData = {
     benefits: {
       en: [
         "Indoor Active Gym",
-        "Outdoor Playground",
+        "Outdoor Play Area",
         "Balance & Coordination"
       ],
       mr: [

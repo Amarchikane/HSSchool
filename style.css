@@ -2156,6 +2156,79 @@ body.dark-mode .admission-section {
   font-size: 0.85rem;
 }
 
+/* ---- Social Media Icons ---- */
+.footer-social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, filter 0.25s ease;
+  flex-shrink: 0;
+}
+
+.footer-social-btn span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: none; /* shown in bottom bar only */
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  filter: brightness(1.15);
+}
+
+/* Instagram — brand gradient */
+.footer-social-instagram {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.4);
+}
+
+.footer-social-instagram:hover {
+  box-shadow: 0 8px 20px rgba(220, 39, 67, 0.55);
+}
+
+/* Facebook — brand blue */
+.footer-social-facebook {
+  background: #1877F2;
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.4);
+}
+
+.footer-social-facebook:hover {
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.55);
+}
+
+/* Footer bottom bar social row */
+.footer-bottom-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.footer-bottom-social .footer-social-btn {
+  width: auto;
+  height: 36px;
+  border-radius: 20px;
+  padding: 0 14px;
+  font-size: 0.95rem;
+}
+
+.footer-bottom-social .footer-social-btn span {
+  display: inline; /* visible in bottom bar */
+}
+
 /* 14. CALL-TO-ACTION FAB & RIPPLE */
 .call-fab {
   position: fixed;
@@ -3279,90 +3352,43 @@ body.dark-mode .admission-section {
   gap: 24px;
 }
 
+/* ===========================================================
+   SKILL MAP — 2-column click-to-reveal layout
+   =========================================================== */
+
+.hss-skill-map-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* --- Left: Trait selector panel --- */
+.hss-traits-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hss-traits-hint {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hss-traits-hint i {
+  color: var(--accent-gold);
+}
+
 .hss-trait-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 18px 20px;
   cursor: pointer;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  box-shadow: var(--shadow-premium);
-  transition: all var(--transition-normal);
-}
-
-.hss-trait-card:hover, .hss-trait-card.active {
-  border-color: var(--accent-gold);
-  background-color: var(--bg-primary);
-  transform: translateX(6px);
-  box-shadow: var(--shadow-gold-glow);
-}
-
-.hss-trait-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-sm);
-  background-color: var(--accent-gold-alpha);
-  color: var(--accent-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-
-.hss-trait-info h4 {
-  font-size: 1.25rem;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.hss-trait-info p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.hss-tree-connections {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.hss-connections-svg {
-  width: 100%;
-  height: 380px;
-  overflow: visible;
-}
-
-.connector-line {
-  fill: none;
-  stroke: var(--card-border);
-  stroke-width: 3;
-  stroke-linecap: round;
-  transition: stroke var(--transition-normal), stroke-width var(--transition-normal);
-}
-
-.connector-line.active {
-  stroke: var(--accent-gold);
-  stroke-width: 5;
-  filter: drop-shadow(0 0 8px var(--accent-gold));
-  stroke-dasharray: 8 4;
-  animation: flow-connection-dashes 2s linear infinite;
-}
-
-@keyframes flow-connection-dashes {
-  to {
-    stroke-dashoffset: -30;
-  }
-}
-
-.hss-program-node {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 20px;
   display: flex;
   gap: 16px;
   align-items: center;
@@ -3370,28 +3396,193 @@ body.dark-mode .admission-section {
   transition: all var(--transition-normal);
 }
 
-.hss-program-node.pulse-node {
+.hss-trait-card:hover {
   border-color: var(--accent-gold);
-  transform: scale(1.04);
+  transform: translateX(4px);
   box-shadow: var(--shadow-gold-glow);
-  background-color: var(--bg-primary);
 }
 
-.hss-node-icon {
-  width: 44px;
-  height: 44px;
+.hss-trait-card.active {
+  border-color: var(--accent-gold);
+  background-color: var(--bg-primary);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+.hss-trait-icon {
+  width: 46px;
+  height: 46px;
   border-radius: var(--radius-sm);
   background-color: var(--accent-gold-alpha);
   color: var(--accent-gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
 
-.hss-program-node h4 {
-  font-size: 1.1rem;
+.hss-trait-card.active .hss-trait-icon,
+.hss-trait-card:hover .hss-trait-icon {
+  transform: scale(1.12);
+}
+
+.hss-trait-info {
+  flex: 1;
+}
+
+.hss-trait-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text-primary);
+  margin: 0;
+}
+
+.hss-trait-arrow {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.hss-trait-card.active .hss-trait-arrow,
+.hss-trait-card:hover .hss-trait-arrow {
+  color: var(--accent-gold);
+  transform: translateX(4px);
+}
+
+/* --- Right: Detail panel --- */
+.hss-skill-detail-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow-premium);
+  transition: background-color var(--transition-normal);
+}
+
+/* Placeholder state */
+.hss-skill-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hss-skill-placeholder i {
+  font-size: 2.5rem;
+  color: var(--accent-gold);
+  opacity: 0.5;
+  animation: float-hint 2.5s ease-in-out infinite;
+}
+
+@keyframes float-hint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hss-skill-placeholder p {
+  font-size: 0.95rem;
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+/* Detail content (shown after click) */
+.hss-skill-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hss-skill-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.hss-skill-detail-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+#skill-detail-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+#skill-detail-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Program cards grid */
+.hss-skill-programs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hss-skill-program-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px;
+  background: var(--bg-primary);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hss-skill-program-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.hss-skill-program-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.hss-skill-program-card h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+}
+
+.hss-skill-program-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Mental Math Gym Game styling */
@@ -3484,6 +3675,28 @@ body.dark-mode .admission-section {
   width: 100%;
 }
 
+/* Ensure typed text is always visible in the game input */
+#game-user-answer {
+  color: #0B2B5C !important;
+  background: #FFFFFF !important;
+  border: 2px solid rgba(11, 43, 92, 0.25) !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#game-user-answer:focus {
+  border-color: var(--accent-gold) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25) !important;
+}
+
+body.dark-mode #game-user-answer {
+  color: #FFFFFF !important;
+  background: #0F233C !important;
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
 .hidden {
   display: none !important;
 }
@@ -3502,12 +3715,24 @@ body.dark-mode .admission-section {
 }
 
 @media (max-width: 991px) {
-  .hss-tree-grid {
+  .hss-skill-map-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
   }
-  .hss-tree-connections {
-    display: none !important;
+
+  /* When panel is moved inline between cards on mobile */
+  .hss-skill-detail-panel {
+    min-height: unset;
+    padding: 20px;
+    margin: 0;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (max-width: 600px) {
+  .hss-skill-program-card {
+    flex-direction: column;
+    gap: 12px;
   }
 }
 

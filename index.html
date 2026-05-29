@@ -186,17 +186,17 @@
         <div class="hero-text-content">
           <div class="hero-badge-wrapper">
             <span class="hero-badge">
-              <span data-key="hero_badge"></span>
-              <svg class="badge-scribble" viewBox="0 0 220 50" preserveAspectRatio="none">
+              <span data-key="ribbon_text"></span>
+              <!-- <svg class="badge-scribble" viewBox="0 0 220 50" preserveAspectRatio="none">
                 <path class="scribble-path" d="M 5 25 Q 110 5 215 25 Q 110 45 5 25" fill="none" stroke="var(--accent-gold)" stroke-width="3" stroke-linecap="round" />
-              </svg>
+              </svg> -->
             </span>
           </div>
           <h2 class="hero-title" data-key="hero_title"></h2>
           <p class="hero-subtitle" data-key="hero_subtitle"></p>
           <div class="hero-actions">
             <a href="#admission" class="btn btn-primary" data-key="btn_enquiry"></a>
-            <a href="#programs" class="btn btn-secondary" data-key="btn_explore"></a>
+            <a href="#reviews" class="btn btn-secondary" data-key="btn_explore"></a>
           </div>
         </div>
       <!-- Playful CSS School Bus Divider -->
@@ -1179,78 +1179,81 @@
       <div class="hss-skill-circuits-bg"></div>
       <div class="container">
         <div class="section-header scroll-reveal">
-          <span class="section-badge">INTERACTIVE MAP</span>
+          <span class="section-badge">SKILL MAP</span>
           <h3 class="section-title">The Future-Proof Child Skill Tree</h3>
-          <p class="section-desc">Click on any core developmental skill below to trace glowing pathways showing exactly how our school programs build these traits.</p>
+          <p class="section-desc">Tap any skill below to reveal the school programs that build it.</p>
         </div>
 
-        <div class="hss-tree-grid scroll-reveal">
-          <!-- Left Core Traits -->
+        <div class="hss-skill-map-layout scroll-reveal">
+
+          <!-- LEFT: Trait Selector Cards -->
           <div class="hss-traits-panel">
+            <p class="hss-traits-hint"><i class="fa-solid fa-hand-pointer"></i> Select a skill to explore</p>
+
             <div class="hss-trait-card" data-trait="focus">
               <div class="hss-trait-icon"><i class="fa-solid fa-bullseye"></i></div>
               <div class="hss-trait-info">
                 <h4>Focus &amp; Concentration</h4>
-                <p>Sharpening attention, increasing mental storage, and building mathematical visualization power.</p>
               </div>
+              <i class="fa-solid fa-chevron-right hss-trait-arrow"></i>
             </div>
 
             <div class="hss-trait-card" data-trait="discipline">
               <div class="hss-trait-icon"><i class="fa-solid fa-shield"></i></div>
               <div class="hss-trait-info">
-                <h4>Physical Discipline &amp; Bravery</h4>
-                <p>Cultivating personal defense confidence, body rhythm, stamina, and deep spinal strength.</p>
+                <h4>Physical Discipline</h4>
               </div>
+              <i class="fa-solid fa-chevron-right hss-trait-arrow"></i>
             </div>
 
             <div class="hss-trait-card" data-trait="logic">
               <div class="hss-trait-icon"><i class="fa-solid fa-lightbulb"></i></div>
               <div class="hss-trait-info">
                 <h4>Critical Logic &amp; Science</h4>
-                <p>Building tactical problem solving, active scientific inquiry, and reasoning methods.</p>
+              </div>
+              <i class="fa-solid fa-chevron-right hss-trait-arrow"></i>
+            </div>
+
+            <div class="hss-trait-card" data-trait="creativity">
+              <div class="hss-trait-icon"><i class="fa-solid fa-palette"></i></div>
+              <div class="hss-trait-info">
+                <h4>Creativity &amp; Expression</h4>
+              </div>
+              <i class="fa-solid fa-chevron-right hss-trait-arrow"></i>
+            </div>
+
+            <div class="hss-trait-card" data-trait="values">
+              <div class="hss-trait-icon"><i class="fa-solid fa-om"></i></div>
+              <div class="hss-trait-info">
+                <h4>Values &amp; Culture</h4>
+              </div>
+              <i class="fa-solid fa-chevron-right hss-trait-arrow"></i>
+            </div>
+          </div>
+
+          <!-- RIGHT: Detail Panel (shown on click) -->
+          <div class="hss-skill-detail-panel" id="skill-detail-panel">
+            <!-- Default placeholder -->
+            <div class="hss-skill-placeholder" id="skill-placeholder">
+              <i class="fa-solid fa-hand-pointer"></i>
+              <p>Select a skill on the left to see which school programs develop it</p>
+            </div>
+
+            <!-- Dynamic detail content injected by JS -->
+            <div class="hss-skill-detail-content" id="skill-detail-content" style="display:none;">
+              <div class="hss-skill-detail-header" id="skill-detail-header">
+                <div class="hss-skill-detail-icon" id="skill-detail-icon"></div>
+                <div>
+                  <h3 id="skill-detail-title"></h3>
+                  <p id="skill-detail-desc"></p>
+                </div>
+              </div>
+              <div class="hss-skill-programs-grid" id="skill-programs-grid">
+                <!-- Program cards injected by JS -->
               </div>
             </div>
           </div>
 
-          <!-- Middle Animated Connecting SVG -->
-          <div class="hss-tree-connections">
-            <svg class="hss-connections-svg" viewBox="0 0 200 400" preserveAspectRatio="none">
-              <!-- SVG connector paths with custom glowing properties -->
-              <path id="path-focus-abacus" d="M 10 70 C 100 70, 100 50, 190 50" class="connector-line" />
-              <path id="path-focus-kreedo" d="M 10 70 C 100 70, 100 130, 190 130" class="connector-line" />
-              <path id="path-discipline-lathi" d="M 10 200 C 100 200, 100 210, 190 210" class="connector-line" />
-              <path id="path-discipline-yoga" d="M 10 200 C 100 200, 100 290, 190 290" class="connector-line" />
-              <path id="path-logic-science" d="M 10 330 C 100 330, 100 370, 190 370" class="connector-line" />
-            </svg>
-          </div>
-
-          <!-- Right Associated School Programs -->
-          <div class="hss-programs-panel">
-            <div class="hss-program-node" id="node-abacus">
-              <div class="hss-node-icon"><i class="fa-solid fa-calculator"></i></div>
-              <h4>Abacus Brain Games</h4>
-            </div>
-            
-            <div class="hss-program-node" id="node-kreedo">
-              <div class="hss-node-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
-              <h4>Montessori Kreedo Lab</h4>
-            </div>
-
-            <div class="hss-program-node" id="node-lathi">
-              <div class="hss-node-icon"><i class="fa-solid fa-people-robbery"></i></div>
-              <h4>Lathi Kathi Martial Art</h4>
-            </div>
-
-            <div class="hss-program-node" id="node-yoga">
-              <div class="hss-node-icon"><i class="fa-solid fa-child-yoga"></i></div>
-              <h4>Rhythmic Yoga &amp; Assemblies</h4>
-            </div>
-
-            <div class="hss-program-node" id="node-science">
-              <div class="hss-node-icon"><i class="fa-solid fa-flask"></i></div>
-              <h4>Practical Science Streams</h4>
-            </div>
-          </div>
         </div>
       </div>
       <!-- Playful Hanging Glowing Lightbulbs Divider -->
@@ -1451,7 +1454,7 @@
           <!-- Photo 5: Sports Ground -->
           <div class="gallery-card" data-category="amenities">
             <div class="gallery-img-wrapper">
-              <img src="assets/gallery_sports.jpg" alt="Sports Playground Area" class="gallery-img" width="400" height="280" loading="lazy" onerror="this.src='assets/school_hero.png';">
+              <img src="assets/gallery_sports.jpg" alt="Sports Play Area" class="gallery-img" width="400" height="280" loading="lazy" onerror="this.src='assets/school_hero.png';">
               <div class="gallery-card-overlay">
                 <div class="gallery-card-badge">EXPLORE</div>
                 <h5 class="gallery-card-caption" data-key="gallery_img_5"></h5>
@@ -1513,7 +1516,7 @@
             </button>
             <div class="hss-faq-content">
               <div class="hss-faq-content-inner">
-                <p>We blend the structured activity-based Kreedo Curriculum in preschool with analytical primary pathways including abacus logic. For higher secondary levels, we offer dedicated JEE/NEET integrated science preparation under Dnyansadhana Educational Trust.</p>
+                <p>We blend the structured activity-based Kreedo Curriculum in preschool with analytical primary pathways including abacus logic.</p>
               </div>
             </div>
           </div>
@@ -1552,7 +1555,7 @@
             </button>
             <div class="hss-faq-content">
               <div class="hss-faq-content-inner">
-                <p>Yes, absolutely. We operate 24/7 CCTV surveillance with zero-blindspot monitoring in all hallways, classroom spaces, and main playgrounds to guarantee complete safety for all children.</p>
+                <p>Yes, absolutely. We operate 24/7 CCTV surveillance with zero-blindspot monitoring in all hallways, classroom spaces, and main play areas to guarantee complete safety for all children.</p>
               </div>
             </div>
           </div>
@@ -1609,11 +1612,16 @@
                   <option value="ukg" data-key="form_opt_ukg"></option>
                   <option value="class1" data-key="form_opt_class1"></option>
                   <option value="class2" data-key="form_opt_class2"></option>
+                  <option value="class3" data-key="form_opt_class3"></option>
+                  <option value="class4" data-key="form_opt_class4"></option>
+                  <option value="class5" data-key="form_opt_class5"></option>
+                  <option value="class6" data-key="form_opt_class6"></option>
+                  <option value="class7" data-key="form_opt_class7"></option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="parent-phone" class="form-label" data-key="form_label_phone"></label>
-                <input type="tel" id="parent-phone" class="form-input" pattern="[0-9]{10}" required>
+                <input type="tel" id="parent-phone" class="form-input" pattern="[0-9]{10}">
               </div>
             </div>
             <div class="form-action">
@@ -1696,6 +1704,15 @@
           <img src="assets/school_logo.png" alt="HS School Logo" class="footer-logo">
           <h4 class="footer-brand" data-key="nav_brand"></h4>
           <p class="footer-trust" data-key="footer_trust"></p>
+          <!-- Social Media Links -->
+          <div class="footer-social-links">
+            <a href="#" id="footer-instagram-link" class="footer-social-btn footer-social-instagram" aria-label="HS School Instagram" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" id="footer-facebook-link" class="footer-social-btn footer-social-facebook" aria-label="HS School Facebook" target="_blank" rel="noopener">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
         </div>
         
         <div class="footer-links-section">
@@ -1718,6 +1735,16 @@
 
       <div class="footer-bottom">
         <p class="footer-copy" data-key="footer_copyright"></p>
+        <div class="footer-bottom-social">
+          <a href="#" id="footer-instagram-link-2" class="footer-social-btn footer-social-instagram" aria-label="Instagram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a href="#" id="footer-facebook-link-2" class="footer-social-btn footer-social-facebook" aria-label="Facebook" target="_blank" rel="noopener">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
       </div>
 
     </div>
