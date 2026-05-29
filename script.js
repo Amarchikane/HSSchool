@@ -805,7 +805,8 @@ function initPlayfulDividersAnimation() {
       ".hss-balloons-divider",
       ".hss-paint-divider",
       ".hss-blackboards-divider",
-      ".hss-school-bell-divider"
+      ".hss-school-bell-divider",
+      ".hss-notebook-margin-container"
     ];
 
     dividers.forEach(selector => {
@@ -822,6 +823,31 @@ function initPlayfulDividersAnimation() {
         }
       });
     });
+
+    // Climbing Mascots Reactively in Timeline Section
+    if (document.querySelector('.mascot-panda') && document.querySelector('.mascot-squirrel')) {
+      gsap.to(".mascot-panda", {
+        top: "85%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#timeline",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1
+        }
+      });
+
+      gsap.to(".mascot-squirrel", {
+        top: "10%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#timeline",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1.5
+        }
+      });
+    }
   }
 }
 
@@ -944,6 +970,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFaqAccordion();
   initBackgroundParallax();
   initAmenitiesDashboard();
+  initMobilePeekMascots();
 });
 
 // 15. VIRTUAL TOUR VIDEO CONTROLLER
@@ -2256,4 +2283,308 @@ function initAmenitiesDashboard() {
 
   // Start the automatic rotation initially
   startAutoShift();
+}
+
+// 27. HIDE-AND-SEEK MOBILE PEEKING MASCOTS
+function initMobilePeekMascots() {
+  if (typeof ScrollTrigger === 'undefined' || typeof gsap === 'undefined') return;
+
+  const mascots = document.querySelectorAll('.hss-peek-mascot');
+  if (mascots.length === 0) return;
+
+  mascots.forEach(mascot => {
+    const parentSection = mascot.closest('section');
+    if (!parentSection) return;
+
+    const isLeft = mascot.classList.contains('peek-left');
+
+    // Assign staggered organic ambient loop speeds & delays to the inner wrapper
+    const inner = mascot.querySelector('.hss-peek-inner');
+    if (inner) {
+      inner.classList.add(isLeft ? 'loop-left' : 'loop-right');
+      const randomDuration = 6 + Math.random() * 5; // between 6s and 11s loop
+      const randomDelay = Math.random() * -10; // negative delay to start immediately at random phase
+      inner.style.animationDuration = `${randomDuration}s`;
+      inner.style.animationDelay = `${randomDelay}s`;
+    }
+    
+    // ScrollTrigger to add/remove visible class when section is inside the viewport
+    ScrollTrigger.create({
+      trigger: parentSection,
+      start: "top 90%",
+      end: "bottom 10%",
+      onEnter: () => mascot.classList.add('visible'),
+      onLeave: () => mascot.classList.remove('visible'),
+      onEnterBack: () => mascot.classList.add('visible'),
+      onLeaveBack: () => mascot.classList.remove('visible'),
+      invalidateOnRefresh: true
+    });
+
+    // Tap Interaction event handler
+    const mascotType = mascot.getAttribute('data-mascot');
+    
+    // Add both click and touchstart for instant mobile feedback
+    const handleTap = (e) => {
+      // Prevent double triggers
+      e.preventDefault();
+      
+      // Prevent running if already animating
+      if (gsap.isAnimating(mascot)) return;
+
+      const tl = gsap.timeline();
+      
+      switch (mascotType) {
+        case 'sun':
+          // Elastic 360deg rotation spin
+          tl.to(mascot, { rotation: "+=360", duration: 0.8, ease: "back.out(1.5)" });
+          break;
+        case 'butterfly':
+          // Flutter wings and minor hover wiggle
+          tl.to(mascot, { scaleX: 0.25, x: isLeft ? 26 : -26, duration: 0.08, repeat: 3, yoyo: true })
+            .to(mascot, { scaleX: 1.0, x: isLeft ? 18 : -18, y: "-=10", duration: 0.15 })
+            .to(mascot, { y: 0, duration: 0.35, ease: "bounce.out" });
+          break;
+        case 'chick':
+          // Cute little squeaky hop
+          tl.to(mascot, { y: "-=15", scaleY: 1.25, scaleX: 0.85, duration: 0.2, ease: "power1.out" })
+            .to(mascot, { y: 0, scaleY: 0.85, scaleX: 1.15, duration: 0.15, ease: "power1.in" })
+            .to(mascot, { scaleY: 1.0, scaleX: 1.0, duration: 0.25, ease: "elastic.out(1.2, 0.4)" });
+          break;
+        case 'panda':
+          // Left-right side wiggle dance
+          tl.to(mascot, { rotation: -12, x: isLeft ? 22 : -22, duration: 0.15, ease: "power1.out" })
+            .to(mascot, { rotation: 12, x: isLeft ? 14 : -14, duration: 0.2, ease: "power1.inOut" })
+            .to(mascot, { rotation: 0, x: isLeft ? 18 : -18, duration: 0.15, ease: "back.out(1.2)" });
+          break;
+        case 'snail':
+          // Crawls forward slowly and pulls back
+          tl.to(mascot, { x: isLeft ? 32 : -32, skewX: isLeft ? -10 : 10, duration: 0.5, ease: "power1.inOut" })
+            .to(mascot, { x: isLeft ? 18 : -18, skewX: 0, duration: 0.4, ease: "power2.out" });
+          break;
+        case 'squirrel':
+          // Bounce and 360 flip
+          tl.to(mascot, { y: "-=25", scale: 1.2, duration: 0.2, ease: "power1.out" })
+            .to(mascot, { rotation: isLeft ? 360 : -360, duration: 0.4, ease: "none" })
+            .to(mascot, { y: 0, scale: 1.0, duration: 0.2, ease: "power1.in" });
+          break;
+        case 'giraffe':
+          // Elastic neck stretch
+          tl.to(mascot, { scaleY: 1.4, scaleX: 0.9, y: "-=8", duration: 0.2, ease: "power1.out" })
+            .to(mascot, { scaleY: 1.0, scaleX: 1.0, y: 0, duration: 0.5, ease: "elastic.out(1.2, 0.4)" });
+          break;
+        case 'elephant':
+          // Trunk spraying squash
+          tl.to(mascot, { scaleY: 0.8, scaleX: 1.2, duration: 0.15 })
+            .to(mascot, { scaleY: 1.25, scaleX: 0.9, y: "-=15", duration: 0.25, ease: "power1.out" })
+            .to(mascot, { scaleY: 1.0, scaleX: 1.0, y: 0, duration: 0.4, ease: "elastic.out(1.1, 0.4)" });
+          break;
+        case 'koala':
+          // Side-to-side lazy swing
+          tl.to(mascot, { rotation: -15, scale: 1.1, duration: 0.2 })
+            .to(mascot, { rotation: 15, duration: 0.25 })
+            .to(mascot, { rotation: 0, scale: 1.0, duration: 0.2, ease: "back.out" });
+          break;
+        case 'owl':
+          // Wise owl head tilt back and forth
+          tl.to(mascot, { rotation: -18, duration: 0.15, ease: "power1.out" })
+            .to(mascot, { rotation: 18, duration: 0.25, ease: "power1.inOut" })
+            .to(mascot, { rotation: 0, duration: 0.2, ease: "back.out(1.2)" });
+          break;
+        case 'penguin':
+          // Wobbly waddle slide
+          tl.to(mascot, { skewX: -12, rotation: -8, duration: 0.18 })
+            .to(mascot, { skewX: 12, rotation: 8, duration: 0.18 })
+            .to(mascot, { skewX: 0, rotation: 0, duration: 0.2, ease: "elastic.out" });
+          break;
+        case 'duck':
+          // Wing quacking wiggle
+          tl.to(mascot, { scaleY: 1.3, scaleX: 0.8, duration: 0.12 })
+            .to(mascot, { scaleY: 0.9, scaleX: 1.2, duration: 0.12 })
+            .to(mascot, { scaleY: 1.0, scaleX: 1.0, duration: 0.2, ease: "back.out" });
+          break;
+        case 'bee':
+          // Rapid buzzing shake & scale
+          tl.to(mascot, { scale: 1.25, x: isLeft ? "+=4" : "-=4", duration: 0.05, repeat: 5, yoyo: true })
+            .to(mascot, { scale: 1, x: isLeft ? 18 : -18, duration: 0.1 });
+          break;
+        case 'ladybug':
+          // Creeps upward slightly
+          tl.to(mascot, { y: "-=20", rotation: -10, duration: 0.3, ease: "power1.out" })
+            .to(mascot, { y: 0, rotation: 0, duration: 0.25, ease: "power1.in" });
+          break;
+        case 'caterpillar':
+          // Inching worm squeeze and stretch
+          tl.to(mascot, { scaleX: 0.7, x: isLeft ? 24 : -24, duration: 0.2 })
+            .to(mascot, { scaleX: 1.3, x: isLeft ? 12 : -12, duration: 0.15 })
+            .to(mascot, { scaleX: 1.0, x: isLeft ? 18 : -18, duration: 0.2, ease: "elastic.out" });
+          break;
+        case 'parrot':
+          // Staggered bobbing leap
+          tl.to(mascot, { y: "-=25", rotation: -10, duration: 0.25, ease: "power2.out" })
+            .to(mascot, { y: 0, rotation: 0, duration: 0.4, ease: "bounce.out" });
+          break;
+        case 'dog':
+          // Wag tail and bounce
+          tl.to(mascot, { rotation: 12, y: "-=12", duration: 0.15, repeat: 3, yoyo: true })
+            .to(mascot, { rotation: 0, y: 0, duration: 0.2 });
+          break;
+        case 'cat':
+          // Elastic cat stretch
+          tl.to(mascot, { scaleY: 1.35, scaleX: 0.8, y: "-=6", duration: 0.22, ease: "power2.out" })
+            .to(mascot, { scaleY: 1.0, scaleX: 1.0, y: 0, duration: 0.4, ease: "elastic.out(1.1, 0.4)" });
+          break;
+        case 'monkey':
+          // Swing side-to-side (anchored from top-ish)
+          tl.to(mascot, { rotation: -25, transformOrigin: "top center", duration: 0.2, ease: "power1.out" })
+            .to(mascot, { rotation: 25, duration: 0.3, ease: "power1.inOut" })
+            .to(mascot, { rotation: 0, duration: 0.25, ease: "back.out(1.2)" });
+          break;
+        case 'tiger':
+          // Springing roar bounce
+          tl.to(mascot, { scale: 1.35, x: isLeft ? 26 : -26, duration: 0.18, ease: "power2.out" })
+            .to(mascot, { scale: 1.0, x: isLeft ? 18 : -18, duration: 0.4, ease: "elastic.out" });
+          break;
+        case 'rabbit':
+          // Elegant tall leap
+          tl.to(mascot, { y: "-=30", scaleY: 1.3, scaleX: 0.85, duration: 0.25, ease: "power2.out" })
+            .to(mascot, { y: 0, scaleY: 1.0, scaleX: 1.0, duration: 0.35, ease: "bounce.out" });
+          break;
+        case 'robot':
+          // Pulse shake with glowing drop shadow
+          tl.to(mascot, { scale: 1.3, filter: "drop-shadow(0 0 12px var(--accent-gold))", duration: 0.15 })
+            .to(mascot, { scale: 0.9, duration: 0.1 })
+            .to(mascot, { scale: 1, filter: "drop-shadow(0 3px 6px rgba(0,0,0,0.16))", duration: 0.25, ease: "elastic.out(1.2, 0.5)" });
+          break;
+        case 'alien':
+          // Teleports (fades and bounces back)
+          tl.to(mascot, { opacity: 0, scale: 0.2, duration: 0.25, ease: "power2.in" })
+            .to(mascot, { opacity: 1, scale: 1.2, duration: 0.2, ease: "power2.out" })
+            .to(mascot, { scale: 1.0, duration: 0.2, ease: "power1.out" });
+          break;
+        case 'rocket':
+          // Launch off and land
+          tl.to(mascot, { y: "-=45", scale: 1.25, duration: 0.3, ease: "power2.out" })
+            .to(mascot, { y: 0, scale: 1.0, duration: 0.5, ease: "bounce.out" });
+          break;
+        case 'frog':
+          // Deep squeeze and vertical jump bounce
+          tl.to(mascot, { scaleY: 0.6, scaleX: 1.3, duration: 0.15 })
+            .to(mascot, { scaleY: 1.3, scaleX: 0.8, y: "-=30", duration: 0.25, ease: "power2.out" })
+            .to(mascot, { scaleY: 0.9, scaleX: 1.1, y: 0, duration: 0.2, ease: "power2.in" })
+            .to(mascot, { scaleY: 1.0, scaleX: 1.0, duration: 0.3, ease: "elastic.out(1.2, 0.4)" });
+          break;
+        case 'fish':
+          // Swimming loop wave path
+          tl.to(mascot, { y: "-=12", rotation: -20, duration: 0.2 })
+            .to(mascot, { y: "+=12", rotation: 20, duration: 0.25 })
+            .to(mascot, { y: 0, rotation: 0, duration: 0.15 });
+          break;
+        case 'turtle':
+          // Hide in shell
+          tl.to(mascot, { scale: 0.45, duration: 0.18, ease: "power2.in" })
+            .to(mascot, { scale: 1.1, delay: 0.2, duration: 0.22, ease: "back.out" })
+            .to(mascot, { scale: 1.0, duration: 0.1 });
+          break;
+        case 'fox':
+          // Ears perk wiggle
+          tl.to(mascot, { skewX: -10, scaleY: 1.1, duration: 0.15 })
+            .to(mascot, { skewX: 10, duration: 0.15 })
+            .to(mascot, { skewX: 0, scaleY: 1, duration: 0.2, ease: "back.out" });
+          break;
+        case 'unicorn':
+          // Prances elegantly
+          tl.to(mascot, { y: "-=22", skewY: -10, scale: 1.2, duration: 0.25, ease: "power2.out" })
+            .to(mascot, { y: 0, skewY: 0, scale: 1.0, duration: 0.35, ease: "elastic.out" });
+          break;
+        case 'dino':
+          // Tail whip snap rotation
+          tl.to(mascot, { rotation: -24, duration: 0.15, ease: "power1.out" })
+            .to(mascot, { rotation: 0, duration: 0.3, ease: "elastic.out(1.3, 0.4)" });
+          break;
+        case 'lion':
+          // Roar pulse (scale swell)
+          tl.to(mascot, { scale: 1.45, duration: 0.2, ease: "back.out(1.7)" })
+            .to(mascot, { scale: 1.0, duration: 0.45, ease: "elastic.out(1, 0.4)" });
+          break;
+        case 'teddy':
+          // Teddy snug squeeze
+          tl.to(mascot, { scaleX: 0.75, scaleY: 0.75, duration: 0.15, ease: "power1.out" })
+            .to(mascot, { scaleX: 1.0, scaleY: 1.0, duration: 0.4, ease: "elastic.out" });
+          break;
+        case 'deer':
+          // Elegant high leap
+          tl.to(mascot, { y: "-=28", x: isLeft ? "+=15" : "-=15", duration: 0.24, ease: "power2.out" })
+            .to(mascot, { y: 0, x: isLeft ? 18 : -18, duration: 0.35, ease: "bounce.out" });
+          break;
+        case 'dolphin':
+          // Swim hop
+          tl.to(mascot, { y: "-=20", rotation: isLeft ? 15 : -15, duration: 0.25, ease: "power1.out" })
+            .to(mascot, { y: 0, rotation: 0, duration: 0.35, ease: "bounce.out" });
+          break;
+        case 'koala_baby':
+          // Baby koala wobbly roll
+          tl.to(mascot, { rotation: -12, scale: 1.15, duration: 0.2 })
+            .to(mascot, { rotation: 12, duration: 0.25 })
+            .to(mascot, { rotation: 0, scale: 1.0, duration: 0.2, ease: "back.out" });
+          break;
+        case 'mouse':
+          // Small squeak rapid wiggle
+          tl.to(mascot, { scale: 1.25, x: isLeft ? "+=3" : "-=3", duration: 0.04, repeat: 4, yoyo: true })
+            .to(mascot, { scale: 1.0, x: isLeft ? 18 : -18, duration: 0.1 });
+          break;
+        case 'crab':
+          // Lateral crawl shake
+          tl.to(mascot, { x: isLeft ? 32 : -32, duration: 0.2 })
+            .to(mascot, { x: isLeft ? 8 : -8, duration: 0.2 })
+            .to(mascot, { x: isLeft ? 18 : -18, duration: 0.15, ease: "back.out" });
+          break;
+        case 'whale':
+          // Slow scale swell
+          tl.to(mascot, { scale: 1.35, duration: 0.4, ease: "power1.out" })
+            .to(mascot, { scale: 1.0, duration: 0.5, ease: "elastic.out(1, 0.4)" });
+          break;
+        case 'kangaroo':
+          // High elegant hops
+          tl.to(mascot, { y: "-=25", scaleY: 1.2, duration: 0.22, ease: "power2.out" })
+            .to(mascot, { y: 0, scaleY: 1.0, duration: 0.35, ease: "bounce.out" });
+          break;
+        case 'octopus':
+          // Tentacle wave loop
+          tl.to(mascot, { skewX: -15, skewY: 5, duration: 0.22 })
+            .to(mascot, { skewX: 15, skewY: -5, duration: 0.25 })
+            .to(mascot, { skewX: 0, skewY: 0, duration: 0.18, ease: "back.out" });
+          break;
+        case 'hamster':
+          // Cute hamster cheek stretch
+          tl.to(mascot, { scaleX: 1.35, scaleY: 0.8, duration: 0.15 })
+            .to(mascot, { scaleX: 0.8, scaleY: 1.35, duration: 0.15 })
+            .to(mascot, { scaleX: 1.0, scaleY: 1.0, duration: 0.25, ease: "elastic.out" });
+          break;
+        case 'dove':
+          // Fluttering leap
+          tl.to(mascot, { y: "-=22", scaleX: 0.3, duration: 0.08, repeat: 3, yoyo: true })
+            .to(mascot, { y: 0, scaleX: 1.0, duration: 0.3, ease: "bounce.out" });
+          break;
+        case 'sheep':
+          // Gentle bouncy hop
+          tl.to(mascot, { y: "-=12", scaleY: 1.15, duration: 0.18, ease: "power1.out" })
+            .to(mascot, { y: 0, scaleY: 1.0, duration: 0.22, ease: "bounce.out" });
+          break;
+        case 'squid':
+          // Jet propel up
+          tl.to(mascot, { y: "-=30", scaleY: 1.4, scaleX: 0.7, duration: 0.2, ease: "power2.out" })
+            .to(mascot, { y: 0, scaleY: 1.0, scaleX: 1.0, duration: 0.45, ease: "elastic.out(1, 0.4)" });
+          break;
+        case 'sloth':
+          // Super slow head turn
+          tl.to(mascot, { rotation: -10, duration: 0.6, ease: "power1.inOut" })
+            .to(mascot, { rotation: 10, duration: 0.7, ease: "power1.inOut" })
+            .to(mascot, { rotation: 0, duration: 0.5, ease: "power1.inOut" });
+          break;
+      }
+    };
+
+    mascot.addEventListener('click', handleTap);
+    mascot.addEventListener('touchstart', handleTap, { passive: false });
+  });
 }
