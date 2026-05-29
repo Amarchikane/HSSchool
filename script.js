@@ -115,10 +115,114 @@ const textContent = {
     principal_badge: "FROM THE LEADERSHIP DESK",
     principal_1_name: "Gauri Naresh Salunke <span class='principal-degree'>B.A., B.Ed., M.A., M.Ed.</span>",
     principal_1_role: "Founder, Chairperson & Principal",
+
     principal_1_message: "Our vision is to provide a balanced foundation where traditional cultural roots and modern activity-based learning go hand in hand, nurturing physical, intellectual, and moral growth.",
     principal_2_name: "Naresh Sharad Salunke <span class='principal-degree'>B.Sc., PGDBM</span>",
     principal_2_role: "Managing Director of School",
-    principal_2_message: "We are committed to delivering premium educational infrastructure, absolute campus safety with zero-blindspot CCTV monitoring, and safe transportation to keep learning stress-free."
+    principal_2_message: "We are committed to delivering premium educational infrastructure, absolute campus safety with zero-blindspot CCTV monitoring, and safe transportation to keep learning stress-free.",
+
+    // Academics / Curriculum Section
+    acad_badge: "ACADEMICS",
+    acad_title: "Grow with Us Curriculum",
+    acad_desc: "Explore our age-appropriate academic pathways structured for maximum developmental growth.",
+    tab_preschool: "Preschool &amp; Kreedo",
+    tab_primary: "Primary School",
+    tab_secondary: "Secondary School",
+    tab_higher: "Higher Secondary",
+    preschool_header: "Play-Based Foundations (Ages 2.5 - 6 Yrs)",
+    preschool_desc: "We combine rich Montessori activity materials with the advanced Kreedo sensory kit. This physical, tactile play method simplifies early mathematics, language phonics, and cognitive motor-skill pathways.",
+    preschool_bullet_1: "Montessori &amp; Kreedo Labs",
+    preschool_bullet_2: "Experiential Activity Kits",
+    preschool_bullet_3: "Focus on Brain-Gym Exercises",
+    primary_header: "Active Concept Building (Grades 1st - 5th)",
+    primary_desc: "Primary classes introduce formal mathematics alongside structured abacus sessions to enhance speed and concentration. English grammar and regional language writing fluency are cultivated through creative writing circles.",
+    primary_bullet_1: "Abacus Concentration Training",
+    primary_bullet_2: "Interactive Science Exhibitions",
+    primary_bullet_3: "Playful Language Workshops",
+    secondary_header: "Logical Mastery &amp; Boards Prep (Grades 6th - 10th)",
+    secondary_desc: "Middle and secondary curricula align with robust analytical board syllabus standards. Advanced physics, chemistry, and biology labs allow students to test concepts physically. Cultural martial arts (Lathi Kathi) training supports stress control.",
+    secondary_bullet_1: "Specialized Board Exam Preparation",
+    secondary_bullet_2: "Fully Equipped Science Laboratories",
+    secondary_bullet_3: "Mandatory Cultural Self-Defense (Lathi Kathi)",
+    higher_header: "Scientific Excellence &amp; Careers (Grades 11th - 12th)",
+    higher_desc: "Our higher secondary branch specializes in core Science and competitive exam tracks. Students practice JEE and NEET level analysis alongside comprehensive project writing to support top college placements.",
+    higher_bullet_1: "JEE, NEET &amp; Board-Integrated Mock Series",
+    higher_bullet_2: "Advanced Analytical Computer &amp; Tech Labs",
+    higher_bullet_3: "Personalized Career Seminars",
+
+    // Philosophy / Holistic Section
+    phil_badge: "PHILOSOPHY",
+    phil_title: "The 4Q Holistic Growth Balance",
+    phil_desc: "Our balanced educational framework structures the four main quadrants of development to nurture complete leaders.",
+    radar_iq: "IQ (INTELLIGENCE)",
+    radar_eq: "EQ (EMOTIONAL)",
+    radar_sq: "SQ (SPIRITUAL/SOCIAL)",
+    radar_pq: "PQ (PHYSICAL)",
+    card_iq_title: "Intelligence Quotient (IQ)",
+    card_iq_desc: "We challenge intellectual capacity through mathematical abacus challenges, conceptual science experiments in modern labs, and logical coding tracks. Children learn critical analytical processing and factual application.",
+    card_eq_title: "Emotional Quotient (EQ)",
+    card_eq_desc: "Through interactive group projects and emotional sharing assemblies, our students build empathy and self-regulation. We foster resilient minds that treat failures as active paths to positive growth.",
+    card_sq_title: "Spiritual &amp; Social Quotient (SQ)",
+    card_sq_desc: "Sanskrit Shloka chanting and morning assemblies help students connect with deep heritage roots and strong moral values. Social service cycles teach community respect, kindness, and public empathy.",
+    card_pq_title: "Physical Quotient (PQ)",
+    card_pq_desc: "We train children in physical resilience, bravery, and personal self-defense using traditional Lathi Kathi martial arts training and rhythmic brain-gym yoga classes on campus.",
+
+    // Scrapbook Section
+    scrap_badge: "CAMPUS ALBUM",
+    scrap_title: "Day in the Life Scrapbook",
+    scrap_desc: "Flip through our digital memory book to experience visual highlights of active student life.",
+    btn_prev_page: "Previous Page",
+    btn_next_page: "Next Page",
+    scrap_p1_title: "01. Morning Welcomes",
+    scrap_p1_desc: "Our day starts at 8:30 AM. Symmetrical classroom assemblies fill our spaces with morning prayers, warm teacher smiles, and Sanskrit shloka chanting sessions designed to cultivate high focus and calm intellectual systems.",
+    scrap_p1_num: "PAGE 1",
+    scrap_p2_title: "02. Creative Exploration",
+    scrap_p2_desc: "In the Kreedo play lab, concepts aren't just memorized—they're touched and assembled. Math becomes wooden counting rods, and physics resolves into colorful geometric blocks that promote conceptual intelligence.",
+    scrap_p2_num: "PAGE 2",
+    scrap_p3_title: "03. Cultural Strength",
+    scrap_p3_desc: "Self-defense builds brave souls. Traditional Indian Lathi Kathi training teaches active body coordination, high spatial awareness, and profound mental discipline to help kids grow robust and fearless.",
+    scrap_p3_num: "PAGE 3",
+
+    // Skill Tree Section
+    skill_badge: "SKILL MAP",
+    skill_title: "The Future-Proof Child Skill Tree",
+    skill_desc: "Tap any skill below to reveal the school programs that build it.",
+    skill_hint: "Select a skill to explore",
+    trait_focus_title: "Focus &amp; Concentration",
+    trait_discipline_title: "Physical Discipline",
+    trait_logic_title: "Critical Logic &amp; Science",
+    trait_creativity_title: "Creativity &amp; Expression",
+    trait_values_title: "Values &amp; Culture",
+    skill_placeholder_text: "Select a skill on the left to see which school programs develop it",
+
+    // Math Game Section
+    game_badge: "MIND GAME",
+    game_title: "Are you faster than our Abacus kids?",
+    game_desc: "Try our 10-Second mental math gym game and feel how abacus games boost speed!",
+    game_start_title: "Ready to test your processing speed?",
+    game_start_desc: "3 numbers will flash rapidly. Add and subtract them in your head!",
+    btn_start_game: "Start Mental Challenge",
+    game_input_title: "What was the final balance?",
+    game_input_placeholder: "Your Answer",
+    btn_verify_game: "Verify",
+    btn_retry_game: "Try Again",
+    game_msg_success: "🎉 Brilliant! Correct Answer!",
+    game_sub_success: "You processed numbers with perfect precision. Just like our trained abacus students!",
+    game_msg_fail: "❌ Oops, that's not it!",
+    game_sub_fail: "The correct final balance was {correct}. Abacus training helps kids map and see these numbers instantly!",
+
+    // FAQ Section
+    faq_badge: "COMMON QUERIES",
+    faq_title: "Frequently Asked Questions",
+    faq_desc: "Got questions? We have compiled the most common queries from parents about HS School admissions and campus facilities.",
+    faq_q1: "What is the curriculum followed at HS School?",
+    faq_a1: "We blend the structured activity-based Kreedo Curriculum in preschool with analytical primary pathways including abacus logic.",
+    faq_q2: "What are the timings of the preschool?",
+    faq_a2: "Our typical school day starts at 8:30 AM with morning chanting and prayers, ending at 1:30 PM after self-defense Lathi Kathi and sports sessions. We maintain class slots designed to keep kids fully focused and high-energy.",
+    faq_q3: "How secure is the school transport van facility?",
+    faq_a3: "Extremely secure. All our school transport vans are driven by verified local drivers. We maintain regular checks and follow strict route systems around Dhayari, Pune to ensure complete safety during daily commutes.",
+    faq_q4: "Are there CCTV cameras installed on the campus?",
+    faq_a4: "Yes, absolutely. We operate 24/7 CCTV surveillance with zero-blindspot monitoring in all hallways, classroom spaces, and main play areas to guarantee complete safety for all children."
   },
   mr: {
     nav_brand: "एच. एस. स्कूल",
@@ -232,7 +336,110 @@ const textContent = {
     principal_1_message: "पारंपारिक सांस्कृतिक मूल्ये आणि आधुनिक कृती-आधारित अभ्यासक्रमाचा सुरेख मेळ साधून मुलांचा सर्वांगीण, बौद्धिक व नैतिक विकास घडवणे हेच आमचे ध्येय आहे.",
     principal_2_name: "नरेश शरद साळुंके <span class='principal-degree'>बी.एस्सी., पीजीडीबीएम</span>",
     principal_2_role: "व्यवस्थापकीय संचालक (एम.डी.)",
-    principal_2_message: "आम्ही चोवीस तास सीसीटीव्ही सुरक्षितता, प्रशस्त हवेशीर वर्गखोल्या आणि खात्रीशीर व्हॅन वाहतूक याद्वारे मुलांना सुरक्षित आणि सर्वोत्तम सुविधा देण्यास कटिबद्ध आहोत."
+    principal_2_message: "आम्ही चोवीस तास सीसीटीव्ही सुरक्षितता, प्रशस्त हवेशीर वर्गखोल्या आणि खात्रीशीर व्हॅन वाहतूक याद्वारे मुलांना सुरक्षित आणि सर्वोत्तम सुविधा देण्यास कटिबद्ध आहोत.",
+
+    // Academics / Curriculum Section
+    acad_badge: "शिक्षण विभाग",
+    acad_title: "आमचा अभ्यासक्रम",
+    acad_desc: "मुलांच्या वयोमानानुसार आणि जास्तीत जास्त सर्वांगीण विकासासाठी तयार केलेली आमची शैक्षणिक मार्गदर्शक रचना पहा.",
+    tab_preschool: "प्लेस्कूल आणि क्रीडो",
+    tab_primary: "प्राथमिक शाळा",
+    tab_secondary: "माध्यमिक शाळा",
+    tab_higher: "उच्च माध्यमिक",
+    preschool_header: "खेळातून शिक्षण (वय २.५ ते ६ वर्षे)",
+    preschool_desc: "आम्ही प्रगत क्रीडो लॅब साहित्याद्वारे माँटेसरी शिक्षण देतो. खेळातून आणि प्रात्याक्षिकाद्वारे दिले जाणारे हे शिक्षण मुलांचे प्राथमिक गणित, भाषा आणि वाचन संकल्पना सोपे करते.",
+    preschool_bullet_1: "माँटेसरी आणि क्रीडो लॅब्स",
+    preschool_bullet_2: "प्रात्याक्षिक ऍक्टिव्हिटी किट्स",
+    preschool_bullet_3: "ब्रेन-जिम व्यायामांवर भर",
+    primary_header: "सक्रिय संकल्पना अभ्यास (इयत्ता १ ली ते ५ वी)",
+    primary_desc: "प्राथमिक वर्गांमध्ये गणिताचा पाया पक्का करण्यासाठी अबॅकसचा अभ्यास सुरू केला जातो, ज्यामुळे मुलांचा वेग आणि एकाग्रता वाढते. इंग्रजी व्याकरण आणि प्रादेशिक भाषांचे उत्तम ज्ञान सर्जनशील उपक्रमांद्वारे दिले जाते.",
+    primary_bullet_1: "अबॅकस एकाग्रता प्रशिक्षण",
+    primary_bullet_2: "परस्परसंवादी विज्ञान प्रदर्शने",
+    primary_bullet_3: "खेळातून भाषा कार्यशाळा",
+    secondary_header: "तार्किक प्रभुत्व आणि बोर्ड परीक्षा तयारी (इयत्ता ६ वी ते १० वी)",
+    secondary_desc: "माध्यमिक वर्गांचा अभ्यासक्रम शालेय बोर्डाच्या निकषांनुसार आणि तार्किक विचारसरणीला चालना देणारा आहे. मुले भौतिकशास्त्र, रसायनशास्त्र आणि जीवशास्त्र प्रयोगशाळेत स्वतः प्रयोग करून संकल्पना शिकतात. शारीरिक स्वास्थ्यासाठी लाठी काठीचे प्रशिक्षण दिले जाते.",
+    secondary_bullet_1: "विशेष बोर्ड परीक्षा पूर्वतयारी",
+    secondary_bullet_2: "सुसज्ज विज्ञान प्रयोगशाळा",
+    secondary_bullet_3: "पारंपारिक लाठी काठी स्वसंरक्षण (अनिवाय)",
+    higher_header: "वैज्ञानिक गुणवत्ता आणि करिअर मार्ग (इयत्ता ११ वी आणि १२ वी)",
+    higher_desc: "आमचा उच्च माध्यमिक विभाग मुख्यत्वे विज्ञान शाखा आणि स्पर्धा परीक्षांच्या (JEE / NEET) तयारीसाठी विशेष ओळखला जातो. विद्यार्थी सखोल अभ्यास आणि मॉक टेस्ट सीरिजद्वारे सर्वोत्तम महाविद्यालयांमध्ये प्रवेश मिळवण्यास सज्ज होतात.",
+    higher_bullet_1: "JEE, NEET आणि बोर्ड-एकात्मिक मॉक सीरिज",
+    higher_bullet_2: "प्रगत संगणक आणि माहिती तंत्रज्ञान लॅब",
+    higher_bullet_3: "वैयक्तिक करिअर मार्गदर्शन परिसंवाद",
+
+    // Philosophy / Holistic Section
+    phil_badge: "विचारसरणी",
+    phil_title: "चतुरस्त्र सर्वांगीण विकास",
+    phil_desc: "मुलांना भविष्यातील खंबीर आणि आदर्श नेतृत्व बनवण्यासाठी आम्ही त्यांच्या बौद्धिक, भावनिक, शारीरिक व आध्यात्मिक क्षमतांचा समतोल साधतो.",
+    radar_iq: "IQ (बौद्धिक क्षमता)",
+    radar_eq: "EQ (भावनिक विकास)",
+    radar_sq: "SQ (आध्यात्मिक/सामाजिक)",
+    radar_pq: "PQ (शारीरिक चपळता)",
+    card_iq_title: "बौद्धिक क्षमता (IQ)",
+    card_iq_desc: "आम्ही गणिताचे अबॅकस कोडे, आधुनिक प्रयोगशाळेतील विज्ञान प्रयोग आणि प्राथमिक कोडिंगद्वारे मुलांच्या बौद्धिक क्षमतेला आव्हान देतो, ज्यामुळे ते तार्किक विचार करायला शिकतात.",
+    card_eq_title: "भावनिक विकास (EQ)",
+    card_eq_desc: "सहकार्यात्मक प्रकल्प आणि भावनिक संवादाद्वारे मुले एकमेकांविषयी सहानुभूती आणि भावनांवर नियंत्रण ठेवायला शिकतात. आम्ही अपयशाकडे यशाची पायरी म्हणून पाहण्याची वृत्ती वाढवतो.",
+    card_sq_title: "आध्यात्मिक आणि सामाजिक विकास (SQ)",
+    card_sq_desc: "सकाळच्या श्लोक पठणामुळे मुले आपल्या समृद्ध सांस्कृतिक वारशाशी जोडली जातात आणि त्यांच्यात नैतिक मूल्ये रुजतात. सामाजिक सेवा उपक्रमांद्वारे त्यांना समाजप्रती आदर व सेवाभाव शिकवला जातो.",
+    card_pq_title: "शारीरिक चपळता (PQ)",
+    card_pq_desc: "मुलांना शारीरिकदृष्ट्या सुदृढ आणि धाडसी बनवण्यासाठी आम्ही पारंपारिक लाठी काठीचे खेळ आणि निरोगी आरोग्यासाठी नियमित योग व मेंदूचे व्यायाम वर्ग घेतो.",
+
+    // Scrapbook Section
+    scrap_badge: "शाळेतील आठवणी",
+    scrap_title: "दिनचर्या फोटो अल्बम",
+    scrap_desc: "आमच्या डिजिटल मेमरी बुकची पाने उलटून मुलांच्या उत्साही शालेय जीवनाची सुंदर झलक पहा.",
+    btn_prev_page: "मागील पान",
+    btn_next_page: "पुढील पान",
+    scrap_p1_title: "०१. आनंददायी सकाळची सुरुवात",
+    scrap_p1_desc: "आमची शाळा सकाळी ८:३० वाजता सुरू होते. हवेशीर वर्गातील सकाळची प्रार्थना, शिक्षकांचे स्वागत आणि मन प्रसन्न करणारे संस्कृत श्लोक पठण मुलांमध्ये सकारात्मक ऊर्जा व एकाग्रता निर्माण करते.",
+    scrap_p1_num: "पान १",
+    scrap_p2_title: "०२. सर्जनशील शोध आणि कृती",
+    scrap_p2_desc: "क्रीडो लॅबमध्ये मुले संकल्पना फक्त पाठ करत नाहीत, तर साहित्याद्वारे स्वतः हाताळून शिकतात. गणित लाकडी मण्यांद्वारे आणि विज्ञान विविध भौमितिक ब्लॉक्सद्वारे सोपे केले जाते.",
+    scrap_p2_num: "पान २",
+    scrap_p3_title: "०३. पारंपारिक आणि शारीरिक ताकद",
+    scrap_p3_desc: "स्वसंरक्षणामुळे मुलांमध्ये आत्मविश्वास निर्माण होतो. पारंपारिक लाठी काठीचे खेळ केवळ शारीरिक समन्वयच वाढवत नाहीत, तर मुलांमध्ये शिस्त आणि धाडस निर्माण करतात.",
+    scrap_p3_num: "पान ३",
+
+    // Skill Tree Section
+    skill_badge: "कौशल्य आराखडा",
+    skill_title: "मुलांचा भविष्याभिमुख कौशल्य विकास",
+    skill_desc: "मुलांमध्ये कोणती शैक्षणिक कौशल्ये कशा प्रकारे विकसित केली जातात हे पाहण्यासाठी खालील कोणत्याही कौशल्यावर क्लिक करा.",
+    skill_hint: "माहिती मिळवण्यासाठी कौशल्यावर क्लिक करा",
+    trait_focus_title: "एकाग्रता आणि लक्ष",
+    trait_discipline_title: "शारीरिक शिस्त",
+    trait_logic_title: "तार्किक तर्क आणि विज्ञान",
+    trait_creativity_title: "सर्जनशीलता आणि अभिव्यक्ती",
+    trait_values_title: "सांस्कृतिक आणि नैतिक मूल्ये",
+    skill_placeholder_text: "कोणती कौशल्ये कोणत्या उपक्रमांद्वारे विकसित होतात हे पाहण्यासाठी डावीकडील कौशल्य निवडा",
+
+    // Math Game Section
+    game_badge: "मेंदूचा खेळ",
+    game_title: "तुम्ही आमच्या अबॅकस मुलांपेक्षा वेगवान आहात का?",
+    game_desc: "आमचा १०-सेकंदाचा मेंटल मॅथ गेम खेळून पहा आणि अबॅकसमुळे मुलांची गती कशी वाढते याचा अनुभव घ्या!",
+    game_start_title: "मेंदूची गणना गती तपासण्यासाठी तयार आहात का?",
+    game_start_desc: "३ संख्या वेगाने फ्लॅश होतील. मनातल्या मनात त्यांची बेरीज आणि वजाबाकी करा!",
+    btn_start_game: "मानसिक आव्हान सुरू करा",
+    game_input_title: "अंतिम उत्तर काय होते?",
+    game_input_placeholder: "तुमचे उत्तर",
+    btn_verify_game: "तपासा",
+    btn_retry_game: "पुन्हा प्रयत्न करा",
+    game_msg_success: "🎉 अप्रतिम! बरोबर उत्तर!",
+    game_sub_success: "तुम्ही अगदी अचूकतेने गणना केली आहे. अगदी आमच्या प्रशिक्षित अबॅकस विद्यार्थ्यांसारखे!",
+    game_msg_fail: "❌ अरेरे, हे बरोबर नाही!",
+    game_sub_fail: "अंतिम अचूक उत्तर {correct} होते. अबॅकस प्रशिक्षणामुळे मुले या संख्या मनात त्वरित पाहू शकतात आणि उत्तर देऊ शकतात!",
+
+    // FAQ Section
+    faq_badge: "नेहमी विचारले जाणारे प्रश्न",
+    faq_title: "सतत विचारले जाणारे प्रश्न (FAQ)",
+    faq_desc: "प्रवेश प्रक्रिया, शाळेच्या सुविधा किंवा इतर बाबींबद्दल पालकांनी विचारलेले नेहमीचे प्रश्न आणि त्यांची उत्तरे.",
+    faq_q1: "एच. एस. स्कूलमध्ये कोणता अभ्यासक्रम राबवला जातो?",
+    faq_a1: "आम्ही पूर्व-प्राथमिक वर्गांमध्ये क्रीडो पद्धतीचा कृती-आधारित अभ्यासक्रम आणि प्राथमिक वर्गांमध्ये अबॅकससह प्रगत अभ्यासक्रमाचा मेळ साधतो.",
+    faq_q2: "शाळेची वेळ कशी आहे?",
+    faq_a2: "आमची शाळा सकाळी ८:३० वाजता श्लोक पठण व प्रार्थनेने सुरू होते आणि दुपारी १:३० वाजता लाठी काठी, क्रीडा व इतर शारीरिक उपक्रमांनंतर सुटते.",
+    faq_q3: "शाळेची व्हॅन वाहतूक सुविधा सुरक्षित आहे का?",
+    faq_a3: "होय, अत्यंत सुरक्षित. सर्व व्हॅन्स अनुभवी आणि स्थानिक पडताळणी केलेल्या चालकांद्वारे चालवल्या जातात. आम्ही धायरी व परिसरातील सर्व मार्गांवर सुरक्षेचे काटेकोर पालन करतो.",
+    faq_q4: "शाळेच्या आवारात सीसीटीव्ही कॅमेरे आहेत का?",
+    faq_a4: "होय, नक्कीच. शाळेचे सर्व वर्ग, कॉरिडोर्स आणि मैदाने चोवीस तास सीसीटीव्ही निगराणीखाली असतात, जिथे कोणतीही अंधारी जागा (blindspot) नाही."
   }
 };
 
@@ -286,6 +493,31 @@ function updateLanguageUI() {
   if (typeof updateShowcaseBenefits === 'function') {
     updateShowcaseBenefits();
   }
+
+  // Update active skill details panel dynamically on language change
+  const activeTraitCard = document.querySelector('.hss-trait-card.active');
+  if (activeTraitCard) {
+    activeTraitCard.click();
+  }
+
+  // Update ruler ticks titles and aria-labels dynamically on language change
+  const rulerTicks = document.querySelectorAll('.ruler-tick.major');
+  rulerTicks.forEach(tick => {
+    const target = tick.getAttribute('data-target');
+    let titleKey = '';
+    if (target === '#hero') titleKey = 'nav_home';
+    else if (target === '#timeline') titleKey = 'nav_timeline';
+    else if (target === '#milestones') titleKey = 'nav_milestones';
+    else if (target === '#reviews') titleKey = 'nav_reviews';
+    else if (target === '#features') titleKey = 'nav_features';
+    else if (target === '#admission') titleKey = 'nav_admission';
+    
+    if (titleKey && textContent[currentLanguage] && textContent[currentLanguage][titleKey]) {
+      const translatedText = textContent[currentLanguage][titleKey];
+      tick.setAttribute('title', translatedText);
+      tick.setAttribute('aria-label', currentLanguage === 'mr' ? `${translatedText} वर जा` : `Scroll to ${translatedText}`);
+    }
+  });
 }
 
 // Language switch trigger
@@ -1368,13 +1600,25 @@ function initSchoolRulerTracker() {
     marker.style.top = `${newTop}px`;
   });
 
-  // Handle clickable ruler shortcuts
+  // Handle clickable & keyboard-accessible ruler shortcuts
   ticks.forEach(tick => {
-    tick.addEventListener('click', () => {
+    const scrollToTarget = () => {
       const targetId = tick.getAttribute('data-target');
       const targetSection = document.querySelector(targetId);
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
+        // Set focus to the target section for screen readers
+        targetSection.setAttribute('tabindex', '-1');
+        targetSection.focus({ preventScroll: true });
+      }
+    };
+
+    tick.addEventListener('click', scrollToTarget);
+    
+    tick.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // prevent page scroll down on Space key
+        scrollToTarget();
       }
     });
   });
@@ -1734,94 +1978,185 @@ function initGamifiedSkillTree() {
   if (traitCards.length === 0 || !detailContent) return;
 
   // Full trait data with linked programs
+  // Full trait data with linked programs in both English and Marathi
   const traitData = {
     focus: {
       icon: '🎯',
       color: '#D4AF37',
-      title: 'Focus & Concentration',
-      desc: 'Sharpening attention, boosting mental storage, and building mathematical visualization — the foundation of every academic skill.',
+      title: {
+        en: 'Focus & Concentration',
+        mr: 'एकाग्रता आणि लक्ष'
+      },
+      desc: {
+        en: 'Sharpening attention, boosting mental storage, and building mathematical visualization — the foundation of every academic skill.',
+        mr: 'लक्ष वेधणे, स्मरणशक्ती वाढवणे आणि गणिताचे आकलन सुधारणे - ही प्रत्येक शैक्षणिक कौशल्याची पायाभरणी आहे.'
+      },
       programs: [
         {
           icon: '🧮',
-          name: 'Abacus Brain Games',
-          detail: 'Rapid bead calculations train both hemispheres simultaneously, dramatically improving memory span, calculation speed, and spatial reasoning.'
+          name: {
+            en: 'Abacus Brain Games',
+            mr: 'अबॅकस ब्रेन गेम्स'
+          },
+          detail: {
+            en: 'Rapid bead calculations train both hemispheres simultaneously, dramatically improving memory span, calculation speed, and spatial reasoning.',
+            mr: 'जलद मणी मोजणीमुळे मेंदूच्या दोन्ही भागांना चालना मिळते, ज्यामुळे स्मरणशक्ती, गणिताचा वेग आणि तर्कशक्ती सुधारते.'
+          }
         },
         {
           icon: '🧩',
-          name: 'Montessori Kreedo Lab',
-          detail: "Tactile material boxes force sustained, focused engagement with shapes, numbers, and patterns — building a child's ability to concentrate for longer durations."
+          name: {
+            en: 'Montessori Kreedo Lab',
+            mr: 'माँटेसरी क्रीडो लॅब'
+          },
+          detail: {
+            en: "Tactile material boxes force sustained, focused engagement with shapes, numbers, and patterns — building a child's ability to concentrate for longer durations.",
+            mr: "विविध शैक्षणिक साहित्याद्वारे मुले आकार, संख्या आणि पॅटर्न समजून घेतात - ज्यामुळे त्यांची एकाग्रता दीर्घकाळ टिकून राहते."
+          }
         }
       ]
     },
     discipline: {
       icon: '🛡️',
       color: '#2ECC71',
-      title: 'Physical Discipline & Bravery',
-      desc: 'Cultivating body rhythm, stamina, personal defense confidence, and deep spinal strength through traditional and modern physical training.',
+      title: {
+        en: 'Physical Discipline & Bravery',
+        mr: 'शारीरिक शिस्त आणि धाडस'
+      },
+      desc: {
+        en: 'Cultivating body rhythm, stamina, personal defense confidence, and deep spinal strength through traditional and modern physical training.',
+        mr: 'पारंपारिक आणि आधुनिक शारीरिक प्रशिक्षणाद्वारे शरीराचा समन्वय, तग धरण्याची क्षमता, वैयक्तिक संरक्षणाचा आत्मविश्वास आणि शारीरिक ताकद वाढवणे.'
+      },
       programs: [
         {
           icon: '🥋',
-          name: 'Lathi Kathi Martial Art',
-          detail: 'Traditional Lathi Kathi training builds physical agility, self-defense awareness, core strength, and disciplined body control rooted in Indian heritage.'
+          name: {
+            en: 'Lathi Kathi Martial Art',
+            mr: 'लाठी काठी पारंपारिक कला'
+          },
+          detail: {
+            en: 'Traditional Lathi Kathi training builds physical agility, self-defense awareness, core strength, and disciplined body control rooted in Indian heritage.',
+            mr: 'पारंपारिक लाठी काठी प्रशिक्षण आपल्या भारतीय संस्कृतीशी जोडलेले असून, ते मुलांमध्ये शारीरिक चपळता, स्वसंरक्षण, मुख्य ताकद आणि शिस्तबद्ध नियंत्रण विकसित करते.'
+          }
         },
         {
           icon: '🧘',
-          name: 'Rhythmic Yoga & Brain Gym',
-          detail: 'Daily breathing sequences and yoga postures calm the nervous system, improve posture, coordination and release stress — setting children up for focused learning.'
+          name: {
+            en: 'Rhythmic Yoga & Brain Gym',
+            mr: 'योग आणि ब्रेन जिम'
+          },
+          detail: {
+            en: 'Daily breathing sequences and yoga postures calm the nervous system, improve posture, coordination and release stress — setting children up for focused learning.',
+            mr: 'नियमित प्राणायाम आणि योगासने मज्जासंस्थेला शांत करतात, शरीराची ठेवण आणि समन्वय सुधारतात, तसेच ताणतणाव दूर करून मुलांना अभ्यासासाठी सज्ज करतात.'
+          }
         }
       ]
     },
     logic: {
       icon: '💡',
       color: '#4D96FF',
-      title: 'Critical Logic & Science',
-      desc: 'Building tactical problem solving, active scientific inquiry, and analytical reasoning — preparing children to ask "why" and find real answers.',
+      title: {
+        en: 'Critical Logic & Science',
+        mr: 'तार्किक तर्क आणि विज्ञान'
+      },
+      desc: {
+        en: 'Building tactical problem solving, active scientific inquiry, and analytical reasoning — preparing children to ask "why" and find real answers.',
+        mr: 'मुलांमध्ये तार्किक विचारसरणी, वैज्ञानिक जिज्ञासा आणि विश्लेषणात्मक विचार करण्याची क्षमता विकसित करणे - ज्यामुळे ते स्वतः प्रश्न विचारून उत्तरे शोधू शकतील.'
+      },
       programs: [
         {
           icon: '🔬',
-          name: 'Practical Science Streams',
-          detail: 'Activity-based exploration of cause-and-effect, basic chemistry, nature observation, and structured reasoning to nurture young scientific thinkers.'
+          name: {
+            en: 'Practical Science Streams',
+            mr: 'प्रात्यक्षिक विज्ञान वर्ग'
+          },
+          detail: {
+            en: 'Activity-based exploration of cause-and-effect, basic chemistry, nature observation, and structured reasoning to nurture young scientific thinkers.',
+            mr: 'मुलांमधील वैज्ञानिक विचारसरणीला वाव देण्यासाठी कार्य-कारण भाव, मूलभूत रसायनशास्त्र प्रयोग, निसर्ग निरीक्षण आणि तार्किक विज्ञानाचे उपक्रम.'
+          }
         },
         {
           icon: '🧩',
-          name: 'Kreedo Problem Solving',
-          detail: 'Material-based sorting, sequencing, and pattern games build logical deduction skills far before formal schooling concepts are introduced.'
+          name: {
+            en: 'Kreedo Problem Solving',
+            mr: 'क्रीडो समस्या निवारण खेळ'
+          },
+          detail: {
+            en: 'Material-based sorting, sequencing, and pattern games build logical deduction skills far before formal schooling concepts are introduced.',
+            mr: 'विविध साहित्याद्वारे वर्गीकरण, क्रमवारी आणि पॅटर्न सोडवण्याचे खेळ, जे औपचारिक शिक्षणापूर्वीच मुलांमध्ये तर्कशास्त्र कौशल्य विकसित करतात.'
+          }
         }
       ]
     },
     creativity: {
       icon: '🎨',
       color: '#FF6B9D',
-      title: 'Creativity & Expression',
-      desc: 'Unleashing imagination through art, music, storytelling, and open-ended play — nurturing the Creative Quotient (CQ) every child possesses.',
+      title: {
+        en: 'Creativity & Expression',
+        mr: 'सर्जनशीलता आणि अभिव्यक्ती'
+      },
+      desc: {
+        en: 'Unleashing imagination through art, music, storytelling, and open-ended play — nurturing the Creative Quotient (CQ) every child possesses.',
+        mr: 'कला, संगीत, गोष्टी आणि मोकळ्या खेळांद्वारे मुलांच्या कल्पनाशक्तीला वाव देणे - जेणेकरून त्यांची सर्जनशील बुद्धिमत्ता (CQ) विकसित होईल.'
+      },
       programs: [
         {
           icon: '🎵',
-          name: 'Rhythmic & Cultural Activities',
-          detail: 'Dance, drawing, clay modelling, and group storytelling sessions allow children to express feelings, develop fine motor skills, and build creative confidence.'
+          name: {
+            en: 'Rhythmic & Cultural Activities',
+            mr: 'सांस्कृतिक आणि संगीत उपक्रम'
+          },
+          detail: {
+            en: 'Dance, drawing, clay modelling, and group storytelling sessions allow children to express feelings, develop fine motor skills, and build creative confidence.',
+            mr: 'नृत्य, चित्रकला, मातीकाम आणि गट गोष्टींच्या सत्रांमुळे मुले आपल्या भावना व्यक्त करायला शिकतात, त्यांचे स्नायू मजबूत होतात आणि आत्मविश्वास वाढतो.'
+          }
         },
         {
           icon: '🎠',
-          name: 'Open Play & Exploration',
-          detail: 'Unstructured play in our safe indoor and outdoor play areas gives children freedom to invent, experiment and develop imaginative thinking independently.'
+          name: {
+            en: 'Open Play & Exploration',
+            mr: 'मुक्त खेळ आणि शोध'
+          },
+          detail: {
+            en: 'Unstructured play in our safe indoor and outdoor play areas gives children freedom to invent, experiment and develop imaginative thinking independently.',
+            mr: 'शाळेच्या सुरक्षित इनडोअर आणि मैदानी खेळाच्या जागेत मुले स्वतःचे नवीन खेळ शोधतात, प्रयोग करतात आणि कल्पकतेने विचार करायला शिकतात.'
+          }
         }
       ]
     },
     values: {
       icon: '🕉️',
       color: '#9B5DE5',
-      title: 'Values & Cultural Roots',
-      desc: 'Grounding every child in Indian cultural heritage, moral values, and spiritual awareness alongside modern academics — the Spiritual Quotient (SQ).',
+      title: {
+        en: 'Values & Cultural Roots',
+        mr: 'नैतिक आणि सांस्कृतिक मूल्ये'
+      },
+      desc: {
+        en: 'Grounding every child in Indian cultural heritage, moral values, and spiritual awareness alongside modern academics — the Spiritual Quotient (SQ).',
+        mr: 'आधुनिक शिक्षणासोबतच मुलांमध्ये भारतीय सांस्कृतिक वारसा, उच्च नैतिक मूल्ये आणि आध्यात्मिक जाणीव रुजवणे - म्हणजेच आध्यात्मिक बुद्धिमत्ता (SQ).'
+      },
       programs: [
         {
           icon: '🙏',
-          name: 'Sanskrit Shloka Chanting',
-          detail: 'Morning assemblies include rhythmic Sanskrit chanting that builds focus, phonological awareness, cultural pride, and a peaceful start to the school day.'
+          name: {
+            en: 'Sanskrit Shloka Chanting',
+            mr: 'संस्कृत श्लोक पठण'
+          },
+          detail: {
+            en: 'Morning assemblies include rhythmic Sanskrit chanting that builds focus, phonological awareness, cultural pride, and a peaceful start to the school day.',
+            mr: 'सकाळच्या परिपाठातील लयबद्ध संस्कृत श्लोक पठणामुळे मुलांचे लक्ष केंद्रित होते, उच्चार स्पष्ट होतात आणि दिवसाची सुरुवात प्रसन्न होते.'
+          }
         },
         {
           icon: '⭐',
-          name: 'Moral & Value Education',
-          detail: 'Stories, assembly sessions and teacher-guided discussions on kindness, honesty, respect, and responsibility build a strong moral compass in early years.'
+          name: {
+            en: 'Moral & Value Education',
+            mr: 'नैतिक आणि मूल्य शिक्षण'
+          },
+          detail: {
+            en: 'Stories, assembly sessions and teacher-guided discussions on kindness, honesty, respect, and responsibility build a strong moral compass in early years.',
+            mr: 'दयाळूपणा, प्रामाणिकपणा, आदर आणि जबाबदारी या विषयांवरील गोष्टी व चर्चांद्वारे बालवयातच मुलांमध्ये भक्कम नैतिक पाया रचला जातो.'
+          }
         }
       ]
     }
@@ -1841,24 +2176,31 @@ function initGamifiedSkillTree() {
       traitCards.forEach(c => c.classList.remove('active'));
       card.classList.add('active');
 
-      // Build program cards HTML using emoji icons
-      const programsHTML = data.programs.map(p => `
-        <div class="hss-skill-program-card">
-          <div class="hss-skill-program-icon" style="background:${data.color}22; color:${data.color}; font-size:1.5rem;">${p.icon}</div>
-          <div>
-            <h5>${p.name}</h5>
-            <p>${p.detail}</p>
+      const titleText = data.title[currentLanguage] || data.title['en'];
+      const descText = data.desc[currentLanguage] || data.desc['en'];
+
+      // Build program cards HTML using emoji icons in active language
+      const programsHTML = data.programs.map(p => {
+        const pName = p.name[currentLanguage] || p.name['en'];
+        const pDetail = p.detail[currentLanguage] || p.detail['en'];
+        return `
+          <div class="hss-skill-program-card">
+            <div class="hss-skill-program-icon" style="background:${data.color}22; color:${data.color}; font-size:1.5rem;">${p.icon}</div>
+            <div>
+              <h5>${pName}</h5>
+              <p>${pDetail}</p>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
 
       // Inject content
       detailIcon.textContent = data.icon;
       detailIcon.style.background = data.color + '22';
       detailIcon.style.color = data.color;
-      detailTitle.textContent = data.title;
+      detailTitle.textContent = titleText;
       detailTitle.style.color = data.color;
-      detailDesc.textContent = data.desc;
+      detailDesc.textContent = descText;
       programsGrid.innerHTML = programsHTML;
 
       // Show detail panel — hide placeholder, show content
@@ -1990,8 +2332,8 @@ function initMentalMathGame() {
     resultPanel.classList.remove('hidden');
 
     if (userAnswer === correctResult) {
-      resultMessage.textContent = "🎉 Brilliant! Correct Answer!";
-      resultSub.textContent = "You processed numbers with perfect precision. Just like our trained abacus students!";
+      resultMessage.textContent = textContent[currentLanguage]['game_msg_success'] || "🎉 Brilliant! Correct Answer!";
+      resultSub.textContent = textContent[currentLanguage]['game_sub_success'] || "You processed numbers with perfect precision. Just like our trained abacus students!";
       
       // Trigger confetti burst on success!
       const canvas = document.getElementById('confetti-canvas');
@@ -2000,8 +2342,9 @@ function initMentalMathGame() {
         if (fab) fab.click(); // Reuse confetti handler
       }
     } else {
-      resultMessage.textContent = "❌ Oops, that's not it!";
-      resultSub.textContent = `The correct final balance was ${correctResult}. Abacus training helps kids map and see these numbers instantly!`;
+      resultMessage.textContent = textContent[currentLanguage]['game_msg_fail'] || "❌ Oops, that's not it!";
+      const failTemplate = textContent[currentLanguage]['game_sub_fail'] || "The correct final balance was {correct}. Abacus training helps kids map and see these numbers instantly!";
+      resultSub.textContent = failTemplate.replace('{correct}', correctResult);
     }
   });
 

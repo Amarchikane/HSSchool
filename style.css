@@ -691,8 +691,16 @@ body.dark-mode .school-ruler-container {
   position: relative;
 }
 
-.ruler-tick.major:hover {
+.ruler-tick.major:hover,
+.ruler-tick.major:focus-visible {
   transform: scaleX(1.3);
+  outline: none;
+  opacity: 1;
+}
+
+.ruler-tick.major:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
 }
 
 /* Tooltip on Hover */
@@ -715,7 +723,8 @@ body.dark-mode .school-ruler-container {
   white-space: nowrap;
 }
 
-.ruler-tick.major:hover::after {
+.ruler-tick.major:hover::after,
+.ruler-tick.major:focus-visible::after {
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }
