@@ -12,6 +12,7 @@ const textContent = {
     nav_timeline: "Daily Routine",
     nav_milestones: "Milestones",
     nav_reviews: "Reviews",
+    nav_principal: "Principal's Desk",
     nav_features: "Amenities",
     nav_admission: "Admissions",
     nav_contact: "Contact",
@@ -105,7 +106,12 @@ const textContent = {
     footer_title_address: "Contact Address",
     footer_copyright: "© 2026 HS School. All Rights Reserved. Managed by Dnyansadhana Educational Trust.",
     yoga_breathing_normal: "Click Yoga icon to toggle deep breathing",
-    yoga_breathing_deep: "Deep Meditation Mode Active (Click to reset)"
+    yoga_breathing_deep: "Deep Meditation Mode Active (Click to reset)",
+    principal_badge: "FROM THE PRINCIPAL'S DESK",
+    principal_title: "Nurturing Values & Academic Excellence",
+    principal_message: "At HS School, our vision is to provide a premium foundation where traditional cultural values like Sanskrit shloka chanting and Lathi Kathi martial arts merge seamlessly with modern child-centric activity kits like Kreedo lab boxes. We groom the Intelligence Quotient (IQ), Emotional Quotient (EQ), Spiritual Quotient (SQ), and Creative Quotient (CQ) of every child in a safe, round-the-clock CCTV-monitored campus. We believe in nurturing children with affection, grooming them individually with personal attention, and guiding them to become leaders of tomorrow. I welcome you to experience our vibrant, activity-based preschool and primary curriculum.",
+    principal_name: "Dr. Sujata Patil (M.A., Ph.D. in Education)",
+    principal_role: "Principal, HS School & Trustee, Dnyansadhana Educational Trust"
   },
   mr: {
     nav_brand: "एच. एस. स्कूल",
@@ -113,6 +119,7 @@ const textContent = {
     nav_timeline: "दिनचर्या",
     nav_milestones: "आमचे टप्पे",
     nav_reviews: "पालकांचे अभिप्राय",
+    nav_principal: "मुख्याध्यापकांचे विचार",
     nav_features: "सुख-सुविधा",
     nav_admission: "प्रवेश प्रक्रिया",
     nav_contact: "संपर्क",
@@ -206,7 +213,12 @@ const textContent = {
     footer_title_address: "संपर्क तपशील",
     footer_copyright: "© २०२६ एच. एस. स्कूल. सर्व हक्क सुरक्षित. ज्ञानसाधना एज्युकेशनल ट्रस्ट.",
     yoga_breathing_normal: "दीर्घ श्वासोच्छ्वासासाठी योग चिन्हावर क्लिक करा",
-    yoga_breathing_deep: "ध्यान मोड सक्रिय (पूर्ववत करण्यासाठी क्लिक करा)"
+    yoga_breathing_deep: "ध्यान मोड सक्रिय (पूर्ववत करण्यासाठी क्लिक करा)",
+    principal_badge: "मुख्याध्यापकांचे विचार",
+    principal_title: "मूल्ये आणि शैक्षणिक उत्कर्षाचे संवर्धन",
+    principal_message: "एच. एस. स्कूलमध्ये आमची दृष्टी अशी आहे की संस्कृत श्लोक पठण आणि लाठी काठीसारख्या पारंपारिक सांस्कृतिक मूल्यांचा आणि क्रीडो लॅबसारख्या आधुनिक बाल-केंद्रित उपक्रमांचा सुरेख संगम घडवावा. आम्ही प्रत्येक मुलाचे बौद्धिक (IQ), भावनिक (EQ), आध्यात्मिक (SQ) आणि सर्जनशील (CQ) गुण एका सुरक्षित, चोवीस तास सीसीटीव्ही-निगराणी असलेल्या परिसरात जोपासतो. प्रत्येक मुलावर वैयक्तिक लक्ष देऊन त्याला प्रेमाने घडवणे आणि त्याला उद्याचा नेता बनवणे हेच आमचे ध्येय आहे. मी आपल्या पाल्याला आमच्या जीवंत, कृती-आधारित अभ्यासक्रमात सहभागी होण्यासाठी आमंत्रित करतो.",
+    principal_name: "डॉ. सुजाता पाटील (एम.ए., पीएच.डी. शिक्षण)",
+    principal_role: "मुख्याध्यापिका, एच. एस. स्कूल व विश्वस्त, ज्ञानसाधना एज्युकेशनल ट्रस्ट"
   }
 };
 
