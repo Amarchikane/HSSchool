@@ -1365,9 +1365,14 @@ body.dark-mode .counter-card {
 
 /* Parent Reviews Testimonial Slider Card */
 .reviews-slider {
-  padding: 20px 0 60px 0;
+  padding: 20px 60px 60px 60px;
   overflow: hidden !important;
   width: 100%;
+}
+@media (max-width: 991px) {
+  .reviews-slider {
+    padding: 20px 40px 60px 40px;
+  }
 }
 .review-card {
   background-color: var(--bg-secondary);
@@ -1421,6 +1426,95 @@ body.dark-mode .review-card {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Custom Swiper Navigation Buttons (Resized & Positioned Outside Card Overlays) */
+.reviews-slider .swiper-button-prev,
+.reviews-slider .swiper-button-next {
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 2px solid var(--accent-gold) !important;
+  border-radius: 50% !important;
+  color: var(--accent-gold) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  top: 50% !important;
+  margin-top: -20px !important; /* Center alignment offset */
+  z-index: 10 !important;
+}
+
+body.dark-mode .reviews-slider .swiper-button-prev,
+body.dark-mode .reviews-slider .swiper-button-next {
+  background: rgba(15, 35, 60, 0.9) !important;
+  border-color: var(--accent-gold) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.reviews-slider .swiper-button-prev {
+  left: 8px !important;
+}
+
+.reviews-slider .swiper-button-next {
+  right: 8px !important;
+}
+
+.reviews-slider .swiper-button-prev:hover,
+.reviews-slider .swiper-button-next:hover {
+  background: var(--accent-gold) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.35) !important;
+  transform: scale(1.1) !important;
+}
+
+body.dark-mode .reviews-slider .swiper-button-prev:hover,
+body.dark-mode .reviews-slider .swiper-button-next:hover {
+  color: #0B192C !important;
+}
+
+/* Custom Sleek Swiper Arrow Icons */
+.reviews-slider .swiper-button-prev::after,
+.reviews-slider .swiper-button-next::after {
+  font-size: 1.05rem !important;
+  font-weight: 900 !important;
+  transition: transform 0.2s ease !important;
+}
+
+.reviews-slider .swiper-button-prev:active::after {
+  transform: translateX(-2px);
+}
+
+.reviews-slider .swiper-button-next:active::after {
+  transform: translateX(2px);
+}
+
+/* Custom Sleek Swiper Pagination Bullets */
+.reviews-slider .swiper-pagination-bullet {
+  background: var(--text-secondary) !important;
+  opacity: 0.35 !important;
+  width: 8px !important;
+  height: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.reviews-slider .swiper-pagination-bullet-active {
+  background: var(--accent-gold) !important;
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* Hide Swiper Navigation Buttons on Mobile Viewports */
+@media (max-width: 767px) {
+  .reviews-slider .swiper-button-prev,
+  .reviews-slider .swiper-button-next {
+    display: none !important;
+  }
 }
 
 /* 10. FEATURES COMPONENT GRIDS (VIBRANT ROYAL MIDNIGHT BLOCK) */
@@ -1666,27 +1760,27 @@ body.dark-mode .review-card {
   transition: all var(--transition-normal);
   transform-style: preserve-3d;
   /* Fixed height prevents layout shifts when amenity tab changes */
-  min-height: 420px;
+  min-height: 480px;
 }
 
 @media (min-width: 768px) {
   .hss-showcase-card {
-    grid-template-columns: 45% 55%;
-    min-height: 400px;
+    grid-template-columns: 46% 54%;
+    min-height: 520px;
   }
 }
 
 .hss-showcase-image-wrapper {
   position: relative;
   overflow: hidden;
-  height: 220px;
+  height: 250px;
   flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
   .hss-showcase-image-wrapper {
     height: 100%;
-    min-height: 400px;
+    min-height: 520px;
   }
 }
 
@@ -1729,7 +1823,7 @@ body.dark-mode .review-card {
 
 /* Showcase Text Details */
 .hss-showcase-content {
-  padding: 30px;
+  padding: 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1739,40 +1833,46 @@ body.dark-mode .review-card {
 
 @media (min-width: 768px) {
   .hss-showcase-content {
-    padding: 40px;
+    padding: 48px;
   }
 }
 
 #showcase-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   transition: color var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  #showcase-title {
+    font-size: 2.1rem;
+  }
 }
 
 #showcase-desc {
   color: var(--text-secondary);
-  line-height: 1.7;
-  font-size: 0.95rem;
-  margin-bottom: 24px;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 28px;
   transition: color var(--transition-normal);
 }
 
 .hss-showcase-divider {
   border: none;
   border-top: 1px solid var(--card-border);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hss-bullets-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 1px;
   color: var(--accent-gold);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1781,7 +1881,7 @@ body.dark-mode .review-card {
 .hss-showcase-bullets {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -1790,8 +1890,8 @@ body.dark-mode .review-card {
 .hss-showcase-bullets li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
+  gap: 14px;
+  font-size: 1.02rem;
   color: var(--text-primary);
 }
 
@@ -2805,7 +2905,7 @@ body.dark-mode .admission-section {
  * 16. SECTION 1: "GROW WITH US" CURRICULUM STYLING
  * ------------------------------------------------------------- */
 .hss-curriculum-section {
-  padding: 30px 0;
+  padding: 30px 0 60px 0; /* Expanded bottom padding to create breathing room for scribble & pencil */
   background-color: var(--bg-secondary);
   transition: background-color var(--transition-normal);
 }
@@ -4229,6 +4329,200 @@ body.dark-mode #game-user-answer {
   88% { opacity: 0; transform: scale(0); }
 }
 
+/* 2b. Playful CSS Floating Soap Bubbles Divider */
+.hss-soap-bubbles-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: transparent;
+  z-index: 10;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.hss-soap-bubbles-divider .bubble-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto; /* Enable hover triggers on bubbles */
+}
+
+.hss-soap-bubbles-divider .bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(0.5px);
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: center center;
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hss-soap-bubbles-divider.visible .bubble {
+  opacity: 1;
+}
+
+/* Internal reflection sheen highlight */
+.hss-soap-bubbles-divider .bubble-sheen {
+  position: absolute;
+  top: 12%;
+  left: 15%;
+  width: 25%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+/* Bounce & Travel right-to-left keyframe animations */
+@keyframes bubble-travel-1 {
+  0%   { left: 105%; transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-18px) rotate(45deg); }
+  50%  { transform: translateY(8px) rotate(90deg); }
+  75%  { transform: translateY(-12px) rotate(135deg); }
+  100% { left: -15%; transform: translateY(0px) rotate(180deg); }
+}
+
+@keyframes bubble-travel-2 {
+  0%   { left: 105%; transform: translateY(-8px) rotate(0deg); }
+  20%  { transform: translateY(12px) rotate(-60deg); }
+  45%  { transform: translateY(-16px) rotate(-120deg); }
+  70%  { transform: translateY(6px) rotate(-180deg); }
+  100% { left: -15%; transform: translateY(-8px) rotate(-240deg); }
+}
+
+@keyframes bubble-travel-3 {
+  0%   { left: 105%; transform: translateY(6px) rotate(0deg); }
+  30%  { transform: translateY(-10px) rotate(40deg); }
+  60%  { transform: translateY(14px) rotate(80deg); }
+  85%  { transform: translateY(-8px) rotate(120deg); }
+  100% { left: -15%; transform: translateY(6px) rotate(160deg); }
+}
+
+/* Individual Colorful Pastel Iridescent Gradients, Sizes, and Bouncing Speed Loops */
+
+/* Bubble 1: Soft Violet / Lavender */
+.hss-soap-bubbles-divider .bubble-1 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(216, 191, 216, 0.35) 75%, rgba(186, 85, 211, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(186, 85, 211, 0.25), inset 5px 5px 12px rgba(216, 191, 216, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(216, 191, 216, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-1 {
+  width: 32px; height: 32px; bottom: -8px;
+  animation: bubble-travel-1 14s linear infinite;
+  animation-delay: -4s;
+}
+
+/* Bubble 2: Soft Mint / Green */
+.hss-soap-bubbles-divider .bubble-2 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(168, 230, 207, 0.35) 75%, rgba(52, 183, 136, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(52, 183, 136, 0.25), inset 5px 5px 12px rgba(168, 230, 207, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(168, 230, 207, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-2 {
+  width: 44px; height: 44px; bottom: -18px;
+  animation: bubble-travel-2 18s linear infinite;
+  animation-delay: -12s;
+}
+
+/* Bubble 3: Soft Amber / Gold */
+.hss-soap-bubbles-divider .bubble-3 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 223, 125, 0.35) 75%, rgba(212, 175, 55, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(212, 175, 55, 0.25), inset 5px 5px 12px rgba(255, 223, 125, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(255, 223, 125, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-3 {
+  width: 28px; height: 28px; bottom: -4px;
+  animation: bubble-travel-3 12s linear infinite;
+  animation-delay: -2s;
+}
+
+/* Bubble 4: Soft Coral / Red */
+.hss-soap-bubbles-divider .bubble-4 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 179, 186, 0.35) 75%, rgba(255, 94, 98, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(255, 94, 98, 0.25), inset 5px 5px 12px rgba(255, 179, 186, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(255, 179, 186, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-4 {
+  width: 38px; height: 38px; bottom: -12px;
+  animation: bubble-travel-1 16s linear infinite;
+  animation-delay: -8s;
+}
+
+/* Bubble 5: Soft Turquoise / Teal */
+.hss-soap-bubbles-divider .bubble-5 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(179, 255, 236, 0.35) 75%, rgba(0, 206, 209, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(0, 206, 209, 0.25), inset 5px 5px 12px rgba(179, 255, 236, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(179, 255, 236, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-5 {
+  width: 48px; height: 48px; bottom: -22px;
+  animation: bubble-travel-2 20s linear infinite;
+  animation-delay: -16s;
+}
+
+/* Bubble 6: Soft Sky Blue / Cyan */
+.hss-soap-bubbles-divider .bubble-6 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(186, 225, 255, 0.35) 75%, rgba(30, 144, 255, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(30, 144, 255, 0.25), inset 5px 5px 12px rgba(186, 225, 255, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(186, 225, 255, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-6 {
+  width: 26px; height: 26px; bottom: -6px;
+  animation: bubble-travel-3 11s linear infinite;
+  animation-delay: -5s;
+}
+
+/* Bubble 7: Soft Rose / Magenta */
+.hss-soap-bubbles-divider .bubble-7 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 204, 229, 0.35) 75%, rgba(255, 20, 147, 0.25) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(255, 20, 147, 0.2), inset 5px 5px 12px rgba(255, 204, 229, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(255, 204, 229, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-7 {
+  width: 42px; height: 42px; bottom: -10px;
+  animation: bubble-travel-1 17s linear infinite;
+  animation-delay: -10s;
+}
+
+/* Bubble 8: Soft Peach / Orange */
+.hss-soap-bubbles-divider .bubble-8 {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 218, 185, 0.35) 75%, rgba(255, 140, 0, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5), inset -5px -5px 12px rgba(255, 140, 0, 0.25), inset 5px 5px 12px rgba(255, 218, 185, 0.25), 0 4px 10px rgba(0, 0, 0, 0.04);
+  border-color: rgba(255, 218, 185, 0.45);
+}
+.hss-soap-bubbles-divider.visible .bubble-8 {
+  width: 34px; height: 34px; bottom: -14px;
+  animation: bubble-travel-2 15s linear infinite;
+  animation-delay: -1s;
+}
+
+/* Interactive Hover effects */
+.hss-soap-bubbles-divider .bubble:hover {
+  filter: brightness(1.1) saturate(1.25);
+  box-shadow: 
+    inset 0 0 14px rgba(255, 255, 255, 0.8),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.3),
+    inset 5px 5px 15px rgba(255, 255, 255, 0.3),
+    0 8px 18px rgba(0, 0, 0, 0.08);
+  transform: scale(1.12) !important; /* Forces micro hover scale while active */
+}
+
+.hss-soap-bubbles-divider .bubble.bubble-popped {
+  animation: bubble-pop 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.5) forwards !important;
+  pointer-events: none;
+}
+
+@keyframes bubble-pop {
+  0%   { transform: scale(1) blur(0); opacity: 1; }
+  50%  { transform: scale(1.4) blur(1.5px); opacity: 0.6; }
+  100% { transform: scale(0.1) blur(3px); opacity: 0; }
+}
+
 /* 3. Multiple Paper Planes Gliding along Curve */
 .hss-paper-plane {
   position: absolute;
@@ -4384,7 +4678,7 @@ body.dark-mode #game-user-answer {
   height: 40px;
   overflow: visible;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10; /* Elevated z-index to draw the scribble and pencil on top of overlapping cards (z-index 3) */
 }
 
 .crayon-pencil {
@@ -5641,36 +5935,36 @@ body.dark-mode .hss-floating-bg-element {
     font-size: 1rem !important;
   }
   .hss-showcase-card {
-    min-height: 300px !important;
+    min-height: 420px !important;
   }
   .hss-showcase-image-wrapper {
-    height: 130px !important;
+    height: 180px !important;
   }
   .hss-showcase-content {
-    padding: 12px 14px !important;
+    padding: 24px 20px !important;
   }
   #showcase-title {
-    font-size: 0.95rem !important;
-    margin-bottom: 4px !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 8px !important;
   }
   #showcase-desc {
-    font-size: 0.76rem !important;
-    margin-bottom: 8px !important;
-    line-height: 1.4 !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 16px !important;
+    line-height: 1.55 !important;
   }
   .hss-showcase-divider {
-    margin-bottom: 8px !important;
+    margin-bottom: 14px !important;
   }
   .hss-bullets-title {
-    font-size: 0.7rem !important;
-    margin-bottom: 4px !important;
-  }
-  .hss-showcase-bullets li {
-    font-size: 0.76rem !important;
-    gap: 6px !important;
+    font-size: 0.82rem !important;
+    margin-bottom: 8px !important;
   }
   .hss-showcase-bullets {
-    gap: 5px !important;
+    gap: 10px !important;
+  }
+  .hss-showcase-bullets li {
+    font-size: 0.9rem !important;
+    gap: 8px !important;
   }
 
   /* --- CURRICULUM (Grow With Us / Academics) --- kept at original layout --- */

@@ -54,7 +54,7 @@ const textContent = {
     review_3_text: "Safe van transportation was our biggest concern, but HS School's verified transport fleet operates perfectly. Teachers groom children with extreme affection.",
     features_badge: "Our Foundations",
     features_title: "Core Amenities & Features",
-    features_desc: "Every resource is dedicated to ensuring child safety, premium development, and an enjoyable learning experience.",
+    features_desc: "",
     feat_1_title: "Kreedo Lab Setup",
     feat_1_desc: "Equipped with rich, tactile material boxes ensuring kids learn conceptual math and science through physical activities.",
     feat_2_title: "4Q Development",
@@ -168,7 +168,7 @@ const textContent = {
     review_3_text: "सुरक्षित वाहतूक ही आमची सर्वात मोठी काळजी होती, पण शाळेची पडताळणी केलेली ट्रान्सपोर्ट व्हॅन सेवा उत्कृष्ट आहे. शिक्षक मुलांचे संगोपन अतिशय प्रेमाने करतात.",
     features_badge: "आमचे आधारस्तंभ",
     features_title: "मुख्य सुख-सुविधा व वैशिष्ट्ये",
-    features_desc: "प्रत्येक गोष्ट मुलांची सुरक्षितता, उत्कृष्ट शैक्षणिक वातावरण आणि खेळकर अनुभव लक्षात ठेवून डिझाइन केली आहे.",
+    features_desc: "",
     feat_1_title: "क्रीडो लॅब सेटअप",
     feat_1_desc: "मुलांच्या गणित आणि विज्ञान संकल्पना प्रत्यक्ष साहित्याद्वारे हाताळून स्पष्ट करण्यासाठी क्रीडो लॅबची विशेष रचना.",
     feat_2_title: "4Q विकास",
@@ -828,6 +828,7 @@ function initPlayfulDividersAnimation() {
     const dividers = [
       ".hss-bus-divider",
       ".hss-toy-blocks-divider",
+      ".hss-soap-bubbles-divider",
       ".hss-rainbow-divider",
       ".hss-crayon-divider",
       ".hss-hanging-photos-divider",
@@ -880,6 +881,28 @@ function initPlayfulDividersAnimation() {
       });
     }
   }
+}
+
+// Dynamic Bubble Popping Interaction
+function initSoapBubblesDivider() {
+  const bubbles = document.querySelectorAll('.hss-soap-bubbles-divider .bubble');
+  bubbles.forEach(bubble => {
+    const popBubble = () => {
+      if (!bubble.classList.contains('bubble-popped')) {
+        bubble.classList.add('bubble-popped');
+        // Bring back bubble after 4.5s for infinite playability
+        setTimeout(() => {
+          bubble.classList.remove('bubble-popped');
+        }, 4500);
+      }
+    };
+    
+    bubble.addEventListener('click', popBubble);
+    bubble.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      popBubble();
+    }, { passive: false });
+  });
 }
 
 // 13. WHATSAPP REDIRECT FORM SUBMISSION
@@ -974,6 +997,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initConfettiInteraction();
   initScrollRevealEngine();
   initPlayfulDividersAnimation();
+  initSoapBubblesDivider();
   initFormSubmission();
   initVideoTour();
   initCustomCursorAndMagnetics();
