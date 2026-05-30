@@ -206,6 +206,7 @@ const textContent = {
     game_input_placeholder: "Your Answer",
     btn_verify_game: "Verify",
     btn_retry_game: "Try Again",
+    btn_quick_restart: "Restart Immediately",
     game_msg_success: "🎉 Brilliant! Correct Answer!",
     game_sub_success: "You processed numbers with perfect precision. Just like our trained abacus students!",
     game_msg_fail: "❌ Oops, that's not it!",
@@ -423,6 +424,7 @@ const textContent = {
     game_input_placeholder: "तुमचे उत्तर",
     btn_verify_game: "तपासा",
     btn_retry_game: "पुन्हा प्रयत्न करा",
+    btn_quick_restart: "लगेच पुन्हा सुरू करा",
     game_msg_success: "🎉 अप्रतिम! बरोबर उत्तर!",
     game_sub_success: "तुम्ही अगदी अचूकतेने गणना केली आहे. अगदी आमच्या प्रशिक्षित अबॅकस विद्यार्थ्यांसारखे!",
     game_msg_fail: "❌ अरेरे, हे बरोबर नाही!",
@@ -1729,109 +1731,133 @@ function initCurriculumTabs() {
   startAutoShift();
 }
 
-// 26. SECTION 2: 4Q HOLISTIC RADAR CHART ENGINE
+// 26. SECTION 2: 4Q HOLISTIC RADAR CHART ENGINE (3D Orbital Gyroscope of Growth)
 function init4QHolisticRadarChart() {
-  const chartPoints = document.querySelectorAll('.radar-point, .radar-label');
+  const gyroscope = document.getElementById('holistic-gyroscope');
+  const planets = document.querySelectorAll('.gyro-planet');
   const descCards = document.querySelectorAll('.hss-4q-card');
-  const radarArea = document.querySelector('.radar-area');
-  if (chartPoints.length === 0) return;
-
-  // Default coordinate setup maps to exact polygon point nodes
-  const baseCoordinates = {
-    iq: { x: 200, y: 80 },
-    eq: { x: 320, y: 200 },
-    sq: { x: 200, y: 310 },
-    pq: { x: 90, y: 200 }
-  };
+  if (!gyroscope || planets.length === 0) return;
 
   const quadrants = ['iq', 'eq', 'sq', 'pq'];
   let activeQuadrantIndex = 0;
-  let radarInterval;
+  let gyroscopeInterval;
 
   function setActiveQuadrant(quadrant) {
     if (!quadrant) return;
 
-    // Update descriptions with smooth CSS transition (no GSAP, avoids layout conflict)
+    // Update description cards with active class
     descCards.forEach(card => {
       card.classList.remove('active');
       if (card.id === `card-${quadrant}`) {
-        requestAnimationFrame(() => {
-          card.classList.add('active');
-        });
+        card.classList.add('active');
       }
     });
 
-    // Highlight active points & labels inside SVG
-    chartPoints.forEach(pt => {
-      if (pt.getAttribute('data-quadrant') === quadrant) {
-        pt.classList.add('active');
+    // Update gyroscope planets with active class
+    planets.forEach(planet => {
+      if (planet.getAttribute('data-quadrant') === quadrant) {
+        planet.classList.add('active');
       } else {
-        pt.classList.remove('active');
+        planet.classList.remove('active');
       }
     });
-
-    // Distort the interactive SVG polygon towards target quadrant coordinates
-    if (radarArea) {
-      const activeCoords = { ...baseCoordinates };
-      if (quadrant === 'iq') activeCoords.iq = { x: 200, y: 60 };
-      if (quadrant === 'eq') activeCoords.eq = { x: 340, y: 200 };
-      if (quadrant === 'sq') activeCoords.sq = { x: 200, y: 330 };
-      if (quadrant === 'pq') activeCoords.pq = { x: 70, y: 200 };
-
-      const pointsString = `${activeCoords.iq.x},${activeCoords.iq.y} ${activeCoords.eq.x},${activeCoords.eq.y} ${activeCoords.sq.x},${activeCoords.sq.y} ${activeCoords.pq.x},${activeCoords.pq.y}`;
-      gsap.to(radarArea, {
-        attr: { points: pointsString },
-        duration: 0.4,
-        ease: "power2.out"
-      });
-    }
   }
 
-  function startRadarCycle() {
-    stopRadarCycle();
-    radarInterval = setInterval(() => {
+  function startGyroscopeCycle() {
+    stopGyroscopeCycle();
+    gyroscopeInterval = setInterval(() => {
       activeQuadrantIndex = (activeQuadrantIndex + 1) % quadrants.length;
       setActiveQuadrant(quadrants[activeQuadrantIndex]);
-    }, 4000); // Shift every 4 seconds
+    }, 5000); // Shift active quadrant every 5 seconds
   }
 
-  function stopRadarCycle() {
-    if (radarInterval) {
-      clearInterval(radarInterval);
+  function stopGyroscopeCycle() {
+    if (gyroscopeInterval) {
+      clearInterval(gyroscopeInterval);
     }
   }
 
-  // Bind mouse interactive triggers
-  chartPoints.forEach(element => {
-    element.addEventListener('mouseenter', () => {
-      stopRadarCycle();
-      const quadrant = element.getAttribute('data-quadrant');
+  // Unified Pause and Play states
+  function pauseGyroscope() {
+    gyroscope.classList.add('paused');
+    stopGyroscopeCycle();
+  }
+
+  function resumeGyroscope() {
+    gyroscope.classList.remove('paused');
+    startGyroscopeCycle();
+  }
+
+  // Bind mouse and keyboard triggers on gyroscope planets
+  planets.forEach(planet => {
+    const triggerActivation = () => {
+      pauseGyroscope();
+      const quadrant = planet.getAttribute('data-quadrant');
       if (quadrant) {
         activeQuadrantIndex = quadrants.indexOf(quadrant);
         setActiveQuadrant(quadrant);
       }
+    };
+
+    planet.addEventListener('mouseenter', triggerActivation);
+    planet.addEventListener('click', triggerActivation);
+    
+    planet.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        triggerActivation();
+      }
     });
 
-    element.addEventListener('mouseleave', () => {
-      startRadarCycle();
+    planet.addEventListener('mouseleave', () => {
+      resumeGyroscope();
     });
   });
 
-  // Modern 3D Hover Depth Effect on Philosophy Radar Chart SVG
+  // Bind bidirectional triggers on description cards
+  descCards.forEach(card => {
+    const triggerCardActivation = () => {
+      pauseGyroscope();
+      const id = card.id; // e.g. "card-iq"
+      const quadrant = id.replace('card-', '');
+      if (quadrants.includes(quadrant)) {
+        activeQuadrantIndex = quadrants.indexOf(quadrant);
+        setActiveQuadrant(quadrant);
+      }
+    };
+
+    card.addEventListener('mouseenter', triggerCardActivation);
+    card.addEventListener('click', triggerCardActivation);
+    card.addEventListener('mouseleave', () => {
+      resumeGyroscope();
+    });
+  });
+
+  // Interactive Sun element click resets / resumes rotation
+  const sunElement = gyroscope.querySelector('.gyro-sun');
+  if (sunElement) {
+    sunElement.addEventListener('click', () => {
+      resumeGyroscope();
+      // Cycle to the first one immediately to give instant visual feedback
+      activeQuadrantIndex = 0;
+      setActiveQuadrant(quadrants[activeQuadrantIndex]);
+    });
+  }
+
+  // Modern 3D Hover Depth Effect on Holistic Gyroscope Container
   if (!window.matchMedia("(pointer: coarse)").matches) {
     const chartContainer = document.querySelector('.hss-4q-chart-container');
-    const chartSvg = document.querySelector('.hss-4q-chart-svg');
 
-    if (chartContainer && chartSvg) {
+    if (chartContainer) {
       chartContainer.addEventListener('mousemove', (e) => {
         const rect = chartContainer.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        const rotateY = ((x / rect.width) - 0.5) * 24;  // Max 12 degrees Y-axis rotate
-        const rotateX = -((y / rect.height) - 0.5) * 24; // Max 12 degrees X-axis rotate
+        const rotateY = ((x / rect.width) - 0.5) * 20;  // Max 10 degrees Y
+        const rotateX = -((y / rect.height) - 0.5) * 20; // Max 10 degrees X
 
-        gsap.to(chartSvg, {
+        gsap.to(gyroscope, {
           rotateY: rotateY,
           rotateX: rotateX,
           transformPerspective: 1000,
@@ -1841,7 +1867,7 @@ function init4QHolisticRadarChart() {
       });
 
       chartContainer.addEventListener('mouseleave', () => {
-        gsap.to(chartSvg, {
+        gsap.to(gyroscope, {
           rotateY: 0,
           rotateX: 0,
           ease: "power3.out",
@@ -1851,15 +1877,15 @@ function init4QHolisticRadarChart() {
     }
   }
 
-  // Hover over descriptions pauses cycling
-  const panelSection = document.querySelector('#holistic');
-  if (panelSection) {
-    panelSection.addEventListener('mouseenter', stopRadarCycle);
-    panelSection.addEventListener('mouseleave', startRadarCycle);
+  // Hover over section pauses automatic shifting & rotation
+  const sectionElement = document.querySelector('#holistic');
+  if (sectionElement) {
+    sectionElement.addEventListener('mouseenter', pauseGyroscope);
+    sectionElement.addEventListener('mouseleave', resumeGyroscope);
   }
 
-  // Start automatic polygon cycling initially
-  startRadarCycle();
+  // Start the automatic cycle initially
+  startGyroscopeCycle();
 }
 
 // 27. SECTION 3: 3D MEMORY SCRAPBOOK ALBUM ENGINE
@@ -2215,10 +2241,6 @@ function initGamifiedSkillTree() {
         card.after(detailPanel);
         detailPanel.style.marginTop = '12px';
         detailPanel.style.marginBottom = '4px';
-        // Scroll smoothly to bring the panel into view
-        setTimeout(() => {
-          detailPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
       } else if (detailPanel && originalParent && detailPanel.parentElement !== originalParent) {
         // DESKTOP: restore to original grid position if it was moved
         originalParent.appendChild(detailPanel);
@@ -2226,11 +2248,11 @@ function initGamifiedSkillTree() {
         detailPanel.style.marginBottom = '';
       }
 
-      // Animate in with GSAP
+      // Animate in with GSAP — only animate the inner content, keeping the parent static
       if (typeof gsap !== 'undefined') {
-        gsap.fromTo(detailPanel || detailContent,
-          { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', clearProps: 'transform' }
+        gsap.fromTo(detailContent,
+          { opacity: 0, y: 8 },
+          { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out', clearProps: 'transform' }
         );
         const pcards = detailContent.querySelectorAll('.hss-skill-program-card');
         gsap.fromTo(pcards,
@@ -2240,6 +2262,12 @@ function initGamifiedSkillTree() {
       }
     });
   });
+
+  // Populate first card on page load
+  const activeTrait = document.querySelector('.hss-trait-card.active');
+  if (activeTrait) {
+    activeTrait.click();
+  }
 }
 
 // 30. "BRAIN GYM" 10-SECOND MENTAL MATH MICRO-GAME ENGINE
@@ -2247,6 +2275,9 @@ function initMentalMathGame() {
   const startBtn = document.getElementById('start-game-btn');
   const submitBtn = document.getElementById('submit-game-btn');
   const retryBtn = document.getElementById('retry-game-btn');
+  const quickRestartBtn = document.getElementById('quick-restart-game-btn');
+  const inputRetryBtn = document.getElementById('input-retry-game-btn');
+  const countdownBox = document.getElementById('game-countdown-box');
   
   const startPanel = document.querySelector('.hss-game-start-panel');
   const numbersPanel = document.getElementById('game-numbers-panel');
@@ -2263,6 +2294,8 @@ function initMentalMathGame() {
   // --- Random question generator ---
   let sequence = [];
   let correctResult = 0;
+  let countdownTimer = null;
+  let countdownStarted = false;
 
   function generateQuestion() {
     // Pick 3 or 4 numbers randomly
@@ -2284,6 +2317,7 @@ function initMentalMathGame() {
   }
 
   function startRound() {
+    cancelCountdown();
     generateQuestion();
 
     // Phase 1: Hide start, show flashing board
@@ -2318,7 +2352,67 @@ function initMentalMathGame() {
     setTimeout(flashNextNumber, 500);
   }
 
-  startBtn.addEventListener('click', startRound);
+  function startAutoCountdown() {
+    cancelCountdown();
+    let secondsLeft = 10;
+    
+    // Initial display text matching current language
+    if (countdownBox) {
+      const startingText = currentLanguage === 'en' ? "Challenge starting in" : "आव्हान सुरू होत आहे";
+      countdownBox.innerHTML = `<i class="fa-solid fa-hourglass-half fa-spin"></i> ${startingText} ${secondsLeft}s...`;
+      countdownBox.classList.add('active');
+    }
+    
+    countdownTimer = setInterval(() => {
+      secondsLeft--;
+      const currentStartingText = currentLanguage === 'en' ? "Challenge starting in" : "आव्हान सुरू होत आहे";
+      
+      if (secondsLeft > 0) {
+        if (countdownBox) {
+          countdownBox.innerHTML = `<i class="fa-solid fa-hourglass-half fa-spin"></i> ${currentStartingText} ${secondsLeft}s...`;
+        }
+      } else {
+        clearInterval(countdownTimer);
+        if (countdownBox) {
+          countdownBox.innerHTML = '';
+          countdownBox.classList.remove('active');
+        }
+        startRound();
+      }
+    }, 1200);
+  }
+
+  function cancelCountdown() {
+    if (countdownTimer) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+    if (countdownBox) {
+      countdownBox.innerHTML = '';
+      countdownBox.classList.remove('active');
+    }
+  }
+
+  // Manual click on start button triggers immediately and cancels countdown
+  startBtn.addEventListener('click', () => {
+    cancelCountdown();
+    startRound();
+  });
+
+  // IntersectionObserver to auto-start countdown when section comes into view
+  const gameSection = document.getElementById('brain-gym-game');
+  if (gameSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countdownStarted) {
+          countdownStarted = true;
+          startAutoCountdown();
+          observer.unobserve(gameSection);
+        }
+      });
+    }, { threshold: 0.25 }); // 25% of the section is visible
+    observer.observe(gameSection);
+  }
 
   // Allow pressing Enter to submit
   answerInput.addEventListener('keydown', (e) => {
@@ -2351,7 +2445,28 @@ function initMentalMathGame() {
   retryBtn.addEventListener('click', () => {
     resultPanel.classList.add('hidden');
     startPanel.classList.remove('hidden');
+    // Restart automatic prep countdown when they click Try Again
+    startAutoCountdown();
   });
+
+  // Quick Restart button directly fires a new round immediately bypassing countdown
+  if (quickRestartBtn) {
+    quickRestartBtn.addEventListener('click', () => {
+      cancelCountdown();
+      resultPanel.classList.add('hidden');
+      startRound();
+    });
+  }
+
+  // Quick Retry button below the answer input box
+  if (inputRetryBtn) {
+    inputRetryBtn.addEventListener('click', () => {
+      cancelCountdown();
+      inputPanel.classList.add('hidden');
+      startPanel.classList.remove('hidden');
+      startAutoCountdown();
+    });
+  }
 }
 
 

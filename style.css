@@ -3063,60 +3063,278 @@ body.dark-mode .admission-section {
   perspective: 1000px; /* Enable 3D depth perspective */
 }
 
-.hss-4q-chart-svg {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  overflow: visible;
-  transform-style: preserve-3d; /* Retain 3D layers on hover pivots */
+/* --- 3D Orbital Gyroscope of Growth --- */
+.hss-4q-gyroscope {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  contain: layout;
+}
+
+.gyro-sun {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #FFE57F 0%, #FFB300 70%, #FF8F00 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #3b1e00; /* Deep gold-brown icon */
+  box-shadow: 0 0 35px rgba(255, 179, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.4);
+  z-index: 10;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.gyro-sun:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 45px rgba(255, 179, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.gyro-sun-emblem {
+  font-size: 2.2rem;
+  line-height: 1;
+  animation: sun-pulse 2.2s infinite ease-in-out;
+}
+
+.gyro-sun-text {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.62rem;
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+  margin-top: 4px;
+  text-transform: uppercase;
+  text-shadow: none; /* High-contrast text on bright gold needs no shadow */
+}
+
+@keyframes sun-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255, 229, 127, 0.5)); }
+  50% { transform: scale(1.12); filter: drop-shadow(0 0 12px rgba(255, 179, 0, 0.9)); }
+}
+
+/* Concentric Orbit Rings */
+.gyro-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed var(--card-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through to planets */
+  transform-style: preserve-3d;
   will-change: transform;
 }
 
-.radar-grid {
-  fill: none;
-  stroke: var(--card-border);
-  stroke-width: 1.5;
-  stroke-dasharray: 4 4;
+/* Orbit Ring Dimensions & Durations */
+.ring-iq {
+  width: 170px;
+  height: 170px;
+  --orbit-dur: 14s;
+  animation: gyro-orbit-clockwise var(--orbit-dur) linear infinite;
+  border-color: rgba(255, 164, 27, 0.22);
+  z-index: 5;
 }
 
-.radar-axis {
-  stroke: var(--card-border);
-  stroke-width: 1.5;
+.ring-eq {
+  width: 250px;
+  height: 250px;
+  --orbit-dur: 20s;
+  animation: gyro-orbit-clockwise var(--orbit-dur) linear infinite;
+  border-color: rgba(255, 107, 107, 0.22);
+  z-index: 4;
 }
 
-.radar-area {
-  fill: rgba(212, 175, 55, 0.2);
-  stroke: var(--accent-gold);
-  stroke-width: 3;
-  transition: fill var(--transition-normal), stroke var(--transition-normal);
+.ring-sq {
+  width: 330px;
+  height: 330px;
+  --orbit-dur: 26s;
+  animation: gyro-orbit-clockwise var(--orbit-dur) linear infinite;
+  border-color: rgba(155, 93, 229, 0.22);
+  z-index: 3;
 }
 
-.radar-point {
-  fill: var(--text-primary);
-  stroke: var(--accent-gold);
-  stroke-width: 2;
+.ring-pq {
+  width: 410px;
+  height: 410px;
+  --orbit-dur: 32s;
+  animation: gyro-orbit-clockwise var(--orbit-dur) linear infinite;
+  border-color: rgba(77, 150, 255, 0.22);
+  z-index: 2;
+}
+
+/* Clockwise Orbit Loop */
+@keyframes gyro-orbit-clockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Counter Rotational Loop (Keeps icons/labels upright) */
+@keyframes gyro-orbit-counter {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* Interactive Planet Spheres on Orbit Ring Boundaries */
+.gyro-planet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: transform var(--transition-fast), fill var(--transition-fast);
+  pointer-events: auto; /* Enable hover/clicks on planets */
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  user-select: none;
+  z-index: 10;
 }
 
-.radar-point:hover, .radar-point.active {
-  transform: scale(1.5);
-  fill: var(--accent-gold);
+/* Custom Thematic Color Gradients */
+.planet-iq {
+  background: linear-gradient(135deg, #FFA41B 0%, #FFD437 100%);
+  box-shadow: 0 0 15px rgba(255, 164, 27, 0.25);
+  color: #3b2000; /* Deep amber-brown icon */
+}
+.planet-iq .planet-label {
+  color: #3b2000; /* Deep amber-brown label */
+  text-shadow: none;
 }
 
-.radar-label {
+.planet-eq {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.25);
+  color: #4c0c0c; /* Deep crimson icon */
+}
+.planet-eq .planet-label {
+  color: #4c0c0c; /* Deep crimson label */
+  text-shadow: none;
+}
+
+.planet-sq {
+  background: linear-gradient(135deg, #9B5DE5 0%, #B5179E 100%);
+  box-shadow: 0 0 15px rgba(155, 93, 229, 0.25);
+  color: #2d0046; /* Deep plum icon */
+}
+.planet-sq .planet-label {
+  color: #2d0046; /* Deep plum label */
+  text-shadow: none;
+}
+
+.planet-pq {
+  background: linear-gradient(135deg, #4D96FF 0%, #6ECBFF 100%);
+  box-shadow: 0 0 15px rgba(77, 150, 255, 0.25);
+  color: #001d3b; /* Deep navy icon */
+}
+.planet-pq .planet-label {
+  color: #001d3b; /* Deep navy label */
+  text-shadow: none;
+}
+
+/* Planet States: Hover & Active Scaling */
+.gyro-planet:hover {
+  transform: translate(-50%, -50%) scale(1.16);
+  box-shadow: 0 0 25px currentColor;
+}
+
+.gyro-planet.active {
+  transform: translate(-50%, -50%) scale(1.26);
+  box-shadow: 0 0 35px currentColor, 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 25;
+}
+
+.gyro-planet:focus-visible {
+  outline: 2.5px solid var(--accent-gold);
+  outline-offset: 4px;
+}
+
+/* Inner Planet Content with Rotational Compensation */
+.gyro-planet-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: gyro-orbit-counter var(--orbit-dur) linear infinite;
+  will-change: transform;
+}
+
+.planet-icon {
+  font-size: 1.55rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.planet-label {
   font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.8rem;
-  fill: var(--text-primary);
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: fill var(--transition-fast), transform var(--transition-fast);
+  font-weight: 900;
+  font-size: 0.68rem;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.3px;
+  margin-top: 2px;
 }
 
-.radar-label:hover, .radar-label.active {
-  fill: var(--accent-gold);
-  font-weight: 900;
+/* Pausing Orbit Animations in Place */
+.hss-4q-gyroscope.paused .gyro-ring,
+.hss-4q-gyroscope.paused .gyro-planet-content {
+  animation-play-state: paused !important;
+}
+
+/* Expanding Gravity Ripples for Active Planet */
+.planet-ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.planet-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.gyro-planet.active .planet-ripple {
+  animation: ripple-wave 2s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+.gyro-planet.active .planet-ripple:nth-child(2) {
+  animation-delay: 1s;
+}
+
+@keyframes ripple-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
 }
 
 .hss-4q-panel {
@@ -3572,15 +3790,11 @@ body.dark-mode .admission-section {
 
 /* --- Right: Detail panel --- */
 .hss-skill-detail-panel {
-  background: var(--bg-secondary);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 20px 36px;
   min-height: 340px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: var(--shadow-premium);
   transition: background-color var(--transition-normal);
 }
 
@@ -3736,6 +3950,35 @@ body.dark-mode .admission-section {
   text-align: center;
 }
 
+.hss-game-countdown {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+  min-height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hss-game-countdown.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hss-result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
 .hss-game-start-panel h4 {
   font-size: 1.6rem;
   color: var(--text-primary);
@@ -3813,6 +4056,12 @@ body.dark-mode #game-user-answer {
   color: #FFFFFF !important;
   background: #0F233C !important;
   border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+#input-retry-game-btn {
+  margin-top: 20px;
+  padding: 8px 24px;
+  font-size: 0.9rem;
 }
 
 .hidden {
@@ -4778,7 +5027,11 @@ body.dark-mode #game-user-answer {
 }
 
 .clip-1 { animation: swing-photo 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; }
-.clip-2 { animation: swing-photo 4.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; animation-delay: 0.3s; }
+.clip-2 { 
+  animation: swing-photo 4.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; 
+  animation-delay: 0.3s; 
+  margin-right: 76px; /* Creates a beautiful gap in the middle (2 left, 2 right) */
+}
 .clip-3 { animation: swing-photo 3.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; animation-delay: 0.6s; }
 .clip-4 { animation: swing-photo 4.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate; animation-delay: 0.9s; }
 
@@ -5219,6 +5472,9 @@ body.dark-mode #game-user-answer {
     gap: 12px;
     transform: translateX(-50%) scale(0.85);
   }
+  .clip-2 {
+    margin-right: 28px !important; /* Tighter middle gap for mobile screen width safety */
+  }
   .hss-lightbulbs-divider {
     gap: 20px;
     transform: translateX(-50%) scale(0.8);
@@ -5276,10 +5532,10 @@ body.dark-mode #game-user-answer {
 .programs-section { z-index: 12 !important; } /* Reviews section */
 .features-section { z-index: 14 !important; } /* Top curve divider overlay needs to sit above reviews */
 .hss-curriculum-section { z-index: 13 !important; }
-.hss-4q-section { z-index: 12 !important; } /* Holistic section */
+.hss-brain-gym-section { z-index: 12 !important; } /* Brain Gym (swapped position) */
 .hss-scrapbook-section { z-index: 11 !important; }
 .hss-skill-tree-section { z-index: 10 !important; }
-.hss-brain-gym-section { z-index: 9 !important; }
+.hss-4q-section { z-index: 9 !important; } /* Holistic section (swapped position) */
 .media-gallery-section { z-index: 8 !important; }
 .hss-faq-section { z-index: 7 !important; }
 .admission-section { z-index: 6 !important; }
@@ -5989,8 +6245,35 @@ body.dark-mode .hss-floating-bg-element {
   .hss-4q-grid {
     gap: 14px !important;
   }
-  .hss-4q-chart-svg {
-    max-width: 180px !important;
+  .hss-4q-gyroscope {
+    width: 290px !important;
+    height: 290px !important;
+  }
+  .gyro-sun {
+    width: 66px !important;
+    height: 66px !important;
+  }
+  .gyro-sun-emblem {
+    font-size: 1.6rem !important;
+  }
+  .gyro-sun-text {
+    font-size: 0.48rem !important;
+  }
+  .ring-iq { width: 110px !important; height: 110px !important; }
+  .ring-eq { width: 165px !important; height: 165px !important; }
+  .ring-sq { width: 220px !important; height: 220px !important; }
+  .ring-pq { width: 275px !important; height: 275px !important; }
+  
+  .gyro-planet {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .planet-icon {
+    font-size: 1.05rem !important;
+  }
+  .planet-label {
+    font-size: 0.48rem !important;
+    margin-top: 1px !important;
   }
   .hss-4q-panel {
     height: 210px !important;

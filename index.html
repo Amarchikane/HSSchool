@@ -984,118 +984,90 @@
       </div>
     </section>
 
-    <!-- SECTION 2: The 4Q Development Holistic Balance Radar Chart -->
-    <section id="holistic" class="hss-4q-section">
+    <!-- SECTION 2: The "Brain Gym" 10-Second Mental Math Micro-Game -->
+    <section id="brain-gym-game" class="hss-brain-gym-section">
       <!-- Mobile Hide-and-Seek Peek Mascot -->
-      <div class="hss-peek-mascot peek-right" data-mascot="bee" style="top: 20%;"><span class="hss-peek-inner">🐝</span></div>
-      <div class="hss-peek-mascot peek-left" data-mascot="ladybug" style="top: 55%;"><span class="hss-peek-inner">🐞</span></div>
-      <div class="hss-peek-mascot peek-right" data-mascot="caterpillar" style="top: 85%;"><span class="hss-peek-inner">🐛</span></div>
+      <div class="hss-peek-mascot peek-right" data-mascot="robot" style="top: 15%;"><span class="hss-peek-inner">🤖</span></div>
+      <div class="hss-peek-mascot peek-left" data-mascot="alien" style="top: 50%;"><span class="hss-peek-inner">👽</span></div>
+      <div class="hss-peek-mascot peek-right" data-mascot="rocket" style="top: 80%;"><span class="hss-peek-inner">🚀</span></div>
       <!-- Colorful Floating Background Clipart -->
-      <i class="fa-solid fa-lightbulb hss-floating-bg-element hss-float-gold hss-float-ani-3" style="top: 15%; left: 5%;" data-depth="30"></i>
-      <i class="fa-solid fa-dumbbell hss-floating-bg-element hss-float-coral hss-float-ani-1" style="top: 75%; right: 8%;" data-depth="25"></i>
-      <i class="fa-solid fa-yin-yang hss-floating-bg-element hss-float-purple hss-float-ani-2" style="top: 30%; right: 8%;" data-depth="35"></i>
-      <i class="fa-solid fa-child-reaching hss-floating-bg-element hss-float-blue hss-float-ani-4" style="top: 70%; left: 7%;" data-depth="20"></i>
+      <i class="fa-solid fa-calculator hss-floating-bg-element hss-float-gold hss-float-ani-3" style="top: 12%; left: 6%;" data-depth="30"></i>
+      <i class="fa-solid fa-bolt hss-floating-bg-element hss-float-coral hss-float-ani-1" style="top: 75%; right: 8%;" data-depth="25"></i>
+      <span class="hss-floating-bg-element hss-float-blue hss-float-ani-2" style="top: 25%; right: 10%; font-family: 'Outfit', sans-serif; font-weight: 800;" data-depth="35">+</span>
+      <span class="hss-floating-bg-element hss-float-pink hss-float-ani-4" style="top: 70%; left: 8%; font-family: 'Outfit', sans-serif; font-weight: 800;" data-depth="20">÷</span>
 
-      <div class="hss-mandala-bg">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" class="mandala-ring" />
-          <circle cx="50" cy="50" r="30" class="mandala-ring" />
-          <circle cx="50" cy="50" r="20" class="mandala-ring" />
-          <line x1="10" y1="50" x2="90" y2="50" class="mandala-axis" />
-          <line x1="50" y1="10" x2="50" y2="90" class="mandala-axis" />
-        </svg>
-      </div>
+      <div class="hss-game-equations-bg"></div>
       <div class="container">
         <div class="section-header scroll-reveal">
-          <span class="section-badge" data-key="phil_badge">PHILOSOPHY</span>
-          <h3 class="section-title" data-key="phil_title">The 4Q Holistic Growth Balance</h3>
-          <p class="section-desc" data-key="phil_desc">Our balanced educational framework structures the four main quadrants of development to nurture complete leaders.</p>
+          <span class="section-badge" data-key="game_badge">MIND GAME</span>
+          <h3 class="section-title" data-key="game_title">Are you faster than our Abacus kids?</h3>
         </div>
 
-        <div class="hss-4q-grid scroll-reveal">
-          <!-- Radar Chart Element -->
-          <div class="hss-4q-chart-container">
-            <svg class="hss-4q-chart-svg" viewBox="0 0 400 400">
-              <!-- Radial Grid Circles -->
-              <circle cx="200" cy="200" r="150" class="radar-grid" />
-              <circle cx="200" cy="200" r="100" class="radar-grid" />
-              <circle cx="200" cy="200" r="50" class="radar-grid" />
-              
-              <!-- Axes Lines -->
-              <line x1="200" y1="50" x2="200" y2="350" class="radar-axis" />
-              <line x1="50" y1="200" x2="350" y2="200" class="radar-axis" />
-              
-              <!-- Data Shape Area (Interactive Gold Polygon) -->
-              <polygon points="200,80 320,200 200,310 90,200" class="radar-area" />
-              
-              <!-- Active Axis Points -->
-              <circle cx="200" cy="80" r="6" class="radar-point" data-quadrant="iq" />
-              <circle cx="320" cy="200" r="6" class="radar-point" data-quadrant="eq" />
-              <circle cx="200" cy="310" r="6" class="radar-point" data-quadrant="sq" />
-              <circle cx="90" cy="200" r="6" class="radar-point" data-quadrant="pq" />
-              
-              <!-- Labels -->
-              <text x="200" y="32" class="radar-label" text-anchor="middle" data-quadrant="iq" data-key="radar_iq">IQ (INTELLIGENCE)</text>
-              <text x="360" y="204" class="radar-label" text-anchor="start" data-quadrant="eq" data-key="radar_eq">EQ (EMOTIONAL)</text>
-              <text x="200" y="380" class="radar-label" text-anchor="middle" data-quadrant="sq" data-key="radar_sq">SQ (SPIRITUAL/SOCIAL)</text>
-              <text x="40" y="204" class="radar-label" text-anchor="end" data-quadrant="pq" data-key="radar_pq">PQ (PHYSICAL)</text>
-            </svg>
-          </div>
+        <div class="hss-game-wrapper scroll-reveal">
+          <div class="hss-game-card">
+            <!-- Screen Header -->
+            <div class="hss-game-screen" id="game-display-screen">
+              <div class="hss-game-start-panel">
+                <i class="fa-solid fa-bolt game-pulse-icon"></i>
+                <h4 data-key="game_start_title">Ready to test your processing speed?</h4>
+                <p data-key="game_start_desc">3 numbers will flash rapidly. Add and subtract them in your head!</p>
+                <div class="hss-game-countdown" id="game-countdown-box"></div>
+                <button id="start-game-btn" class="btn btn-primary" data-key="btn_start_game">Start Mental Challenge</button>
+              </div>
 
-          <!-- Description Panel -->
-          <div class="hss-4q-panel">
-            <div class="hss-4q-card active" id="card-iq">
-              <div class="hss-4q-icon"><i class="fa-solid fa-brain"></i></div>
-              <h4 data-key="card_iq_title">Intelligence Quotient (IQ)</h4>
-              <p data-key="card_iq_desc">We challenge intellectual capacity through mathematical abacus challenges, conceptual science experiments in modern labs, and logical coding tracks. Children learn critical analytical processing and factual application.</p>
-            </div>
-            
-            <div class="hss-4q-card" id="card-eq">
-              <div class="hss-4q-icon"><i class="fa-solid fa-heart"></i></div>
-              <h4 data-key="card_eq_title">Emotional Quotient (EQ)</h4>
-              <p data-key="card_eq_desc">Through interactive group projects and emotional sharing assemblies, our students build empathy and self-regulation. We foster resilient minds that treat failures as active paths to positive growth.</p>
-            </div>
+              <!-- Animated Flashing Numbers Panel -->
+              <div class="hss-game-numbers-panel hidden" id="game-numbers-panel">
+                <span class="hss-flashing-number" id="flashing-number-box"></span>
+              </div>
 
-            <div class="hss-4q-card" id="card-sq">
-              <div class="hss-4q-icon"><i class="fa-solid fa-hands-praying"></i></div>
-              <h4 data-key="card_sq_title">Spiritual &amp; Social Quotient (SQ)</h4>
-              <p data-key="card_sq_desc">Sanskrit Shloka chanting and morning assemblies help students connect with deep heritage roots and strong moral values. Social service cycles teach community respect, kindness, and public empathy.</p>
-            </div>
+              <!-- Answer Input Panel -->
+              <div class="hss-game-input-panel hidden" id="game-input-panel">
+                <h4 data-key="game_input_title">What was the final balance?</h4>
+                <div class="hss-input-row">
+                  <input type="number" id="game-user-answer" placeholder="Your Answer" data-key="game_input_placeholder" class="form-input">
+                  <button id="submit-game-btn" class="btn btn-primary" data-key="btn_verify_game">Verify</button>
+                </div>
+                <button id="input-retry-game-btn" class="btn btn-secondary" data-key="btn_retry_game">Try Again</button>
+              </div>
 
-            <div class="hss-4q-card" id="card-pq">
-              <div class="hss-4q-icon"><i class="fa-solid fa-dumbbell"></i></div>
-              <h4 data-key="card_pq_title">Physical Quotient (PQ)</h4>
-              <p data-key="card_pq_desc">We train children in physical resilience, bravery, and personal self-defense using traditional Lathi Kathi martial arts training and rhythmic brain-gym yoga classes on campus.</p>
+              <!-- Result Screen -->
+              <div class="hss-game-result-panel hidden" id="game-result-panel">
+                <h4 id="game-result-message"></h4>
+                <p id="game-result-sub"></p>
+                <div class="hss-result-buttons">
+                  <button id="retry-game-btn" class="btn btn-secondary" data-key="btn_retry_game">Try Again</button>
+                  <button id="quick-restart-game-btn" class="btn btn-primary" data-key="btn_quick_restart">Restart Immediately</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Playful Hanging Polaroid Photos Divider -->
-      <div class="hss-hanging-photos-divider">
-        <div class="hanging-rope"></div>
-        <div class="photo-clip clip-1">
-          <div class="photo-card">
-            <span class="photo-emoji">🎨</span>
-            <span class="photo-label">Art</span>
-          </div>
+      <!-- Playful Flying Balloons Divider -->
+      <div class="hss-balloons-divider">
+        <div class="hss-balloon balloon-1">
+          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%); --knot-color: #FF5252;"></div>
+          <div class="balloon-string"></div>
         </div>
-        <div class="photo-clip clip-2">
-          <div class="photo-card">
-            <span class="photo-emoji">⚽</span>
-            <span class="photo-label">Sports</span>
-          </div>
+        <div class="hss-balloon balloon-2">
+          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #FFD93D 0%, #FFE569 100%); --knot-color: #FFA41B;"></div>
+          <div class="balloon-string"></div>
         </div>
-        <div class="photo-clip clip-3">
-          <div class="photo-card">
-            <span class="photo-emoji">🎵</span>
-            <span class="photo-label">Music</span>
-          </div>
+        <div class="hss-balloon balloon-3">
+          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #6BCB77 0%, #74C69D 100%); --knot-color: #4CAF50;"></div>
+          <div class="balloon-string"></div>
         </div>
-        <div class="photo-clip clip-4">
-          <div class="photo-card">
-            <span class="photo-emoji">🔬</span>
-            <span class="photo-label">Science</span>
-          </div>
+        <div class="hss-balloon balloon-4">
+          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #4D96FF 0%, #6ECBFF 100%); --knot-color: #1976D2;"></div>
+          <div class="balloon-string"></div>
+        </div>
+        <div class="hss-balloon balloon-5">
+          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #B5179E 0%, #7209B7 100%); --knot-color: #9B5DE5;"></div>
+          <div class="balloon-string"></div>
+        </div>
+        <div class="hss-balloon balloon-6">
+          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #FF9100 0%, #FFB74D 100%); --knot-color: #E65100;"></div>
+          <div class="balloon-string"></div>
         </div>
       </div>
     </section>
@@ -1325,11 +1297,7 @@
 
           <!-- RIGHT: Detail Panel (shown on click) -->
           <div class="hss-skill-detail-panel" id="skill-detail-panel">
-            <!-- Default placeholder -->
-            <div class="hss-skill-placeholder" id="skill-placeholder">
-              <i class="fa-solid fa-hand-pointer"></i>
-              <p data-key="skill_placeholder_text">Select a skill on the left to see which school programs develop it</p>
-            </div>
+
 
             <!-- Dynamic detail content injected by JS -->
             <div class="hss-skill-detail-content" id="skill-detail-content" style="display:none;">
@@ -1368,86 +1336,157 @@
       </div>
     </section>
 
-    <!-- SECTION 2: The "Brain Gym" 10-Second Mental Math Micro-Game -->
-    <section id="brain-gym-game" class="hss-brain-gym-section">
+    <!-- SECTION 2: The 4Q Development Holistic Balance Radar Chart -->
+    <section id="holistic" class="hss-4q-section">
       <!-- Mobile Hide-and-Seek Peek Mascot -->
-      <div class="hss-peek-mascot peek-right" data-mascot="robot" style="top: 15%;"><span class="hss-peek-inner">🤖</span></div>
-      <div class="hss-peek-mascot peek-left" data-mascot="alien" style="top: 50%;"><span class="hss-peek-inner">👽</span></div>
-      <div class="hss-peek-mascot peek-right" data-mascot="rocket" style="top: 80%;"><span class="hss-peek-inner">🚀</span></div>
+      <div class="hss-peek-mascot peek-right" data-mascot="bee" style="top: 20%;"><span class="hss-peek-inner">🐝</span></div>
+      <div class="hss-peek-mascot peek-left" data-mascot="ladybug" style="top: 55%;"><span class="hss-peek-inner">🐞</span></div>
+      <div class="hss-peek-mascot peek-right" data-mascot="caterpillar" style="top: 85%;"><span class="hss-peek-inner">🐛</span></div>
       <!-- Colorful Floating Background Clipart -->
-      <i class="fa-solid fa-calculator hss-floating-bg-element hss-float-gold hss-float-ani-3" style="top: 12%; left: 6%;" data-depth="30"></i>
-      <i class="fa-solid fa-bolt hss-floating-bg-element hss-float-coral hss-float-ani-1" style="top: 75%; right: 8%;" data-depth="25"></i>
-      <span class="hss-floating-bg-element hss-float-blue hss-float-ani-2" style="top: 25%; right: 10%; font-family: 'Outfit', sans-serif; font-weight: 800;" data-depth="35">+</span>
-      <span class="hss-floating-bg-element hss-float-pink hss-float-ani-4" style="top: 70%; left: 8%; font-family: 'Outfit', sans-serif; font-weight: 800;" data-depth="20">÷</span>
+      <i class="fa-solid fa-lightbulb hss-floating-bg-element hss-float-gold hss-float-ani-3" style="top: 15%; left: 5%;" data-depth="30"></i>
+      <i class="fa-solid fa-dumbbell hss-floating-bg-element hss-float-coral hss-float-ani-1" style="top: 75%; right: 8%;" data-depth="25"></i>
+      <i class="fa-solid fa-yin-yang hss-floating-bg-element hss-float-purple hss-float-ani-2" style="top: 30%; right: 8%;" data-depth="35"></i>
+      <i class="fa-solid fa-child-reaching hss-floating-bg-element hss-float-blue hss-float-ani-4" style="top: 70%; left: 7%;" data-depth="20"></i>
 
-      <div class="hss-game-equations-bg"></div>
+      <div class="hss-mandala-bg">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" class="mandala-ring" />
+          <circle cx="50" cy="50" r="30" class="mandala-ring" />
+          <circle cx="50" cy="50" r="20" class="mandala-ring" />
+          <line x1="10" y1="50" x2="90" y2="50" class="mandala-axis" />
+          <line x1="50" y1="10" x2="50" y2="90" class="mandala-axis" />
+        </svg>
+      </div>
       <div class="container">
         <div class="section-header scroll-reveal">
-          <span class="section-badge" data-key="game_badge">MIND GAME</span>
-          <h3 class="section-title" data-key="game_title">Are you faster than our Abacus kids?</h3>
-          <p class="section-desc" data-key="game_desc">Try our 10-Second mental math gym game and feel how abacus games boost speed!</p>
+          <span class="section-badge" data-key="phil_badge">PHILOSOPHY</span>
+          <h3 class="section-title" data-key="phil_title">The 4Q Holistic Growth Balance</h3>
+          <p class="section-desc" data-key="phil_desc">Our balanced educational framework structures the four main quadrants of development to nurture complete leaders.</p>
         </div>
 
-        <div class="hss-game-wrapper scroll-reveal">
-          <div class="hss-game-card">
-            <!-- Screen Header -->
-            <div class="hss-game-screen" id="game-display-screen">
-              <div class="hss-game-start-panel">
-                <i class="fa-solid fa-bolt game-pulse-icon"></i>
-                <h4 data-key="game_start_title">Ready to test your processing speed?</h4>
-                <p data-key="game_start_desc">3 numbers will flash rapidly. Add and subtract them in your head!</p>
-                <button id="start-game-btn" class="btn btn-primary" data-key="btn_start_game">Start Mental Challenge</button>
+        <div class="hss-4q-grid scroll-reveal">
+          <!-- Interactive 3D Pinwheel Holistic Compass Element -->
+          <!-- Interactive 3D Orbital Gyroscope of Growth Element -->
+          <div class="hss-4q-chart-container">
+            <div class="hss-4q-gyroscope" id="holistic-gyroscope" role="region" aria-label="3D Orbital Gyroscope of Growth">
+              <!-- Central Solar Core (The Complete Child) -->
+              <div class="gyro-sun" tabindex="0" role="button" aria-label="The Complete Child Sun Center">
+                <span class="gyro-sun-emblem"><i class="fa-solid fa-sun"></i></span>
+                <span class="gyro-sun-text">The Complete Child</span>
               </div>
 
-              <!-- Animated Flashing Numbers Panel -->
-              <div class="hss-game-numbers-panel hidden" id="game-numbers-panel">
-                <span class="hss-flashing-number" id="flashing-number-box"></span>
-              </div>
-
-              <!-- Answer Input Panel -->
-              <div class="hss-game-input-panel hidden" id="game-input-panel">
-                <h4 data-key="game_input_title">What was the final balance?</h4>
-                <div class="hss-input-row">
-                  <input type="number" id="game-user-answer" placeholder="Your Answer" data-key="game_input_placeholder" class="form-input">
-                  <button id="submit-game-btn" class="btn btn-primary" data-key="btn_verify_game">Verify</button>
+              <!-- Ring 1: Intelligence Quotient (IQ) -->
+              <div class="gyro-ring ring-iq">
+                <div class="gyro-planet planet-iq active" data-quadrant="iq" tabindex="0" role="button" aria-label="Explore Intelligence Quotient (IQ)">
+                  <div class="planet-ripples">
+                    <span class="planet-ripple"></span>
+                    <span class="planet-ripple"></span>
+                  </div>
+                  <div class="gyro-planet-content">
+                    <span class="planet-icon"><i class="fa-solid fa-brain"></i></span>
+                    <span class="planet-label" data-key="radar_iq">IQ</span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Result Screen -->
-              <div class="hss-game-result-panel hidden" id="game-result-panel">
-                <h4 id="game-result-message"></h4>
-                <p id="game-result-sub"></p>
-                <button id="retry-game-btn" class="btn btn-secondary" data-key="btn_retry_game">Try Again</button>
+              <!-- Ring 2: Emotional Quotient (EQ) -->
+              <div class="gyro-ring ring-eq">
+                <div class="gyro-planet planet-eq" data-quadrant="eq" tabindex="0" role="button" aria-label="Explore Emotional Quotient (EQ)">
+                  <div class="planet-ripples">
+                    <span class="planet-ripple"></span>
+                    <span class="planet-ripple"></span>
+                  </div>
+                  <div class="gyro-planet-content">
+                    <span class="planet-icon"><i class="fa-solid fa-heart"></i></span>
+                    <span class="planet-label" data-key="radar_eq">EQ</span>
+                  </div>
+                </div>
               </div>
+
+              <!-- Ring 3: Spiritual Quotient (SQ) -->
+              <div class="gyro-ring ring-sq">
+                <div class="gyro-planet planet-sq" data-quadrant="sq" tabindex="0" role="button" aria-label="Explore Spiritual Quotient (SQ)">
+                  <div class="planet-ripples">
+                    <span class="planet-ripple"></span>
+                    <span class="planet-ripple"></span>
+                  </div>
+                  <div class="gyro-planet-content">
+                    <span class="planet-icon"><i class="fa-solid fa-hands-praying"></i></span>
+                    <span class="planet-label" data-key="radar_sq">SQ</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ring 4: Physical Quotient (PQ) -->
+              <div class="gyro-ring ring-pq">
+                <div class="gyro-planet planet-pq" data-quadrant="pq" tabindex="0" role="button" aria-label="Explore Physical Quotient (PQ)">
+                  <div class="planet-ripples">
+                    <span class="planet-ripple"></span>
+                    <span class="planet-ripple"></span>
+                  </div>
+                  <div class="gyro-planet-content">
+                    <span class="planet-icon"><i class="fa-solid fa-dumbbell"></i></span>
+                    <span class="planet-label" data-key="radar_pq">PQ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description Panel -->
+          <div class="hss-4q-panel">
+            <div class="hss-4q-card active" id="card-iq">
+              <div class="hss-4q-icon"><i class="fa-solid fa-brain"></i></div>
+              <h4 data-key="card_iq_title">Intelligence Quotient (IQ)</h4>
+              <p data-key="card_iq_desc">We challenge intellectual capacity through mathematical abacus challenges, conceptual science experiments in modern labs, and logical coding tracks. Children learn critical analytical processing and factual application.</p>
+            </div>
+            
+            <div class="hss-4q-card" id="card-eq">
+              <div class="hss-4q-icon"><i class="fa-solid fa-heart"></i></div>
+              <h4 data-key="card_eq_title">Emotional Quotient (EQ)</h4>
+              <p data-key="card_eq_desc">Through interactive group projects and emotional sharing assemblies, our students build empathy and self-regulation. We foster resilient minds that treat failures as active paths to positive growth.</p>
+            </div>
+
+            <div class="hss-4q-card" id="card-sq">
+              <div class="hss-4q-icon"><i class="fa-solid fa-hands-praying"></i></div>
+              <h4 data-key="card_sq_title">Spiritual &amp; Social Quotient (SQ)</h4>
+              <p data-key="card_sq_desc">Sanskrit Shloka chanting and morning assemblies help students connect with deep heritage roots and strong moral values. Social service cycles teach community respect, kindness, and public empathy.</p>
+            </div>
+
+            <div class="hss-4q-card" id="card-pq">
+              <div class="hss-4q-icon"><i class="fa-solid fa-dumbbell"></i></div>
+              <h4 data-key="card_pq_title">Physical Quotient (PQ)</h4>
+              <p data-key="card_pq_desc">We train children in physical resilience, bravery, and personal self-defense using traditional Lathi Kathi martial arts training and rhythmic brain-gym yoga classes on campus.</p>
             </div>
           </div>
         </div>
       </div>
-      <!-- Playful Flying Balloons Divider -->
-      <div class="hss-balloons-divider">
-        <div class="hss-balloon balloon-1">
-          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%); --knot-color: #FF5252;"></div>
-          <div class="balloon-string"></div>
+      <!-- Playful Hanging Polaroid Photos Divider -->
+      <div class="hss-hanging-photos-divider">
+        <div class="hanging-rope"></div>
+        <div class="photo-clip clip-1">
+          <div class="photo-card">
+            <span class="photo-emoji">🎨</span>
+            <span class="photo-label">Art</span>
+          </div>
         </div>
-        <div class="hss-balloon balloon-2">
-          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #FFD93D 0%, #FFE569 100%); --knot-color: #FFA41B;"></div>
-          <div class="balloon-string"></div>
+        <div class="photo-clip clip-2">
+          <div class="photo-card">
+            <span class="photo-emoji">⚽</span>
+            <span class="photo-label">Sports</span>
+          </div>
         </div>
-        <div class="hss-balloon balloon-3">
-          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #6BCB77 0%, #74C69D 100%); --knot-color: #4CAF50;"></div>
-          <div class="balloon-string"></div>
+        <div class="photo-clip clip-3">
+          <div class="photo-card">
+            <span class="photo-emoji">🎵</span>
+            <span class="photo-label">Music</span>
+          </div>
         </div>
-        <div class="hss-balloon balloon-4">
-          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #4D96FF 0%, #6ECBFF 100%); --knot-color: #1976D2;"></div>
-          <div class="balloon-string"></div>
-        </div>
-        <div class="hss-balloon balloon-5">
-          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #B5179E 0%, #7209B7 100%); --knot-color: #9B5DE5;"></div>
-          <div class="balloon-string"></div>
-        </div>
-        <div class="hss-balloon balloon-6">
-          <div class="balloon-body" style="--bg-grad: linear-gradient(135deg, #FF9100 0%, #FFB74D 100%); --knot-color: #E65100;"></div>
-          <div class="balloon-string"></div>
+        <div class="photo-clip clip-4">
+          <div class="photo-card">
+            <span class="photo-emoji">🔬</span>
+            <span class="photo-label">Science</span>
+          </div>
         </div>
       </div>
     </section>
