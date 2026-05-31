@@ -80,6 +80,13 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+.main-content {
+  overflow-x: hidden !important;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-primary);
@@ -536,7 +543,7 @@ body.dark-mode .theme-icon-light {
 }
 
 /* Symmetrical Navigation on Desktop */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .nav-toggle-btn {
     display: none;
   }
@@ -567,7 +574,7 @@ body.dark-mode .theme-icon-light {
     max-width: 1200px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 40px; /* Base padding */
+    padding: 0 24px; /* Optimized padding to reclaim horizontal space */
     pointer-events: auto; /* Re-enable clicks for child elements */
   }
 
@@ -575,8 +582,10 @@ body.dark-mode .theme-icon-light {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 32px;
+    gap: 20px; /* Snug spacing to fit 8 links cleanly on standard laptops */
     pointer-events: auto;
+    flex-wrap: nowrap; /* Lock items on a single horizontal row */
+    white-space: nowrap; /* Prevent individual labels from wrapping */
   }
 
   .nav-link {
@@ -605,16 +614,16 @@ body.dark-mode .theme-icon-light {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 24px; /* Keep container padding consistent */
   }
 
   /* Specific padding so lists do not overlap center logo */
   .nav-left-group {
-    padding-right: 150px;
+    padding-right: 80px; /* Optimized clearance from center logo */
   }
 
   .nav-right-group {
-    padding-left: 150px;
+    padding-left: 80px; /* Optimized clearance from center logo */
   }
 }
 
@@ -1111,7 +1120,7 @@ body.dark-mode .hero-section {
 
 .timeline-card-image-wrapper {
   width: 100%;
-  height: 110px;
+  aspect-ratio: 16 / 10; /* Dynamic modern aspect ratio scaling dynamically with viewport width */
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1181,7 +1190,8 @@ body.dark-mode .hero-section {
   }
 
   .timeline-card-image-wrapper {
-    height: 180px;
+    height: auto;
+    aspect-ratio: 16 / 10;
   }
 
   .timeline-card-title {
@@ -2925,6 +2935,9 @@ body.dark-mode .admission-section {
   gap: 16px;
   margin-bottom: 50px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 9999 !important; /* Forces the tab bar to stack above preceding absolute overlays in compressed mobile viewports */
+  pointer-events: auto !important; /* Locks click capability securely */
 }
 
 .hss-tab-btn {
@@ -3449,15 +3462,33 @@ body.dark-mode .admission-section {
 }
 
 .hss-page-front {
-  background-color: var(--bg-primary);
+  background-color: #fdfaf2; /* Elegant cream-white textured scrapbook paper background */
   border-left: 1px solid var(--card-border);
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .hss-page-front img {
   width: 100%;
   height: 100%;
+  max-width: 90%;
+  max-height: 88%;
   object-fit: cover;
+  border: 10px solid #ffffff; /* Classic physical photo white margin border */
+  border-bottom: 30px solid #ffffff; /* Extended polaroid bottom margin for physical album caption style */
+  box-shadow: 0 10px 24px rgba(15, 35, 60, 0.14), 0 2px 4px rgba(0, 0, 0, 0.08); /* 3D depth shadow */
+  border-radius: 3px;
+  transform: rotate(-1.5deg); /* Playful handmade tilt */
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hss-page-front:hover img {
+  transform: rotate(0deg) scale(1.02); /* straightens slightly and scales up on hover */
+  box-shadow: 0 14px 32px rgba(15, 35, 60, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hss-page-back {

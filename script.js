@@ -1223,43 +1223,52 @@ document.addEventListener("DOMContentLoaded", () => {
   updateLanguageUI();
   applyTheme();
   
-  // Init core UI animations and visual engines
-  initPreloader();
-  initTimelineScrollAnimation();
-  init3DTiltCards();
-  initSwiperSlider();
-  initConfettiInteraction();
-  initScrollRevealEngine();
-  initPlayfulDividersAnimation();
-  initSoapBubblesDivider();
-  initFormSubmission();
-  initVideoTour();
-  initCustomCursorAndMagnetics();
-  initHeroParallax();
-  initFormValidationAnimations();
-  initMilestonesCounters();
-  initYogaBreathingController();
+  // Resilient safe initialization helper to prevent CDN or element load crashes from blocking interactions
+  function safeInit(name, initFn) {
+    try {
+      initFn();
+    } catch (error) {
+      console.warn(`[HS School safeInit] "${name}" initialization skipped or failed:`, error);
+    }
+  }
+
+  // Init core UI animations and visual engines safely
+  safeInit("Preloader", initPreloader);
+  safeInit("Timeline Scroll Animation", initTimelineScrollAnimation);
+  safeInit("3D Tilt Cards", init3DTiltCards);
+  safeInit("Swiper Slider", initSwiperSlider);
+  safeInit("Confetti Interaction", initConfettiInteraction);
+  safeInit("Scroll Reveal Engine", initScrollRevealEngine);
+  safeInit("Playful Dividers Animation", initPlayfulDividersAnimation);
+  safeInit("Soap Bubbles Divider", initSoapBubblesDivider);
+  safeInit("Form Submission", initFormSubmission);
+  safeInit("Video Tour", initVideoTour);
+  safeInit("Custom Cursor & Magnetics", initCustomCursorAndMagnetics);
+  safeInit("Hero Parallax", initHeroParallax);
+  safeInit("Form Validation Animations", initFormValidationAnimations);
+  safeInit("Milestones Counters", initMilestonesCounters);
+  safeInit("Yoga Breathing Controller", initYogaBreathingController);
   
-  // Audited dynamic & premium creative components
-  initFloatingCanvas();
-  initSchoolRulerTracker();
-  initInteractiveTimelineTracker();
+  // Audited dynamic & premium creative components safely
+  safeInit("Floating Canvas", initFloatingCanvas);
+  safeInit("School Ruler Tracker", initSchoolRulerTracker);
+  safeInit("Interactive Timeline Tracker", initInteractiveTimelineTracker);
 
-  // Three entirely new highly interactive modules
-  initCurriculumTabs();
-  init4QHolisticRadarChart();
-  initScrapbookAlbum();
+  // Three entirely new highly interactive modules safely
+  safeInit("Curriculum Tabs", initCurriculumTabs);
+  safeInit("4Q Holistic Radar Chart", init4QHolisticRadarChart);
+  safeInit("Scrapbook Album", initScrapbookAlbum);
 
-  // Gamified ultra-interactive components
-  initGamifiedSkillTree();
-  initMentalMathGame();
+  // Gamified ultra-interactive components safely
+  safeInit("Gamified Skill Tree", initGamifiedSkillTree);
+  safeInit("Mental Math Game", initMentalMathGame);
 
-  // Premium UI Interactive Components
-  initGalleryFilter();
-  initFaqAccordion();
-  initBackgroundParallax();
-  initAmenitiesDashboard();
-  initMobilePeekMascots();
+  // Premium UI Interactive Components safely
+  safeInit("Gallery Filter", initGalleryFilter);
+  safeInit("FAQ Accordion", initFaqAccordion);
+  safeInit("Background Parallax", initBackgroundParallax);
+  safeInit("Amenities Dashboard", initAmenitiesDashboard);
+  safeInit("Mobile Peek Mascots", initMobilePeekMascots);
 });
 
 // 15. VIRTUAL TOUR VIDEO CONTROLLER
@@ -1664,71 +1673,85 @@ function initInteractiveTimelineTracker() {
 }
 
 // 25. SECTION 1: CURRICULUM FILTER ENGINE
-function initCurriculumTabs() {
+window.curriculumAutoShiftInterval = null;
+
+window.switchCurriculumTab = function(btn) {
+  if (!btn) return;
   const tabBtns = document.querySelectorAll('.hss-tab-btn');
   const tabPanels = document.querySelectorAll('.hss-tab-panel');
+
+  // Update button active state
+  tabBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const targetTab = btn.getAttribute('data-tab');
+
+  // Update panels active states
+  tabPanels.forEach(panel => {
+    if (panel.id === `panel-${targetTab}`) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+
+  // Clear auto-shift cycle on user click to prevent automatic switching right after
+  if (window.curriculumAutoShiftInterval) {
+    clearInterval(window.curriculumAutoShiftInterval);
+    // Restart cycle with a fresh 5s delay
+    window.startCurriculumAutoShift();
+  }
+};
+
+window.startCurriculumAutoShift = function() {
+  window.stopCurriculumAutoShift();
+  const tabBtns = document.querySelectorAll('.hss-tab-btn');
   if (tabBtns.length === 0) return;
 
-  let autoShiftInterval;
-
-  function startAutoShift() {
-    stopAutoShift();
-    autoShiftInterval = setInterval(() => {
-      let activeIndex = -1;
-      tabBtns.forEach((btn, index) => {
-        if (btn.classList.contains('active')) {
-          activeIndex = index;
-        }
-      });
-
-      const nextIndex = (activeIndex + 1) % tabBtns.length;
-      const nextBtn = tabBtns[nextIndex];
-
-      if (nextBtn) {
-        nextBtn.click();
+  window.curriculumAutoShiftInterval = setInterval(() => {
+    let activeIndex = -1;
+    tabBtns.forEach((btn, index) => {
+      if (btn.classList.contains('active')) {
+        activeIndex = index;
       }
-    }, 5000); // Shift every 5 seconds
-  }
+    });
 
-  function stopAutoShift() {
-    if (autoShiftInterval) {
-      clearInterval(autoShiftInterval);
-    }
-  }
+    const nextIndex = (activeIndex + 1) % tabBtns.length;
+    const nextBtn = tabBtns[nextIndex];
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Reset the auto-shift timer on manual interaction
-      startAutoShift();
-
-      const targetTab = btn.getAttribute('data-tab');
-
-      // Update button state
+    if (nextBtn) {
+      // Switch tab programmatically without resetting the interval timer itself
+      const tabPanels = document.querySelectorAll('.hss-tab-panel');
       tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Update content panel state with smooth CSS transition
+      nextBtn.classList.add('active');
+      const targetTab = nextBtn.getAttribute('data-tab');
       tabPanels.forEach(panel => {
-        panel.classList.remove('active');
         if (panel.id === `panel-${targetTab}`) {
-          // Small rAF delay ensures the 'remove active' CSS transition fires before re-adding
-          requestAnimationFrame(() => {
-            panel.classList.add('active');
-          });
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
         }
       });
-    });
-  });
+    }
+  }, 5000); // Shift every 5 seconds
+};
+
+window.stopCurriculumAutoShift = function() {
+  if (window.curriculumAutoShiftInterval) {
+    clearInterval(window.curriculumAutoShiftInterval);
+  }
+};
+
+function initCurriculumTabs() {
+  // Start the automatic rotation cycle initially
+  window.startCurriculumAutoShift();
 
   // Pause rotation on hover, resume on mouseout
   const sectionContainer = document.querySelector('#curriculum');
   if (sectionContainer) {
-    sectionContainer.addEventListener('mouseenter', stopAutoShift);
-    sectionContainer.addEventListener('mouseleave', startAutoShift);
+    sectionContainer.addEventListener('mouseenter', window.stopCurriculumAutoShift);
+    sectionContainer.addEventListener('mouseleave', window.startCurriculumAutoShift);
   }
-
-  // Start the automatic rotation cycle initially
-  startAutoShift();
 }
 
 // 26. SECTION 2: 4Q HOLISTIC RADAR CHART ENGINE (3D Orbital Gyroscope of Growth)
@@ -2630,7 +2653,7 @@ function initBackgroundParallax() {
 // 34. INTERACTIVE AMENITIES EXPLORER DASHBOARD
 const amenitiesData = {
   1: {
-    image: "assets/amenity_kreedo.jpg",
+    image: "assets/amenity_kreedo.jpeg",
     theme: "academic",
     badge: { en: "ACADEMIC", mr: "शैक्षणिक" },
     benefits: {
@@ -2664,7 +2687,7 @@ const amenitiesData = {
     }
   },
   3: {
-    image: "assets/amenity_abacus.jpg",
+    image: "assets/amenity_abacus.jpeg",
     theme: "academic",
     badge: { en: "ACADEMIC", mr: "शैक्षणिक" },
     benefits: {
@@ -2681,7 +2704,7 @@ const amenitiesData = {
     }
   },
   4: {
-    image: "assets/amenity_classroom.jpg",
+    image: "assets/WhatsApp Image 2026-05-31 at 10.13.00 AM (2).jpeg",
     theme: "holistic",
     badge: { en: "HOLISTIC", mr: "सर्वांगीण" },
     benefits: {
@@ -2698,7 +2721,7 @@ const amenitiesData = {
     }
   },
   5: {
-    image: "assets/amenity_cctv.jpg",
+    image: "assets/amenity_cctv.jpeg",
     theme: "safety",
     badge: { en: "SAFETY FIRST", mr: "सुरक्षितता" },
     benefits: {
@@ -2732,7 +2755,7 @@ const amenitiesData = {
     }
   },
   7: {
-    image: "assets/amenity_sports.jpg",
+    image: "assets/WhatsApp Image 2026-05-31 at 10.13.00 AM (3).jpeg",
     theme: "holistic",
     badge: { en: "HOLISTIC", mr: "सर्वांगीण" },
     benefits: {
@@ -2749,7 +2772,7 @@ const amenitiesData = {
     }
   },
   8: {
-    image: "assets/amenity_attention.jpg",
+    image: "assets/amenity_attention.jpeg",
     theme: "safety",
     badge: { en: "SAFETY FIRST", mr: "सुरक्षितता" },
     benefits: {
