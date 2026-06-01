@@ -6134,7 +6134,11 @@ body.dark-mode .hss-floating-bg-element {
   }
   .image-border-glow {
     padding: 6px !important;
-    max-width: 220px !important;
+    max-width: 340px !important;
+  }
+  .hero-image {
+    max-height: 180px !important;
+    object-fit: cover !important;
   }
   .hero-title {
     font-size: 1.5rem !important;
