@@ -113,11 +113,11 @@ const textContent = {
     yoga_breathing_normal: "Click Yoga icon to toggle deep breathing",
     yoga_breathing_deep: "Deep Meditation Mode Active",
     principal_badge: "FROM THE LEADERSHIP DESK",
-    principal_1_name: "Gauri Naresh Salunke <span class='principal-degree'>B.A., B.Ed., M.A., M.Ed.</span>",
+    principal_1_name: "Mrs. Gauri Naresh Salunke <span class='principal-degree'>B.A., B.Ed., M.A., M.Ed.</span>",
     principal_1_role: "Founder, Chairperson & Principal",
 
     principal_1_message: "Our vision is to provide a balanced foundation where traditional cultural roots and modern activity-based learning go hand in hand, nurturing physical, intellectual, and moral growth.",
-    principal_2_name: "Naresh Sharad Salunke <span class='principal-degree'>B.Sc., PGDBM</span>",
+    principal_2_name: "Mr. Naresh Sharad Salunke <span class='principal-degree'>B.Sc., PGDBM</span>",
     principal_2_role: "Managing Director of School",
     principal_2_message: "We are committed to delivering premium educational infrastructure, absolute campus safety with zero-blindspot CCTV monitoring, and safe transportation to keep learning stress-free.",
 
@@ -128,7 +128,6 @@ const textContent = {
     tab_preschool: "Preschool &amp; Kreedo",
     tab_primary: "Primary School",
     tab_secondary: "Secondary School",
-    tab_higher: "Higher Secondary",
     preschool_header: "Play-Based Foundations (Ages 2.5 - 6 Yrs)",
     preschool_desc: "We combine rich Montessori activity materials with the advanced Kreedo sensory kit. This physical, tactile play method simplifies early mathematics, language phonics, and cognitive motor-skill pathways.",
     preschool_bullet_1: "Montessori &amp; Kreedo Labs",
@@ -144,12 +143,6 @@ const textContent = {
     secondary_bullet_1: "Specialized Board Exam Preparation",
     secondary_bullet_2: "Fully Equipped Science Laboratories",
     secondary_bullet_3: "Mandatory Cultural Self-Defense (Lathi Kathi)",
-    higher_header: "Scientific Excellence &amp; Careers (Grades 11th - 12th)",
-    higher_desc: "Our higher secondary branch specializes in core Science and competitive exam tracks. Students practice JEE and NEET level analysis alongside comprehensive project writing to support top college placements.",
-    higher_bullet_1: "JEE, NEET &amp; Board-Integrated Mock Series",
-    higher_bullet_2: "Advanced Analytical Computer &amp; Tech Labs",
-    higher_bullet_3: "Personalized Career Seminars",
-
     // Philosophy / Holistic Section
     phil_badge: "PHILOSOPHY",
     phil_title: "The 4Q Holistic Growth Balance",
@@ -346,7 +339,6 @@ const textContent = {
     tab_preschool: "प्लेस्कूल आणि क्रीडो",
     tab_primary: "प्राथमिक शाळा",
     tab_secondary: "माध्यमिक शाळा",
-    tab_higher: "उच्च माध्यमिक",
     preschool_header: "खेळातून शिक्षण (वय २.५ ते ६ वर्षे)",
     preschool_desc: "आम्ही प्रगत क्रीडो लॅब साहित्याद्वारे माँटेसरी शिक्षण देतो. खेळातून आणि प्रात्याक्षिकाद्वारे दिले जाणारे हे शिक्षण मुलांचे प्राथमिक गणित, भाषा आणि वाचन संकल्पना सोपे करते.",
     preschool_bullet_1: "माँटेसरी आणि क्रीडो लॅब्स",
@@ -362,12 +354,6 @@ const textContent = {
     secondary_bullet_1: "विशेष बोर्ड परीक्षा पूर्वतयारी",
     secondary_bullet_2: "सुसज्ज विज्ञान प्रयोगशाळा",
     secondary_bullet_3: "पारंपारिक लाठी काठी स्वसंरक्षण (अनिवाय)",
-    higher_header: "वैज्ञानिक गुणवत्ता आणि करिअर मार्ग (इयत्ता ११ वी आणि १२ वी)",
-    higher_desc: "आमचा उच्च माध्यमिक विभाग मुख्यत्वे विज्ञान शाखा आणि स्पर्धा परीक्षांच्या (JEE / NEET) तयारीसाठी विशेष ओळखला जातो. विद्यार्थी सखोल अभ्यास आणि मॉक टेस्ट सीरिजद्वारे सर्वोत्तम महाविद्यालयांमध्ये प्रवेश मिळवण्यास सज्ज होतात.",
-    higher_bullet_1: "JEE, NEET आणि बोर्ड-एकात्मिक मॉक सीरिज",
-    higher_bullet_2: "प्रगत संगणक आणि माहिती तंत्रज्ञान लॅब",
-    higher_bullet_3: "वैयक्तिक करिअर मार्गदर्शन परिसंवाद",
-
     // Philosophy / Holistic Section
     phil_badge: "विचारसरणी",
     phil_title: "चतुरस्त्र सर्वांगीण विकास",
@@ -2677,12 +2663,14 @@ const amenitiesData = {
       en: [
         "IQ Logical Challenges",
         "EQ Empathy Training",
-        "SQ Sanskrit Shlokas"
+        "SQ Sanskrit Shlokas",
+        "PQ Physical Resilience"
       ],
       mr: [
         "IQ तार्किक आव्हाने",
         "EQ भावनिक सहसंवेदना",
-        "SQ संस्कृत श्लोक पठण"
+        "SQ संस्कृत श्लोक पठण",
+        "PQ शारीरिक चपळता"
       ]
     }
   },
@@ -2789,7 +2777,7 @@ const amenitiesData = {
     }
   },
   9: {
-    image: "assets/amenity_teachers.jpg",
+    image: "assets/amenity_teachers.jpeg",
     theme: "academic",
     badge: { en: "ACADEMIC", mr: "शैक्षणिक" },
     benefits: {

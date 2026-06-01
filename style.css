@@ -1779,13 +1779,13 @@ body.dark-mode .reviews-slider .swiper-button-next:hover {
   transition: all var(--transition-normal);
   transform-style: preserve-3d;
   /* Fixed height prevents layout shifts when amenity tab changes */
-  min-height: 480px;
+  height: 550px;
 }
 
 @media (min-width: 768px) {
   .hss-showcase-card {
     grid-template-columns: 46% 54%;
-    min-height: 520px;
+    height: 560px;
   }
 }
 
@@ -1847,7 +1847,12 @@ body.dark-mode .reviews-slider .swiper-button-next:hover {
   flex-direction: column;
   justify-content: center;
   /* Prevent content height from driving layout reflow */
-  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.hss-showcase-content::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -2882,7 +2887,7 @@ body.dark-mode .admission-section {
   /* Prevent Brain Gym Mental Math Game overflow or squeezing */
   .hss-game-screen {
     padding: 24px 16px !important;
-    min-height: 240px !important;
+    height: 340px !important;
   }
   .hss-game-start-panel h4 {
     font-size: 1.3rem !important;
@@ -3592,7 +3597,10 @@ body.dark-mode .admission-section {
     padding: 24px;
   }
   .hss-showcase-card {
-    min-height: 500px;
+    height: 550px !important;
+  }
+  .hss-showcase-image-wrapper {
+    height: 200px !important;
   }
 
   /* Scrapbook Mobile Responsive 3D page-turning styling overrides */
@@ -3973,7 +3981,7 @@ body.dark-mode .admission-section {
 
 .hss-game-screen {
   padding: 50px;
-  min-height: 280px;
+  height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6231,7 +6239,7 @@ body.dark-mode .hss-floating-bg-element {
     font-size: 1rem !important;
   }
   .hss-showcase-card {
-    min-height: 420px !important;
+    height: 550px !important;
   }
   .hss-showcase-image-wrapper {
     height: 180px !important;
@@ -6366,8 +6374,8 @@ body.dark-mode .hss-floating-bg-element {
     padding: 24px 0 !important;
   }
   .hss-game-screen {
-    min-height: 160px !important;
-    padding: 14px !important;
+    height: 340px !important;
+    padding: 18px 14px !important;
   }
 
   /* --- CAMPUS HIGHLIGHTS / MEDIA GALLERY --- kept at original layout --- */
