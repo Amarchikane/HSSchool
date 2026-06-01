@@ -3597,10 +3597,14 @@ body.dark-mode .admission-section {
     padding: 24px;
   }
   .hss-showcase-card {
-    height: 550px !important;
+    height: 500px !important;
   }
   .hss-showcase-image-wrapper {
-    height: 200px !important;
+    height: 180px !important;
+  }
+  .hss-showcase-content {
+    justify-content: flex-start !important;
+    padding: 20px 20px !important;
   }
 
   /* Scrapbook Mobile Responsive 3D page-turning styling overrides */
@@ -6245,13 +6249,14 @@ body.dark-mode .hss-floating-bg-element {
     font-size: 1rem !important;
   }
   .hss-showcase-card {
-    height: 550px !important;
+    height: 480px !important;
   }
   .hss-showcase-image-wrapper {
-    height: 180px !important;
+    height: 170px !important;
   }
   .hss-showcase-content {
-    padding: 24px 20px !important;
+    justify-content: flex-start !important;
+    padding: 16px 20px !important;
   }
   #showcase-title {
     font-size: 1.25rem !important;
